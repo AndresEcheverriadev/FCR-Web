@@ -1,0 +1,455 @@
+.homePageMainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewHomeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.homeTitlesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: auto;
+}
+
+.carruselContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: auto;
+}
+
+.carruselContainer img {
+  width: 30%;
+  height: auto;
+  border-style: hidden;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.contactPhonesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.phonesWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+}
+
+.phoneButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--blanco);
+  border-style: solid;
+  border-color: var(--cafeBase);
+  border-radius: 25px;
+  padding: 10px;
+  width: 33%;
+  height: 60px;
+}
+
+.phoneWhatsapp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--ok);
+  border-style: solid;
+  border-color: var(--blanco);
+  border-radius: 25px;
+  padding: 10px;
+  width: 33%;
+  height: 60px;
+  color: var(--blanco);
+}
+
+.phoneButton:hover {
+  background-color: var(--cafeBase);
+  color: var(--blanco);
+}
+.phoneWhatsapp:hover {
+  background-color: var(--cafeBase);
+  color: var(--blanco);
+}
+
+.callPhone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  width: auto;
+  height: auto;
+  gap: 10px;
+}
+
+.callWhatsapp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.phoneButton h5 {
+  line-height: 0px;
+}
+
+.phoneWhatsapp h5 {
+  line-height: 0.8;
+}
+
+.selectorSearchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+.selectorSearchBtn {
+  width: auto;
+  height: 2rem;
+  background-color: var(--blanco);
+  border-style: hidden;
+  border-color: var(--grisMedio);
+  border-radius: 20px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.selectorSearchBtn:hover {
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.selectedSearchBtn {
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.serviciosCardsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  height: auto;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.servicioCard {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  min-height: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: var(--blanco);
+  border-style: hidden;
+  border-radius: 5px;
+  color: var(--negro);
+  padding: 20px;
+  gap: 10px;
+}
+
+.servicioIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--azul);
+  width: 100%;
+  height: 100%;
+}
+
+.servicioText {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.servicioText p,
+.servicioText h5 {
+  text-align: left;
+}
+
+.servicioIncludes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.includesList {
+  width: auto;
+  height: auto;
+  font-size: var(--p);
+  text-align: left;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.spacerCard {
+  height: 156px;
+}
+
+.spacerCard2 {
+  height: 80px;
+}
+
+.nosotrosContainer {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+.nosotrosContainer h3 {
+  margin-bottom: 30px;
+}
+.historiaContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.historiaTextBox {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 290.15px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.historiaText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.historiaImg {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.historiaImg img {
+  width: 100%;
+  height: auto;
+  border-style: hidden;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.argumentsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.argumentsWrapper h5 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.argumentsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  flex-wrap: wrap;
+  /* gap: 10px; */
+}
+
+.argumentCard {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 200px;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+}
+
+.argumentTitle {
+  width: 100%;
+  font-weight: var(--bold);
+  text-align: left;
+}
+
+.mapsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.faqsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.faqsWrapper h5 {
+  margin-bottom: 40px;
+}
+
+.faqsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.accordion {
+  width: 100%;
+  height: auto;
+}
+
+.accordion-body {
+  text-align: left;
+}
+
+.accordion-body p {
+  font-size: var(--p) !important;
+}
+
+.accordion-button:not(.collapsed):after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--cafeBase) !important;
+  color: var(--blanco) !important;
+}
+
+.accordion-button:not(.collapsed):focus {
+  color: var(--blanco) !important;
+  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0
+    var(--blanco) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0
+    var(--blanco) !important;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.formContainer h3 {
+  margin-bottom: 40px;
+}
+
+.ilustracionFooter {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerTitles {
+  width: 50%;
+  text-align: left;
+}
+
+.ilustracionFooter img {
+  width: 250px;
+  height: auto;
+}

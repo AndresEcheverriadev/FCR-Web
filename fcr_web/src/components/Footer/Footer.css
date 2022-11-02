@@ -1,0 +1,87 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: var(--cafeOscuro);
+    color: var(--blanco);
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content:center; 
+    align-items: center;
+    width: 80%;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footerLogo {
+    width: 100%;
+    height: auto;
+}
+
+.footerLogo img {
+    width: 100%;
+    height: auto;
+}
+
+.footerLinksWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    gap: 50px;
+}
+
+.footerLinksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.footerLink  {
+    color: var(--blanco);
+    line-height: 0;
+    margin: 0px !important;
+}
+
+.linkRRSS {
+    align-items: center;
+}
+
+.footerLink:hover  {
+    color: var(--verde);
+}
+
+.selloSercotec {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.selloSercotec img  {
+    width: 100px;
+    height: auto;
+}
+
+.footerLogo {
+    width: 20%;
+    height: auto;
+}
+
+.footerCopyright p {
+    font-size: var(--notification)
+}

@@ -1,0 +1,95 @@
+.obituarioPageMainWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.obituarioPageMainContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.obituarioCardsContainer {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height:auto;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap:10px;
+}
+
+.decesoCard {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+    height:240px;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color:var(--grisClaro);
+    border-width: 2px;
+    border-radius: 30px;
+    background-color: var(--blanco);
+}
+
+.decesoPersona {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:auto;
+    justify-content:center;
+    align-items: center;
+    gap: 5px;
+}
+
+.decesoImagen {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 100px; 
+    justify-content:center;
+    align-items: center;
+    border-color:var(--cafeOscuro);
+    background-color:var(--cafeOscuro) ;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.decesoImagen img {
+    width: 100%;
+    height: auto;
+    border-style: hidden;
+    border-radius: 20px;
+}
+
+.decesoDate {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:auto;
+    justify-content:center;
+    align-items: center;
+    gap: 5px;
+}
