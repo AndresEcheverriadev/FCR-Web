@@ -1,0 +1,154 @@
+.managerPageMainWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.managerHeaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.managerPageMainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blanco);
+  margin: 20px;
+  padding: 10px;
+}
+
+.managerCardsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.managerDecesoCard {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-style: solid;
+  border-color: var(--grisClaro);
+  border-width: 2px;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.managerDecesoPersona {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.managerDecesoImagen {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-color: var(--cafeOscuro);
+  background-color: var(--cafeOscuro);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.managerDecesoImagen img {
+  width: 100%;
+  height: auto;
+  border-style: hidden;
+  border-radius: 20px;
+}
+
+/* .managerDecesoDate {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+} */
+
+.managerDecesoControls {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnCtrlObituario {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  border-style: solid;
+  border-color: var(--grisClaro);
+  border-width: 2px;
+  border-radius: 30px;
+}
+
+.btnCtrlObituario:hover {
+  background-color: var(--cafeOscuro);
+  color: var(--blanco);
+}
+
+.addObituarioContainer {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  margin: 20px;
+  padding: 10px;
+}
+
+.btnAddObituario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  border-style: solid;
+  background-color: var(--cafeOscuro);
+  color: var(--blanco);
+  border-color: var(--grisClaro);
+  border-width: 2px;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.btnAddObituario:hover {
+  background-color: var(--grisClaro);
+  color: var(--negro);
+}
