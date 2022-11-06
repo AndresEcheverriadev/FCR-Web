@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./ManagerPage.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function ManagerPage() {
   const [records, setRecords] = useState([]);
@@ -23,6 +23,95 @@ function ManagerPage() {
 
     return;
   }, [records.length]);
+
+  const [form, setForm] = useState({
+    date: "",
+    nombre: "",
+    segundoNombre: "",
+    paterno: "",
+    materno: "",
+    img: "",
+    mesaggesWall: [],
+    lugarVelatorio: "",
+    lugarResponso: "",
+    fechaResponso: "",
+    lugarCementerio: "",
+  });
+  const navigate = useNavigate();
+
+  function updateForm(value) {
+    return setForm((prev) => {
+      return { ...prev, ...value };
+    });
+  }
+
+  async function addObituario(e) {
+    e.preventDefault();
+    const newPerson = { ...form };
+    await fetch("http://localhost:5000/record/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPerson),
+    }).catch((error) => {
+      window.alert(error);
+      return;
+    });
+    setForm({
+      date: "",
+      nombre: "",
+      segundoNombre: "",
+      paterno: "",
+      materno: "",
+      img: "",
+      lugarVelatorio: "",
+      lugarResponso: "",
+      fechaResponso: "",
+      lugarCementerio: "",
+    });
+    navigate("/manager");
+  }
+
+  async function updatePersonales(id) {
+    // e.preventDefault();
+    const editedPerson = {
+      date: form.date,
+      nombre: form.nombre,
+      segundoNombre: form.segundoNombre,
+      paterno: form.paterno,
+      materno: form.materno,
+      img: form.img,
+    };
+    await fetch(`http://localhost:5000/updatePersonales/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedPerson),
+    }).catch((error) => {
+      window.alert(error);
+      return;
+    });
+    setForm({
+      date: "",
+      nombre: "",
+      segundoNombre: "",
+      paterno: "",
+      materno: "",
+      img: "",
+    });
+    navigate("/manager");
+  }
+
+  async function deleteRecord(id) {
+    await fetch(`http://localhost:5000/${id}`, {
+      method: "DELETE",
+    });
+
+    const newRecords = records.filter((el) => el._id !== id);
+    setRecords(newRecords);
+  }
 
   const iconCross = (
     <svg
@@ -67,7 +156,186 @@ function ManagerPage() {
               ></button>
             </div>
             <div class="modal-body">
-              <form action="" className="formContainer">
+              <form
+                onSubmit={addObituario}
+                id="formAdd"
+                className="formContainer"
+              >
+                <h5>Datos del fallecido</h5>
+                <div className="inputContainer">
+                  <label htmlFor="date">Fecha del fallecimiento:</label>
+                  <input
+                    type="date"
+                    name="date"
+                    id="date"
+                    value={form.date}
+                    onChange={(e) => updateForm({ date: e.target.value })}
+                  />
+                </div>
+                <div className="inputContainer">
+                  <label htmlFor="nombreDeceso">Nombre del fallecido:</label>
+                  <input
+                    type="text"
+                    name="nombreDeceso"
+                    id="nombreDeceso"
+                    value={form.nombre}
+                    onChange={(e) => updateForm({ nombre: e.target.value })}
+                  />
+                </div>
+                <div className="inputContainer">
+                  <label htmlFor="segundoNombreDeceso">
+                    Segundo Nombre del fallecido:
+                  </label>
+                  <input
+                    type="text"
+                    name="segundoNombreDeceso"
+                    id="segundoNombreDeceso"
+                    value={form.segundoNombre}
+                    onChange={(e) =>
+                      updateForm({ segundoNombre: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="inputContainer">
+                  <label htmlFor="paternoDeceso">Apellido paterno:</label>
+                  <input
+                    type="text"
+                    name="paternoDeceso"
+                    id="paternoDeceso"
+                    value={form.paterno}
+                    onChange={(e) => updateForm({ paterno: e.target.value })}
+                  />
+                </div>
+                <div className="inputContainer">
+                  <label htmlFor="maternoDeceso">Apellido materno:</label>
+                  <input
+                    type="text"
+                    name="maternoDeceso"
+                    id="maternoDeceso"
+                    value={form.materno}
+                    onChange={(e) => updateForm({ materno: e.target.value })}
+                  />
+                </div>
+                <div className="inputContainerImagen">
+                  <label htmlFor="imgDeceso">Imagen obituario:</label>
+                  <input
+                    type="file"
+                    name="imgDeceso"
+                    accept="image/png, image/jpeg"
+                    id="imgDeceso"
+                    value={form.img}
+                    onChange={(e) => updateForm({ img: e.target.value })}
+                  />
+                </div>
+                <h5>Datos del funeral</h5>
+                <div className="inputContainer">
+                  <label htmlFor="lugarVelatorio">lugar velatorio:</label>
+                  <input
+                    type="text"
+                    name="lugarVelatorio"
+                    id="lugarVelatorio"
+                    value={form.lugarVelatorio}
+                    onChange={(e) =>
+                      updateForm({ lugarVelatorio: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="inputContainer">
+                  <label htmlFor="lugarResponso">lugar responso:</label>
+                  <input
+                    type="text"
+                    name="lugarResponso"
+                    id="lugarResponso"
+                    value={form.lugarResponso}
+                    onChange={(e) =>
+                      updateForm({ lugarResponso: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="inputContainer">
+                  <label htmlFor="fechaResponso">fecha responso:</label>
+                  <input
+                    type="date"
+                    name="fechaResponso"
+                    id="fechaResponso"
+                    value={form.fechaResponso}
+                    onChange={(e) =>
+                      updateForm({ fechaResponso: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="inputContainer">
+                  <label htmlFor="lugarCementerio">lugar cementerio:</label>
+                  <input
+                    list="cementerios"
+                    type="text"
+                    name="lugarCementerio"
+                    id="lugarCementerio"
+                    value={form.lugarCementerio}
+                    onChange={(e) =>
+                      updateForm({ lugarCementerio: e.target.value })
+                    }
+                  />
+                  <datalist id="cementerios">
+                    <option value="Cementerio Parque Angol">
+                      Cementerio Parque Angol
+                    </option>
+                    <option value="Cementerio Parroquial Angol">
+                      Cementerio Parroquial Angol
+                    </option>
+                    <option value="Cementerio municipal Angol">
+                      Cementerio Municipal Angol
+                    </option>
+                  </datalist>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                type="submit"
+                form="formAdd"
+                class="btn btn-primary btnAgregar"
+              >
+                Agregar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modalActualizarDatos"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Actualizar datos personales
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form
+                onSubmit={updatePersonales()}
+                className="formContainer"
+                id="formActualizarPersonales"
+              >
                 <h5>Datos del fallecido</h5>
                 <div className="inputContainer">
                   <label htmlFor="date">Fecha del fallecimiento:</label>
@@ -91,7 +359,7 @@ function ManagerPage() {
                   <label htmlFor="maternoDeceso">Apellido materno:</label>
                   <input type="text" name="maternoDeceso" />
                 </div>
-                <div className="inputContainer">
+                <div className="inputContainerImagen">
                   <label htmlFor="imgDeceso">Imagen obituario:</label>
                   <input
                     type="file"
@@ -99,6 +367,55 @@ function ManagerPage() {
                     accept="image/png, image/jpeg"
                   />
                 </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+
+              <button
+                type="submit"
+                form="formActualizarPersonales"
+                class="btn btn-primary btnAgregar"
+              >
+                Actualizar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="modalActualizarFuneral"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Actualizar datos de funeral
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form
+                action=""
+                className="formContainer"
+                id="formActualizarFuneral"
+              >
                 <h5>Datos del funeral</h5>
                 <div className="inputContainer">
                   <label htmlFor="lugarVelatorio">lugar velatorio:</label>
@@ -141,8 +458,12 @@ function ManagerPage() {
               >
                 Cerrar
               </button>
-              <button type="button" class="btn btn-primary btnAgregar">
-                Agregar
+              <button
+                type="submit"
+                form="formActualizarFuneral"
+                class="btn btn-primary btnAgregar"
+              >
+                Actualizar
               </button>
             </div>
           </div>
@@ -174,13 +495,25 @@ function ManagerPage() {
                   <p className="managerDecesoFecha">{deceso.date}</p>
                 </NavLink>
                 <div className="managerDecesoControls">
-                  <button className="btnCtrlObituario">
+                  <button
+                    className="btnCtrlObituario"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalActualizarDatos"
+                    data-record-id={deceso._id}
+                  >
                     Editar datos personales
                   </button>
-                  <button className="btnCtrlObituario">
+                  <button
+                    className="btnCtrlObituario"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalActualizarFuneral"
+                  >
                     Editar datos funeral
                   </button>
-                  <button className="btnCtrlObituario">
+                  <button
+                    className="btnCtrlObituario"
+                    onClick={() => deleteRecord(deceso._id)}
+                  >
                     Eliminar del obituario
                   </button>
                 </div>

@@ -177,13 +177,26 @@
   margin-top: -30px;
 }
 
-select#selectOption {
-  border-left: none;
-  padding: none;
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
 }
 
-input#datahere {
-  position: relative;
-  border-right: none;
-  padding: none;
+.inputContainerImagen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  gap: 5px;
+}
+
+.inputContainerImagen label {
+  width: 100%;
+  text-align: left;
+}
+.inputContainer input {
+  width: 40%;
 }

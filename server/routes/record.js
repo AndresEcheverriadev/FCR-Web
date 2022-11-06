@@ -13,7 +13,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you get a list of all the records.
 recordRoutes.route("/record").get(function (req, res) {
-  let db_connect = dbo.getDb("FCR");
+  let db_connect = dbo.getDb();
   db_connect
     .collection("obituarioPersons")
     .find({})
@@ -23,21 +23,10 @@ recordRoutes.route("/record").get(function (req, res) {
     });
 });
 
-// This section will help you get a single record by id
-recordRoutes.route("/record/:id").get(function (req, res) {
-  let db_connect = dbo.getDb();
-  let myquery = { _id: ObjectId(req.params.id) };
-  db_connect
-    .collection("obituarioPersons")
-    .findOne(myquery, function (err, result) {
-      if (err) throw err;
-      res.json(result);
-    });
-});
-
-// recordRoutes.route("/record/:id/mensajes").get(function (req, res) {
+// // This section will help you get a single record by id
+// recordRoutes.route("/record/:id").get(function (req, res) {
 //   let db_connect = dbo.getDb();
-//   let myquery = { _id: ObjectId(req.params.id), mesaggesWall: 1 };
+//   let myquery = { _id: ObjectId(req.params.id) };
 //   db_connect
 //     .collection("obituarioPersons")
 //     .findOne(myquery, function (err, result) {
@@ -50,12 +39,17 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 recordRoutes.route("/record/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
+    date: req.body.date,
     nombre: req.body.nombre,
     segundoNombre: req.body.segundoNombre,
     paterno: req.body.paterno,
     materno: req.body.materno,
     img: req.body.img,
     mesaggesWall: [],
+    lugarVelatorio: req.body.lugarVelatorio,
+    lugarResponso: req.body.lugarResponso,
+    fechaResponso: req.body.fechaResponso,
+    lugarCementerio: req.body.lugarCementerio,
   };
   db_connect
     .collection("obituarioPersons")
@@ -66,7 +60,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
 });
 
 // This section will help you update a record by id.
-recordRoutes.route("/update/:id").post(function (req, response) {
+recordRoutes.route("/updatePersonales/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {
@@ -95,7 +89,6 @@ recordRoutes.route("/:id").delete((req, response) => {
     .collection("obituarioPersons")
     .deleteOne(myquery, function (err, obj) {
       if (err) throw err;
-      console.log("1 document deleted");
       response.json(obj);
     });
 });
