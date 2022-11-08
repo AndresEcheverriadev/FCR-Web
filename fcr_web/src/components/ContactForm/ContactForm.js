@@ -9,7 +9,7 @@ function ContactForm() {
       <form
         action={`mailto:${mailContacto}?subject=Quiero dejar un mensaje`}
         method="post"
-        enctype="text/plain"
+        encType="text/plain"
       >
         <h5>{mailContacto}</h5>
 
