@@ -46,7 +46,7 @@
 }
 
 .carruselContainer img {
-  width: 30%;
+  width: 35%;
   height: auto;
   border-style: hidden;
   border-radius: 10px;
@@ -339,7 +339,6 @@
   align-items: flex-start;
   text-align: left;
   flex-wrap: wrap;
-  /* gap: 10px; */
 }
 
 .argumentCard {
@@ -421,7 +420,7 @@
     var(--blanco) !important;
 }
 
-.formContainer {
+.formContainerHome {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -431,7 +430,7 @@
   margin-top: 50px;
   margin-bottom: 50px;
 }
-.formContainer h3 {
+.formContainerHome h3 {
   margin-bottom: 40px;
 }
 
@@ -450,6 +449,7 @@
 }
 
 .ilustracionFooter img {
-  width: 250px;
+  width: 400px;
   height: auto;
+  margin-right: -100px;
 }

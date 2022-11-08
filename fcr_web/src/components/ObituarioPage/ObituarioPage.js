@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
-// import ObituarioData from "../../meta/obituarioData.js";
 import "./ObituarioPage.css";
 import { NavLink } from "react-router-dom";
 

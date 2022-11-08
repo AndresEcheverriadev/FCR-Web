@@ -1,55 +1,53 @@
 .navbarMainContainer {
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    height: auto;
-    background-color: var(--cremaMedio) !important;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: auto;
+  background-color: var(--cremaMedio) !important;
 }
 
-
-
-.logoContainer img  {
-    width: 100%;
-    height: 8rem;
+.logoContainer img {
+  width: 100%;
+  height: 8rem;
 }
 
 .linksContainer {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: auto;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-left: 100px;
-    padding-right: 100px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .initSessionContainer {
-    display: flex;
-    flex-direction: row;
-    width: 25%;
-    height: 100%;
-    justify-content: center;
-    align-items:center;
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .initSessionBtn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height:2.5rem;
-    background-color: var(--cafeBase);
-    color: var(--blanco);
-    border-style: hidden;
-    border-radius: 20px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 2.5rem;
+  background-color: var(--cafeBase);
+  color: var(--blanco);
+  border-style: hidden;
+  border-radius: 20px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  gap: 0.5rem;
 }
 
 .initSessionBtn:hover {
-    color: var(--blanco);
-    background-color: var(--gris);
+  color: var(--blanco);
+  background-color: var(--gris);
 }

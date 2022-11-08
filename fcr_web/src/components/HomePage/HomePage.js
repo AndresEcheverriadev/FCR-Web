@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import ContactForm from "../ContactForm/ContactForm";
-import imgHome1 from "../../images/imgHome1.jpg";
+import imgHome from "../../images/imgHome.jpg";
 import imgHistoria from "../../images/imgDemoHistoria.jpg";
 import arregloFooter from "../../images/arregloFooter.png";
 import Footer from "../Footer/Footer";
@@ -12,6 +12,7 @@ import "./HomePageResponsive.css";
 function HomePage() {
   const fono1 = "+569 5253 9500";
   const fono2 = "+569 9032 7836";
+  const whatsappCode = "56952539500";
 
   return (
     <>
@@ -29,7 +30,7 @@ function HomePage() {
           </div>
 
           <div className="carruselContainer">
-            <img src={imgHome1} alt="" />
+            <img src={imgHome} alt="" />
           </div>
 
           <div className="contactPhonesContainer">
@@ -76,7 +77,10 @@ function HomePage() {
                 </div>
                 <h5>{fono2}</h5>
               </a>
-              <a className="phoneWhatsapp" href={`tel:${fono2}`}>
+              <a
+                className="phoneWhatsapp"
+                href={`https://wa.me/${whatsappCode}`}
+              >
                 <div className="callWhatsapp">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -602,7 +606,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="formContainer" id="contacto">
+      <div className="formContainerHome" id="contacto">
         <h3>Déjanos un comentario</h3>
         <ContactForm />
       </div>

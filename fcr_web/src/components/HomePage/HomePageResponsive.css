@@ -1,17 +1,163 @@
-/* @media (max-width: 575.98px) {
+@media (max-width: 760px) {
+  .homeTitlesContainer h3 {
+    font-size: var(--h5);
+    width: 120%;
+  }
 
-    .viewHomeContainer {
-        height: auto;
-    }
+  .homeTitlesContainer h1 {
+    display: none;
+  }
 
-    .homeTitlesContainer {
-        font-size: var(--p);
-        
-    }
+  .carruselContainer {
+    display: none;
+  }
 
+  .contactPhonesContainer {
+    width: 95%;
+    margin-top: 20px;
+  }
 
+  .contactPhonesContainer h3 {
+    font-size: var(--h4);
+    margin-bottom: 20px;
+  }
 
+  .phoneButton .callPhone h5 {
+    font-size: var(--p);
+  }
 
+  .phoneButton h5 {
+    font-size: 10pt;
+  }
 
+  .phoneWhatsapp h5 {
+    font-size: var(--p);
+    margin-top: 5px;
+  }
 
-} */
+  .serviciosCardsContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .servicioCard {
+    width: 100%;
+  }
+
+  .historiaContainer {
+    flex-direction: column;
+  }
+
+  .historiaTextBox {
+    width: 100%;
+    height: auto;
+  }
+
+  .historiaImg {
+    width: 100%;
+  }
+
+  .argumentsWrapper {
+    width: 120%;
+  }
+
+  .argumentsContainer {
+    flex-direction: column;
+  }
+
+  .argumentCard {
+    width: 100%;
+    height: auto;
+  }
+
+  .faqsWrapper h3 {
+    width: 80%;
+  }
+
+  .faqsContainer {
+    width: 90%;
+  }
+
+  .ilustracionFooter {
+    width: 90%;
+  }
+
+  .ilustracionFooter img {
+    width: 50%;
+    margin-right: -50px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .carruselContainer {
+    width: 100%;
+  }
+
+  .contactPhonesContainer {
+    width: 90%;
+  }
+
+  .viewHomeContainer {
+    height: auto;
+  }
+
+  .serviciosCardsContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .servicioCard {
+    width: 100%;
+  }
+
+  .historiaContainer {
+    flex-direction: column;
+  }
+
+  .historiaTextBox {
+    width: 100%;
+    height: auto;
+  }
+
+  .historiaImg {
+    width: 100%;
+  }
+
+  .argumentsWrapper {
+    width: 120%;
+  }
+
+  .argumentsContainer {
+    flex-direction: column;
+  }
+
+  .argumentCard {
+    width: 100%;
+    height: auto;
+  }
+
+  .faqsWrapper h3 {
+    width: 80%;
+  }
+
+  .faqsContainer {
+    width: 90%;
+  }
+
+  .ilustracionFooter {
+    width: 90%;
+  }
+
+  .ilustracionFooter img {
+    width: 50%;
+    margin-right: -50px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .viewHomeContainer {
+    height: 100vh;
+  }
+}
