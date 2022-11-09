@@ -7,7 +7,12 @@ function ObituarioPage() {
   const [records, setRecords] = useState([]);
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:5000/record`);
+      const response = await fetch(`http://localhost:5000/record`, {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+        },
+      });
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
