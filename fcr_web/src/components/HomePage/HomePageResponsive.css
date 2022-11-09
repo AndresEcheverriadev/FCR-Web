@@ -1,3 +1,23 @@
+@media (max-width: 480px) {
+  .homeTitlesContainer h3 {
+    font-size: var(--p) !important;
+  }
+
+  .phonesWrapper {
+    flex-direction: column;
+  }
+
+  .phoneButton,
+  .phoneWhatsapp {
+    width: 70%;
+  }
+
+  .contactPhonesContainer h3 {
+    font-size: var(--h5) !important;
+    margin-bottom: 20px;
+  }
+}
+
 @media (max-width: 760px) {
   .homeTitlesContainer h3 {
     font-size: var(--h5);
@@ -89,7 +109,7 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1279px) {
   .carruselContainer {
     width: 100%;
   }
@@ -156,8 +176,18 @@
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1280px) {
   .viewHomeContainer {
     height: 100vh;
+  }
+
+  .contactPhonesContainer {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .contactPhonesContainer {
+    width: 40%;
   }
 }
