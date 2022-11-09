@@ -10,7 +10,9 @@ function PersonPage() {
   useEffect(() => {
     async function getPerson() {
       const id = personId.toString();
-      const response = await fetch(`http://localhost:5000/record/${id}`);
+      const response = await fetch(
+        `http://www.cristoreyangol.cl:5000/record/${id}`
+      );
       const record = await response.json();
       setRecord(record);
     }

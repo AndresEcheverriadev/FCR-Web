@@ -7,7 +7,7 @@ function ManagerPage() {
   const [records, setRecords] = useState([]);
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:5000/record`);
+      const response = await fetch(`http://www.cristoreyangol.cl:5000/record`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -48,7 +48,7 @@ function ManagerPage() {
   async function addObituario(e) {
     e.preventDefault();
     const newPerson = { ...form };
-    await fetch("http://localhost:5000/record/add", {
+    await fetch("http://www.cristoreyangol.cl:5000/record/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ function ManagerPage() {
       materno: form.materno,
       img: form.img,
     };
-    await fetch(`http://localhost:5000/updatePersonales/${id}`, {
+    await fetch(`http://www.cristoreyangol.cl:5000/updatePersonales/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -105,7 +105,7 @@ function ManagerPage() {
   }
 
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/${id}`, {
+    await fetch(`http://www.cristoreyangol.cl:5000/${id}`, {
       method: "DELETE",
     });
 
