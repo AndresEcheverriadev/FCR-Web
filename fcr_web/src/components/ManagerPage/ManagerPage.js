@@ -332,7 +332,7 @@ function ManagerPage() {
             </div>
             <div class="modal-body">
               <form
-                onSubmit={updatePersonales()}
+                onSubmit={updatePersonales}
                 className="formContainer"
                 id="formActualizarPersonales"
               >
