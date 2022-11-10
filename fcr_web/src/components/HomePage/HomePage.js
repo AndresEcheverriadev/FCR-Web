@@ -7,12 +7,13 @@ import arregloFooter from "../../images/arregloFooter.png";
 import Footer from "../Footer/Footer";
 import "./HomePage.css";
 import "./HomePageResponsive.css";
-// import Whatsapp from "../WhatsappButton/Whatsapp";
 
 function HomePage() {
   const fono1 = "+569 5253 9500";
   const fono2 = "+569 9032 7836";
   const whatsappCode = "56952539500";
+
+  console.log("v10");
 
   return (
     <>

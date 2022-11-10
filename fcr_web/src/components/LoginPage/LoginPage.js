@@ -4,15 +4,13 @@ import logo from "../../images/logo.svg";
 import "./LoginPage.css";
 
 function LoginPage() {
-  //   const password = "obituarioFCR119852+";
-  const password = "obituario";
+  const password = "obituarioFCR119852+";
   const navigate = useNavigate();
   const input = document.getElementById("inputPassManager");
   const [passer, setPasser] = useState({ pass: "" });
 
   function login() {
     if (passer.pass === password) {
-      alert("ok");
       navigate("/manager");
       input.value = "";
     } else {
