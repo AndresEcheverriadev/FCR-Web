@@ -81,6 +81,24 @@ recordRoutes.route("/updatePersonales/:id").post(function (req, response) {
     });
 });
 
+recordRoutes.route("/updateMensajes/:id").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myquery = { _id: ObjectId(req.params.id) };
+  let message = { mesagge: req.body.mesagge, author: req.body.author };
+  let newvalues = {
+    $push: {
+      mesaggesWall: message,
+    },
+  };
+  db_connect
+    .collection("obituarioPersons")
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log("1 document updated");
+      response.json(res);
+    });
+});
+
 // This section will help you delete a record
 recordRoutes.route("/:id").delete((req, response) => {
   let db_connect = dbo.getDb();

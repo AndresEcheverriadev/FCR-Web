@@ -6,6 +6,12 @@ import "./PersonPage.css";
 function PersonPage() {
   const [record, setRecord] = useState({});
   const { personId } = useParams();
+  const [msgText, setMsgText] = useState({
+    mesagge: "",
+    author: "",
+  });
+  const inputMesagge = document.getElementById("inputMesagge");
+  const inputAuthor = document.getElementById("inputAuthor");
 
   useEffect(() => {
     async function getPerson() {
@@ -22,9 +28,21 @@ function PersonPage() {
     return;
   }, [record._id]);
 
-  const sendMesagge = () => {
-    const newMesagge = "nuevoMensaje";
-    record.mesaggesWall.push(newMesagge);
+  const sendMesagge = async (id) => {
+    const newMesagge = { author: msgText.author, mesagge: msgText.mesagge };
+    await fetch(`http://www.cristoreyangol.cl:5000/updateMensajes/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newMesagge),
+    }).catch((error) => {
+      window.alert(error);
+      return;
+    });
+
+    inputAuthor.value = "";
+    inputMesagge.value = "";
   };
 
   const iconCross = (
@@ -153,8 +171,11 @@ function PersonPage() {
         <div className="form-floating">
           <textarea
             className="form-control"
-            placeholder="Leave a comment here"
-            id="floatingTextarea"
+            id="inputAuthor"
+            placeholder="Su nombre"
+            onChange={(e) =>
+              setMsgText((msgText) => ({ ...msgText, author: e.target.value }))
+            }
           ></textarea>
           <label for="floatingTextarea">Su nombre</label>
         </div>
@@ -162,16 +183,18 @@ function PersonPage() {
         <div className="form-floating">
           <textarea
             className="form-control"
-            placeholder="suges"
-            id="floatingTextarea2"
+            id="inputMesagge"
+            placeholder="Su mensaje"
+            onChange={(e) =>
+              setMsgText((msgText) => ({ ...msgText, mesagge: e.target.value }))
+            }
           ></textarea>
           <label for="floatingTextarea2">Escriba su mensaje</label>
         </div>
 
         <button
-          type="submit"
           className="btnSubmitMesagge"
-          onClick={sendMesagge}
+          onClick={() => sendMesagge(record._id)}
         >
           <p>Enviar mensaje</p>
           <svg
