@@ -21,12 +21,13 @@ function PersonPage() {
       );
       const record = await response.json();
       setRecord(record);
+      console.log(record);
     }
 
     getPerson();
 
     return;
-  }, [record._id]);
+  }, [record.mesaggesWall]);
 
   const sendMesagge = async (id) => {
     const newMesagge = { author: msgText.author, mesagge: msgText.mesagge };
@@ -89,22 +90,14 @@ function PersonPage() {
             <div className="funeralInfo">
               <div className="infoResponso">
                 <p>Responso Fúnebre:</p>
-                <p className="infoResponsoData">
-                  {record.funeralInfo?.fechaResponso}
-                </p>
-                <p className="infoResponsoData">
-                  {record.funeralInfo?.lugarResponso}
-                </p>
+                <p className="infoResponsoData">{record.fechaResponso}</p>
+                <p className="infoResponsoData">{record.lugarResponso}</p>
               </div>
               <div className="infoCementerio">
                 <p>Lugar de Velatorio:</p>
-                <p className="infoCementerioData">
-                  {record.funeralInfo?.lugarVelatorio}
-                </p>
+                <p className="infoCementerioData">{record.lugarVelatorio}</p>
                 <p>Lugar de Cementerio:</p>
-                <p className="infoCementerioData">
-                  {record.funeralInfo?.lugarCementerio}
-                </p>
+                <p className="infoCementerioData">{record.lugarCementerio}</p>
               </div>
             </div>
             <div className="shareInfoContainer">

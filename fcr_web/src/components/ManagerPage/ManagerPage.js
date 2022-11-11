@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 function ManagerPage() {
   const [records, setRecords] = useState([]);
+
   useEffect(() => {
     async function getRecords() {
       const response = await fetch(`http://www.cristoreyangol.cl:5000/record`);
