@@ -1,7 +1,5 @@
 const express = require("express");
 
-const timeStamp = Date.now();
-
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /record.
@@ -46,7 +44,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
     segundoNombre: req.body.segundoNombre,
     paterno: req.body.paterno,
     materno: req.body.materno,
-    img: timeStamp,
+    img: req.body.img,
     mesaggesWall: [],
     lugarVelatorio: req.body.lugarVelatorio,
     lugarResponso: req.body.lugarResponso,
