@@ -66,29 +66,31 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 });
 
 // This section will help you create a new record.
-recordRoutes.route("/record/add").post(function (req, response) {
-  const url = req.protocol + "://" + req.get("host");
-  let db_connect = dbo.getDb();
-  let myobj = {
-    date: req.body.date,
-    nombre: req.body.nombre,
-    segundoNombre: req.body.segundoNombre,
-    paterno: req.body.paterno,
-    materno: req.body.materno,
-    img: url + "/public/assets/obituarioImages/" + req.filefilename,
-    mesaggesWall: [],
-    lugarVelatorio: req.body.lugarVelatorio,
-    lugarResponso: req.body.lugarResponso,
-    fechaResponso: req.body.fechaResponso,
-    lugarCementerio: req.body.lugarCementerio,
-  };
-  db_connect
-    .collection("obituarioPersons")
-    .insertOne(myobj, function (err, res) {
-      if (err) throw err;
-      response.json(res);
-    });
-});
+recordRoutes
+  .route("/record/add", upload.single("profileImg"))
+  .post(function (req, response) {
+    const url = req.protocol + "://" + req.get("host");
+    let db_connect = dbo.getDb();
+    let myobj = {
+      date: req.body.date,
+      nombre: req.body.nombre,
+      segundoNombre: req.body.segundoNombre,
+      paterno: req.body.paterno,
+      materno: req.body.materno,
+      img: url + "/public/assets/obituarioImages/" + req.filefilename,
+      mesaggesWall: [],
+      lugarVelatorio: req.body.lugarVelatorio,
+      lugarResponso: req.body.lugarResponso,
+      fechaResponso: req.body.fechaResponso,
+      lugarCementerio: req.body.lugarCementerio,
+    };
+    db_connect
+      .collection("obituarioPersons")
+      .insertOne(myobj, function (err, res) {
+        if (err) throw err;
+        response.json(res);
+      });
+  });
 
 // This section will help you update a record by id.
 recordRoutes.route("/updatePersonales/:id").post(function (req, response) {
