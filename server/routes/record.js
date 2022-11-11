@@ -1,7 +1,6 @@
 const express = require("express");
-
-let multer = require("multer"),
-  uuidv4 = require("uuid/v4");
+let multer = require("multer");
+const { v4: uuidv4 } = require("uuid");
 
 const DIR = "./public/assets/obituarioImages";
 
