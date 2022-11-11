@@ -21,7 +21,6 @@ function PersonPage() {
       );
       const record = await response.json();
       setRecord(record);
-      console.log(record);
     }
 
     getPerson();

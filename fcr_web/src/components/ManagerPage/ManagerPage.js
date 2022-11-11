@@ -7,7 +7,7 @@ function ManagerPage() {
   const [records, setRecords] = useState([]);
 
   const currentDate = new Date();
-  const timeStamp = currentDate.getTime();
+  const timeStamp = currentDate.getTime().toString();
 
   useEffect(() => {
     async function getRecords() {
@@ -51,7 +51,7 @@ function ManagerPage() {
 
   async function addObituario(e) {
     e.preventDefault();
-    const newPerson = { ...form };
+    const newPerson = { ...form, img: timeStamp };
     await fetch("http://www.cristoreyangol.cl:5000/record/add", {
       method: "POST",
       headers: {

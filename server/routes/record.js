@@ -1,5 +1,36 @@
 const express = require("express");
 
+let multer = require("multer"),
+  uuidv4 = require("uuid/v4");
+
+const DIR = "./public/assets/obituarioImages";
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, DIR);
+  },
+  filename: (req, file, cb) => {
+    const fileName = file.originalname.toLowerCase().split(" ").join("-");
+    cb(null, uuidv4() + "-" + fileName);
+  },
+});
+
+var upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/jpg" ||
+      file.mimetype == "image/jpeg"
+    ) {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
+    }
+  },
+});
+
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /record.
@@ -37,6 +68,7 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 
 // This section will help you create a new record.
 recordRoutes.route("/record/add").post(function (req, response) {
+  const url = req.protocol + "://" + req.get("host");
   let db_connect = dbo.getDb();
   let myobj = {
     date: req.body.date,
@@ -44,7 +76,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
     segundoNombre: req.body.segundoNombre,
     paterno: req.body.paterno,
     materno: req.body.materno,
-    img: req.body.img,
+    img: url + "/public/assets/obituarioImages/" + req.filefilename,
     mesaggesWall: [],
     lugarVelatorio: req.body.lugarVelatorio,
     lugarResponso: req.body.lugarResponso,
