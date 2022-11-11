@@ -1,8 +1,6 @@
 const express = require("express");
 
-const date = new Date();
-const showTime =
-  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+const showTime = date.now();
 
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
