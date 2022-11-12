@@ -1,35 +1,8 @@
 const express = require("express");
-let multer = require("multer");
-const { v4: uuidv4 } = require("uuid");
+const storage = require("../multer/multer");
+const multer = require("multer");
 
-const DIR = "./public/assets/obituarioImages";
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, DIR);
-  },
-  filename: (req, file, cb) => {
-    const fileName = file.originalname.toLowerCase().split(" ").join("-");
-    cb(null, uuidv4() + "-" + fileName);
-  },
-});
-
-var upload = multer({
-  storage: storage,
-  fileFilter: (req, file, cb) => {
-    if (
-      file.mimetype == "image/png" ||
-      file.mimetype == "image/jpg" ||
-      file.mimetype == "image/jpeg"
-    ) {
-      cb(null, true);
-    } else {
-      cb(null, false);
-      return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
-    }
-  },
-});
-
+const uploader = multer({ storage });
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /record.
@@ -66,28 +39,45 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 });
 
 // This section will help you create a new record.
+recordRoutes.route("/record/add").post(function (req, response) {
+  let db_connect = dbo.getDb();
+  let myobj = {
+    date: req.body.date,
+    nombre: req.body.nombre,
+    segundoNombre: req.body.segundoNombre,
+    paterno: req.body.paterno,
+    materno: req.body.materno,
+    mesaggesWall: [],
+    lugarVelatorio: req.body.lugarVelatorio,
+    lugarResponso: req.body.lugarResponso,
+    fechaResponso: req.body.fechaResponso,
+    lugarCementerio: req.body.lugarCementerio,
+  };
+  db_connect
+    .collection("obituarioPersons")
+    .insertOne(myobj, function (err, res) {
+      if (err) throw err;
+      response.json(res);
+    });
+});
+
 recordRoutes
-  .route("/record/add", upload.single("profileImg"))
-  .post(function (req, response) {
-    const url = req.protocol + "://" + req.get("host");
+  .route("/record/addImage/:id")
+  .post(uploader.single("imgDeceso"), function (req, response) {
     let db_connect = dbo.getDb();
-    let myobj = {
-      date: req.body.date,
-      nombre: req.body.nombre,
-      segundoNombre: req.body.segundoNombre,
-      paterno: req.body.paterno,
-      materno: req.body.materno,
-      img: url + "/public/assets/obituarioImages/" + req.filefilename,
-      mesaggesWall: [],
-      lugarVelatorio: req.body.lugarVelatorio,
-      lugarResponso: req.body.lugarResponso,
-      fechaResponso: req.body.fechaResponso,
-      lugarCementerio: req.body.lugarCementerio,
+    const name = req.body.name;
+    console.log(req.body);
+    let myquery = { _id: ObjectId(req.params.id) };
+    let newvalues = {
+      $set: {
+        img: `http:localhost:3000/public/assets/obituarioImages/${name}`,
+      },
     };
     db_connect
       .collection("obituarioPersons")
-      .insertOne(myobj, function (err, res) {
+      .updateOne(myquery, newvalues, function (err, res) {
         if (err) throw err;
+        console.log("updated image");
         response.json(res);
       });
   });

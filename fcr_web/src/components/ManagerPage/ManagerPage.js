@@ -11,7 +11,7 @@ function ManagerPage() {
 
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://www.cristoreyangol.cl:5000/record`);
+      const response = await fetch(`http://localhost:5000/record`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -34,7 +34,6 @@ function ManagerPage() {
     segundoNombre: "",
     paterno: "",
     materno: "",
-    img: "",
     mesaggesWall: [],
     lugarVelatorio: "",
     lugarResponso: "",
@@ -52,7 +51,7 @@ function ManagerPage() {
   async function addObituario(e) {
     e.preventDefault();
     const newPerson = { ...form, img: timeStamp };
-    await fetch("http://www.cristoreyangol.cl:5000/record/add", {
+    await fetch("http://localhost:5000/record/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -68,11 +67,25 @@ function ManagerPage() {
       segundoNombre: "",
       paterno: "",
       materno: "",
-      img: "",
       lugarVelatorio: "",
       lugarResponso: "",
       fechaResponso: "",
       lugarCementerio: "",
+    });
+    navigate("/manager");
+  }
+
+  async function addImage(id, name, file) {
+    const body = { name: "imagetest" };
+    await fetch(`http://localhost:5000/record/addImage/${id}`, {
+      method: "POST",
+      // headers: {
+      //   "Content-Type": "multipart/form-data",
+      // },
+      body: JSON.stringify(body),
+    }).catch((error) => {
+      window.alert(error);
+      return;
     });
     navigate("/manager");
   }
@@ -109,7 +122,7 @@ function ManagerPage() {
   }
 
   async function deleteRecord(id) {
-    await fetch(`http://www.cristoreyangol.cl:5000/${id}`, {
+    await fetch(`http://localhost:5000/${id}`, {
       method: "DELETE",
     });
 
@@ -220,17 +233,7 @@ function ManagerPage() {
                     onChange={(e) => updateForm({ materno: e.target.value })}
                   />
                 </div>
-                <div className="inputContainerImagen">
-                  <label htmlFor="imgDeceso">Imagen obituario:</label>
-                  <input
-                    type="file"
-                    name="imgDeceso"
-                    accept="image/png, image/jpeg"
-                    id="imgDeceso"
-                    value={form.img}
-                    onChange={(e) => updateForm({ img: e.target.value })}
-                  />
-                </div>
+
                 <h5>Datos del funeral</h5>
                 <div className="inputContainer">
                   <label htmlFor="lugarVelatorio">lugar velatorio:</label>
@@ -363,14 +366,6 @@ function ManagerPage() {
                   <label htmlFor="maternoDeceso">Apellido materno:</label>
                   <input type="text" name="maternoDeceso" />
                 </div>
-                <div className="inputContainerImagen">
-                  <label htmlFor="imgDeceso">Imagen obituario:</label>
-                  <input
-                    type="file"
-                    name="imgDeceso"
-                    accept="image/png, image/jpeg"
-                  />
-                </div>
               </form>
             </div>
             <div class="modal-footer">
@@ -498,28 +493,47 @@ function ManagerPage() {
                   </h5>
                   <p className="managerDecesoFecha">{deceso.date}</p>
                 </NavLink>
-                <div className="managerDecesoControls">
-                  <button
-                    className="btnCtrlObituario"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalActualizarDatos"
-                    data-record-id={deceso._id}
-                  >
-                    Editar datos personales
-                  </button>
-                  <button
-                    className="btnCtrlObituario"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalActualizarFuneral"
-                  >
-                    Editar datos funeral
-                  </button>
-                  <button
-                    className="btnCtrlObituario"
-                    onClick={() => deleteRecord(deceso._id)}
-                  >
-                    Eliminar del obituario
-                  </button>
+                <div className="controlsWrapper">
+                  <div className="managerDecesoControls">
+                    <button
+                      className="btnCtrlObituario"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalActualizarDatos"
+                      data-record-id={deceso._id}
+                    >
+                      Editar datos personales
+                    </button>
+                    <button
+                      className="btnCtrlObituario"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalActualizarFuneral"
+                    >
+                      Editar datos funeral
+                    </button>
+                    <button
+                      className="btnCtrlObituario"
+                      onClick={() => deleteRecord(deceso._id)}
+                    >
+                      Eliminar del obituario
+                    </button>
+                  </div>
+
+                  <form className="formImg" id="formImg">
+                    <button
+                      type="submit"
+                      class="btnCtrlObituario"
+                      onClick={() => addImage(deceso._id)}
+                    >
+                      Agregar imagen
+                    </button>
+                    <input
+                      type="file"
+                      name="imgDeceso"
+                      accept="image/png, image/jpeg"
+                      id="imgDeceso"
+                      placeholder="File"
+                    ></input>
+                  </form>
                 </div>
               </div>
             );
