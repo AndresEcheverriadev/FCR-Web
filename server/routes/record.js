@@ -1,20 +1,9 @@
 const express = require("express");
-const storage = require("../multer/multer");
-const multer = require("multer");
-
-const uploader = multer({ storage });
-// recordRoutes is an instance of the express router.
-// We use it to define our routes.
-// The router will be added as a middleware and will take control of requests starting with path /record.
+const upload = require("../multer/multerConfig.js");
 const recordRoutes = express.Router();
-
-// This will help us connect to the database
 const dbo = require("../db/conn");
-
-// This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
 
-// This section will help you get a list of all the records.
 recordRoutes.route("/record").get(function (req, res) {
   let db_connect = dbo.getDb();
   db_connect
@@ -26,7 +15,6 @@ recordRoutes.route("/record").get(function (req, res) {
     });
 });
 
-// This section will help you get a single record by id
 recordRoutes.route("/record/:id").get(function (req, res) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
@@ -38,7 +26,6 @@ recordRoutes.route("/record/:id").get(function (req, res) {
     });
 });
 
-// This section will help you create a new record.
 recordRoutes.route("/record/add").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myobj = {
@@ -63,14 +50,13 @@ recordRoutes.route("/record/add").post(function (req, response) {
 
 recordRoutes
   .route("/record/addImage/:id")
-  .post(uploader.single("imgDeceso"), function (req, response) {
+  .post(upload.single("imgDeceso"), function (req, response) {
     let db_connect = dbo.getDb();
-    const name = req.body.name;
-    console.log(req.body);
+    var img = req.file.filename;
     let myquery = { _id: ObjectId(req.params.id) };
     let newvalues = {
       $set: {
-        img: `http:localhost:3000/public/assets/obituarioImages/${name}`,
+        img: `/assets/obituarioImages/${img}`,
       },
     };
     db_connect
@@ -82,7 +68,6 @@ recordRoutes
       });
   });
 
-// This section will help you update a record by id.
 recordRoutes.route("/updatePersonales/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
@@ -122,7 +107,6 @@ recordRoutes.route("/updateMensajes/:id").post(function (req, response) {
     });
 });
 
-// This section will help you delete a record
 recordRoutes.route("/:id").delete((req, response) => {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };

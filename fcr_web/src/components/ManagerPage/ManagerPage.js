@@ -5,9 +5,21 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 function ManagerPage() {
   const [records, setRecords] = useState([]);
-
-  const currentDate = new Date();
-  const timeStamp = currentDate.getTime().toString();
+  const [image, setImage] = useState({ data: "" });
+  const [status, setStatus] = useState("");
+  const [form, setForm] = useState({
+    date: "",
+    nombre: "",
+    segundoNombre: "",
+    paterno: "",
+    materno: "",
+    mesaggesWall: [],
+    lugarVelatorio: "",
+    lugarResponso: "",
+    fechaResponso: "",
+    lugarCementerio: "",
+  });
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getRecords() {
@@ -28,20 +40,6 @@ function ManagerPage() {
     return;
   }, [records.length]);
 
-  const [form, setForm] = useState({
-    date: "",
-    nombre: "",
-    segundoNombre: "",
-    paterno: "",
-    materno: "",
-    mesaggesWall: [],
-    lugarVelatorio: "",
-    lugarResponso: "",
-    fechaResponso: "",
-    lugarCementerio: "",
-  });
-  const navigate = useNavigate();
-
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
@@ -50,7 +48,7 @@ function ManagerPage() {
 
   async function addObituario(e) {
     e.preventDefault();
-    const newPerson = { ...form, img: timeStamp };
+    const newPerson = { ...form };
     await fetch("http://localhost:5000/record/add", {
       method: "POST",
       headers: {
@@ -75,20 +73,25 @@ function ManagerPage() {
     navigate("/manager");
   }
 
-  async function addImage(id, name, file) {
-    const body = { name: "imagetest" };
-    await fetch(`http://localhost:5000/record/addImage/${id}`, {
-      method: "POST",
-      // headers: {
-      //   "Content-Type": "multipart/form-data",
-      // },
-      body: JSON.stringify(body),
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    });
-    navigate("/manager");
+  async function addImage(id) {
+    let formData = new FormData();
+    formData.append("imgDeceso", image.data);
+    const response = await fetch(
+      `http://localhost:5000/record/addImage/${id}`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    if (response) setStatus(response.statusText);
   }
+
+  const handleFileChange = (e) => {
+    const img = {
+      data: e.target.files[0],
+    };
+    setImage(img);
+  };
 
   async function updatePersonales(id) {
     // e.preventDefault();
@@ -518,20 +521,19 @@ function ManagerPage() {
                     </button>
                   </div>
 
-                  <form className="formImg" id="formImg">
-                    <button
-                      type="submit"
-                      class="btnCtrlObituario"
-                      onClick={() => addImage(deceso._id)}
-                    >
+                  <form
+                    className="formImg"
+                    id="formImg"
+                    onSubmit={() => addImage(deceso._id)}
+                  >
+                    <button type="submit" class="btnCtrlObituario">
                       Agregar imagen
                     </button>
                     <input
                       type="file"
                       name="imgDeceso"
-                      accept="image/png, image/jpeg"
                       id="imgDeceso"
-                      placeholder="File"
+                      onChange={handleFileChange}
                     ></input>
                   </form>
                 </div>
