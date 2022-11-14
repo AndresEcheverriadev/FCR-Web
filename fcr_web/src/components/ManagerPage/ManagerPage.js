@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./ManagerPage.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function ManagerPage() {
   // const urldb = `http://www.cristoreyangol.cl:5000/updatePersonales/${id}`;
@@ -40,7 +40,7 @@ function ManagerPage() {
 
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:5000/record`);
+      const response = await fetch(`http://www.cristoreyangol.cl:5000/record`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -66,7 +66,7 @@ function ManagerPage() {
   async function addObituario(e) {
     e.preventDefault();
     const newPerson = { ...form };
-    await fetch("http://localhost:5000/record/add", {
+    await fetch("http://www.cristoreyangol.cl:5000/record/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -95,7 +95,7 @@ function ManagerPage() {
     let formData = new FormData();
     formData.append("imgDeceso", image.data);
     const response = await fetch(
-      `http://localhost:5000/record/addImage/${id}`,
+      `http://www.cristoreyangol.cl:5000/record/addImage/${id}`,
       {
         method: "POST",
         body: formData,
@@ -146,7 +146,7 @@ function ManagerPage() {
       materno: updateData.materno,
     };
 
-    await fetch(`http://localhost:5000/updatePersonales/${id}`, {
+    await fetch(`http://www.cristoreyangol.cl:5000/updatePersonales/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -189,7 +189,7 @@ function ManagerPage() {
       lugarCementerio: updateFuneral.lugarCementerio,
     };
 
-    await fetch(`http://localhost:5000/updateFuneral/${id}`, {
+    await fetch(`http://www.cristoreyangol.cl:5000/updateFuneral/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -203,7 +203,7 @@ function ManagerPage() {
   }
 
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/${id}`, {
+    await fetch(`http://www.cristoreyangol.cl:5000/${id}`, {
       method: "DELETE",
     });
 
