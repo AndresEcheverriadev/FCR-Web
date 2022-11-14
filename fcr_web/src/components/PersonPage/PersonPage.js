@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import logo from "../../images/logo.svg";
+import urlPreview from "../../images/urlPreview.png";
+import { Helmet } from "react-helmet";
 import "./PersonPage.css";
 
 function PersonPage() {
@@ -63,6 +65,17 @@ function PersonPage() {
 
   return (
     <div className="personPageMainWrapper">
+      <Helmet>
+        <meta property="og:image" content={urlPreview} />
+        <title>
+          Obituario {`${record?.nombre}`} {`${record?.segundoNombre}`}
+        </title>
+        <meta
+          property="og:description"
+          content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
+        />
+        <link rel="canonical" href="http://cristoreyangol.cl" />
+      </Helmet>
       <NavLink to="/" className="logoContainer">
         <img src={logo} alt="" />
       </NavLink>
