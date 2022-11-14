@@ -4,6 +4,7 @@ import "./ManagerPage.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
 function ManagerPage() {
+  // const urldb = `http://www.cristoreyangol.cl:5000/updatePersonales/${id}`;
   const [records, setRecords] = useState([]);
   const [image, setImage] = useState({ data: "" });
   const [status, setStatus] = useState("");
@@ -19,7 +20,23 @@ function ManagerPage() {
     fechaResponso: "",
     lugarCementerio: "",
   });
-  const navigate = useNavigate();
+
+  const [updateData, setUpdateData] = useState({
+    id: "",
+    date: "",
+    nombre: "",
+    segundoNombre: "",
+    paterno: "",
+    materno: "",
+  });
+
+  const [updateFuneral, setUpdateFuneral] = useState({
+    id: "",
+    lugarVelatorio: "",
+    lugarResponso: "",
+    fechaResponso: "",
+    lugarCementerio: "",
+  });
 
   useEffect(() => {
     async function getRecords() {
@@ -70,10 +87,11 @@ function ManagerPage() {
       fechaResponso: "",
       lugarCementerio: "",
     });
-    navigate("/manager");
+    window.location.reload(false);
   }
 
-  async function addImage(id) {
+  async function addImage(id, e) {
+    e.preventDefault();
     let formData = new FormData();
     formData.append("imgDeceso", image.data);
     const response = await fetch(
@@ -84,6 +102,7 @@ function ManagerPage() {
       }
     );
     if (response) setStatus(response.statusText);
+    window.location.reload(false);
   }
 
   const handleFileChange = (e) => {
@@ -93,17 +112,41 @@ function ManagerPage() {
     setImage(img);
   };
 
-  async function updatePersonales(id) {
-    // e.preventDefault();
-    const editedPerson = {
-      date: form.date,
-      nombre: form.nombre,
-      segundoNombre: form.segundoNombre,
-      paterno: form.paterno,
-      materno: form.materno,
-      img: form.img,
+  function dataPersonUpdate(
+    e,
+    idPerson,
+    datePerson,
+    namePerson,
+    segundoPerson,
+    paternoPerson,
+    maternoPerson
+  ) {
+    e.preventDefault();
+    const newData = {
+      id: idPerson,
+      date: datePerson,
+      nombre: namePerson,
+      segundoNombre: segundoPerson,
+      paterno: paternoPerson,
+      materno: maternoPerson,
     };
-    await fetch(`http://www.cristoreyangol.cl:5000/updatePersonales/${id}`, {
+
+    setUpdateData(newData);
+  }
+
+  async function updatePersonales(e) {
+    e.preventDefault();
+    const id = updateData.id;
+    const editedPerson = {
+      id: updateData.id,
+      date: updateData.date,
+      nombre: updateData.nombre,
+      segundoNombre: updateData.segundoNombre,
+      paterno: updateData.paterno,
+      materno: updateData.materno,
+    };
+
+    await fetch(`http://localhost:5000/updatePersonales/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -113,15 +156,50 @@ function ManagerPage() {
       window.alert(error);
       return;
     });
-    setForm({
-      date: "",
-      nombre: "",
-      segundoNombre: "",
-      paterno: "",
-      materno: "",
-      img: "",
+    window.location.reload(false);
+  }
+
+  function dataFuneralUpdate(
+    e,
+    id,
+    lugarVelatorio,
+    lugarResponso,
+    fechaResponso,
+    lugarCementerio
+  ) {
+    e.preventDefault();
+    const newData = {
+      id: id,
+      lugarVelatorio: lugarVelatorio,
+      lugarResponso: lugarResponso,
+      fechaResponso: fechaResponso,
+      lugarCementerio: lugarCementerio,
+    };
+
+    setUpdateFuneral(newData);
+  }
+
+  async function updateFuneralData(e) {
+    e.preventDefault();
+    const id = updateFuneral.id;
+    const editedFuneral = {
+      lugarVelatorio: updateFuneral.lugarVelatorio,
+      lugarResponso: updateFuneral.lugarResponso,
+      fechaResponso: updateFuneral.fechaResponso,
+      lugarCementerio: updateFuneral.lugarCementerio,
+    };
+
+    await fetch(`http://localhost:5000/updateFuneral/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedFuneral),
+    }).catch((error) => {
+      window.alert(error);
+      return;
     });
-    navigate("/manager");
+    window.location.reload(false);
   }
 
   async function deleteRecord(id) {
@@ -342,32 +420,70 @@ function ManagerPage() {
             </div>
             <div class="modal-body">
               <form
-                onSubmit={updatePersonales}
+                onSubmit={(e) => updatePersonales(e)}
                 className="formContainer"
                 id="formActualizarPersonales"
               >
                 <h5>Datos del fallecido</h5>
                 <div className="inputContainer">
                   <label htmlFor="date">Fecha del fallecimiento:</label>
-                  <input type="date" name="date" />
+                  <input
+                    type="date"
+                    name="date"
+                    value={updateData.date}
+                    onChange={(e) =>
+                      setUpdateData({ ...updateData, date: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="inputContainer">
                   <label htmlFor="nombreDeceso">Nombre del fallecido:</label>
-                  <input type="text" name="nombreDeceso" />
+                  <input
+                    type="text"
+                    name="nombreDeceso"
+                    value={updateData.nombre}
+                    onChange={(e) =>
+                      setUpdateData({ ...updateData, nombre: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="inputContainer">
                   <label htmlFor="segundoNombreDeceso">
                     Segundo Nombre del fallecido:
                   </label>
-                  <input type="text" name="segundoNombreDeceso" />
+                  <input
+                    type="text"
+                    name="segundoNombreDeceso"
+                    value={updateData.segundoNombre}
+                    onChange={(e) =>
+                      setUpdateData({
+                        ...updateData,
+                        segundoNombre: e.target.value,
+                      })
+                    }
+                  />
                 </div>
                 <div className="inputContainer">
                   <label htmlFor="paternoDeceso">Apellido paterno:</label>
-                  <input type="text" name="paternoDeceso" />
+                  <input
+                    type="text"
+                    name="paternoDeceso"
+                    value={updateData.paterno}
+                    onChange={(e) =>
+                      setUpdateData({ ...updateData, paterno: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="inputContainer">
                   <label htmlFor="maternoDeceso">Apellido materno:</label>
-                  <input type="text" name="maternoDeceso" />
+                  <input
+                    type="text"
+                    name="maternoDeceso"
+                    value={updateData.materno}
+                    onChange={(e) =>
+                      setUpdateData({ ...updateData, materno: e.target.value })
+                    }
+                  />
                 </div>
               </form>
             </div>
@@ -414,22 +530,52 @@ function ManagerPage() {
             </div>
             <div class="modal-body">
               <form
-                action=""
+                onSubmit={(e) => updateFuneralData(e)}
                 className="formContainer"
                 id="formActualizarFuneral"
               >
                 <h5>Datos del funeral</h5>
                 <div className="inputContainer">
                   <label htmlFor="lugarVelatorio">lugar velatorio:</label>
-                  <input type="text" name="lugarVelatorio" />
+                  <input
+                    type="text"
+                    name="lugarVelatorio"
+                    value={updateFuneral.lugarVelatorio}
+                    onChange={(e) =>
+                      setUpdateFuneral({
+                        ...updateFuneral,
+                        lugarVelatorio: e.target.value,
+                      })
+                    }
+                  />
                 </div>
                 <div className="inputContainer">
                   <label htmlFor="lugarResponso">lugar responso:</label>
-                  <input type="text" name="lugarResponso" />
+                  <input
+                    type="text"
+                    name="lugarResponso"
+                    value={updateFuneral.lugarResponso}
+                    onChange={(e) =>
+                      setUpdateFuneral({
+                        ...updateFuneral,
+                        lugarResponso: e.target.value,
+                      })
+                    }
+                  />
                 </div>
                 <div className="inputContainer">
                   <label htmlFor="fechaResponso">fecha responso:</label>
-                  <input type="date" name="fechaResponso" />
+                  <input
+                    type="date"
+                    name="fechaResponso"
+                    value={updateFuneral.fechaResponso}
+                    onChange={(e) =>
+                      setUpdateFuneral({
+                        ...updateFuneral,
+                        fechaResponso: e.target.value,
+                      })
+                    }
+                  />
                 </div>
                 <div className="inputContainer">
                   <label htmlFor="lugarCementerio">lugar cementerio:</label>
@@ -437,6 +583,13 @@ function ManagerPage() {
                     list="cementerios"
                     type="text"
                     name="otrolugarCementerio"
+                    value={updateFuneral.lugarCementerio}
+                    onChange={(e) =>
+                      setUpdateFuneral({
+                        ...updateFuneral,
+                        lugarCementerio: e.target.value,
+                      })
+                    }
                   />
                   <datalist id="cementerios">
                     <option value="Cementerio Parque Angol">
@@ -502,7 +655,17 @@ function ManagerPage() {
                       className="btnCtrlObituario"
                       data-bs-toggle="modal"
                       data-bs-target="#modalActualizarDatos"
-                      data-record-id={deceso._id}
+                      onClick={(e) =>
+                        dataPersonUpdate(
+                          e,
+                          deceso._id,
+                          deceso.date,
+                          deceso.nombre,
+                          deceso.segundoNombre,
+                          deceso.paterno,
+                          deceso.materno
+                        )
+                      }
                     >
                       Editar datos personales
                     </button>
@@ -510,6 +673,16 @@ function ManagerPage() {
                       className="btnCtrlObituario"
                       data-bs-toggle="modal"
                       data-bs-target="#modalActualizarFuneral"
+                      onClick={(e) =>
+                        dataFuneralUpdate(
+                          e,
+                          deceso._id,
+                          deceso.lugarVelatorio,
+                          deceso.lugarResponso,
+                          deceso.fechaResponso,
+                          deceso.lugarCementerio
+                        )
+                      }
                     >
                       Editar datos funeral
                     </button>
@@ -524,17 +697,17 @@ function ManagerPage() {
                   <form
                     className="formImg"
                     id="formImg"
-                    onSubmit={() => addImage(deceso._id)}
+                    onSubmit={(e) => addImage(deceso._id, e)}
                   >
-                    <button type="submit" class="btnCtrlObituario">
-                      Agregar imagen
-                    </button>
                     <input
                       type="file"
                       name="imgDeceso"
                       id="imgDeceso"
                       onChange={handleFileChange}
                     ></input>
+                    <button type="submit" class="btnCtrlObituario">
+                      Agregar imagen
+                    </button>
                   </form>
                 </div>
               </div>

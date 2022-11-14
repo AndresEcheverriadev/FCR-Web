@@ -15,5 +15,5 @@ app.listen(port, () => {
   dbo.connectToServer(function (err) {
     if (err) console.error(err);
   });
-  console.log(`Server is running on port: ${port}`);
+  console.log(`Servidor corriendo en puerto: ${port}`);
 });

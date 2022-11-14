@@ -44,6 +44,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
     .collection("obituarioPersons")
     .insertOne(myobj, function (err, res) {
       if (err) throw err;
+      console.log("agregado al obituario");
       response.json(res);
     });
 });
@@ -63,28 +64,50 @@ recordRoutes
       .collection("obituarioPersons")
       .updateOne(myquery, newvalues, function (err, res) {
         if (err) throw err;
-        console.log("updated image");
+        console.log("imagen actualizada");
         response.json(res);
       });
   });
 
 recordRoutes.route("/updatePersonales/:id").post(function (req, response) {
+  console.log(req.body);
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {
     $set: {
+      date: req.body.date,
       nombre: req.body.nombre,
       segundoNombre: req.body.segundoNombre,
       paterno: req.body.paterno,
       materno: req.body.materno,
-      img: req.body.img,
     },
   };
   db_connect
     .collection("obituarioPersons")
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
-      console.log("1 document updated");
+      console.log("datos personales actualizados");
+      response.json(res);
+    });
+});
+
+recordRoutes.route("/updateFuneral/:id").post(function (req, response) {
+  console.log(req.body);
+  let db_connect = dbo.getDb();
+  let myquery = { _id: ObjectId(req.params.id) };
+  let newvalues = {
+    $set: {
+      lugarVelatorio: req.body.lugarVelatorio,
+      lugarResponso: req.body.lugarResponso,
+      fechaResponso: req.body.fechaResponso,
+      lugarCementerio: req.body.lugarCementerio,
+    },
+  };
+  db_connect
+    .collection("obituarioPersons")
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log("datos de funeral actualizados");
       response.json(res);
     });
 });
