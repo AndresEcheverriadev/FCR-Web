@@ -2,8 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import ContactForm from "../ContactForm/ContactForm";
 import imgHome from "../../images/imgHome.jpg";
-import imgHistoria from "../../images/imgDemoHistoria.jpg";
-import imgHistoria2 from "../../images/imgDemoHistoria2.jpg";
+import imgHistoria from "../../images/imgDemoHistoria2.jpg";
 import arregloFooter from "../../images/arregloFooter.png";
 import Footer from "../Footer/Footer";
 import "./HomePage.css";
@@ -13,8 +12,6 @@ function HomePage() {
   const fono1 = "+569 5253 9500";
   const fono2 = "+569 9032 7836";
   const whatsappCode = "56952539500";
-
-  console.log("v10");
 
   return (
     <>
@@ -284,7 +281,7 @@ function HomePage() {
 
           <div className="historiaImg">
             <img
-              src={imgHistoria2}
+              src={imgHistoria}
               alt="Teobaldo Echeverría fundador de Funeraria Cristo Rey"
             />
           </div>
@@ -326,17 +323,6 @@ function HomePage() {
             </div>
           </div>
         </div>
-        {/* <div className="mapsWrapper">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.371346031827!2d-72.69668718485178!3d-37.8047700797541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966bb33bd668eb11%3A0x3ada8c457c098537!2sBernardo%20O&#39;Higgins%20731%2C%20Angol%2C%20Araucan%C3%ADa!5e0!3m2!1ses!2scl!4v1665197302871!5m2!1ses!2scl"
-            width="600"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div> */}
       </div>
 
       <div className="faqsWrapper" id="faqs">

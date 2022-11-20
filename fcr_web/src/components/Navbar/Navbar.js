@@ -1,10 +1,15 @@
-import React, { useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../images/logo.svg";
 import "./Navbar.css";
 import "./NavbarResponsive.css";
 
 function Navbar() {
+  const navigation = useNavigate();
+  const navigateToSection = () => {
+    navigation("/");
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-light navbarMainContainer">
       <div className="container-fluid">
@@ -31,23 +36,39 @@ function Navbar() {
                 Inicio
               </NavLink>
             </li>
-            <li className="nav-item" onClick={() => this.handleScroll()}>
-              <a href="#servicios" className="animLink">
+            <li className="nav-item">
+              <a
+                href="#servicios"
+                className="animLink"
+                onClick={() => navigateToSection()}
+              >
                 Servicios funerarios
               </a>
             </li>
             <li className="nav-item">
-              <a href="#nosotros" className="animLink">
+              <a
+                href="#nosotros"
+                onClick={() => navigateToSection()}
+                className="animLink"
+              >
                 Nuestra historia
               </a>
             </li>
             <li className="nav-item">
-              <a href="#faqs" className="animLink">
+              <a
+                href="#faqs"
+                onClick={() => navigateToSection()}
+                className="animLink"
+              >
                 Preguntas frecuentes
               </a>
             </li>
             <li className="nav-item">
-              <a href="#contacto" className="animLink">
+              <a
+                onClick={() => navigateToSection()}
+                href="#contacto"
+                className="animLink"
+              >
                 Contacto
               </a>
             </li>
