@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import ContactForm from "../ContactForm/ContactForm";
 import imgHome from "../../images/imgHome.jpg";
 import imgHistoria from "../../images/imgDemoHistoria.jpg";
+import imgHistoria2 from "../../images/imgDemoHistoria2.jpg";
 import arregloFooter from "../../images/arregloFooter.png";
 import Footer from "../Footer/Footer";
 import "./HomePage.css";
@@ -283,7 +284,7 @@ function HomePage() {
 
           <div className="historiaImg">
             <img
-              src={imgHistoria}
+              src={imgHistoria2}
               alt="Teobaldo Echeverría fundador de Funeraria Cristo Rey"
             />
           </div>
@@ -390,10 +391,17 @@ function HomePage() {
                     </li>
                     <li>
                       Cobrar la asignación por causa de muerte (cuota
-                      mortuoria). Obtenga más información en el campo asignación
-                      por muerte.
+                      mortuoria).
                     </li>
                   </ul>
+                  <p>
+                    <b>
+                      Importante: Estos trámites son parte del servicio
+                      funerario que entrega Cristo Rey. Al momento de fallecer
+                      la persona, solo debes hablarnos y te acompañaremos en
+                      cada paso.
+                    </b>
+                  </p>
                 </div>
               </div>
             </div>
@@ -466,7 +474,7 @@ function HomePage() {
                   aria-expanded="false"
                   aria-controls="collapseThree"
                 >
-                  Lorem ipsum dolor sit amet.
+                  Si existe una sepultura a nombre de la persona fallecida
                 </button>
               </h2>
               <div
@@ -476,19 +484,24 @@ function HomePage() {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corrupti et facilis blanditiis expedita eius, dolore harum
-                    nihil illum culpa rerum laudantium impedit reprehenderit,
-                    dolorum iste fugiat labore nam voluptatibus mollitia. Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Sit iure
-                    cumque enim earum. In, reprehenderit perspiciatis! Maxime,
-                    provident placeat? Iure, quibusdam. Dolor distinctio, alias,
-                    consequuntur doloribus doloremque veniam excepturi error sed
-                    cupiditate inventore at. Nostrum, rerum eum possimus
-                    consectetur obcaecati cum facilis porro hic aut. Officiis a
-                    quo accusamus nihil!
-                  </p>
+                  <ul>
+                    <li>
+                      Su familiar podrá ser sepultado en esa sepultura.
+                      Generalmente, las sepulturas compradas previamente son
+                      perpetuas y familiares.
+                    </li>
+                    <li>
+                      Para usar esa sepultura debe coordinar con la funeraria y
+                      acercarse al cementerio para que la abran, determinen si
+                      tiene capacidad, y evalúen si su familiar tiene derecho a
+                      usar esa sepultura o no.
+                    </li>
+                    <li>
+                      Recuerde entregar el pase de sepultación, documento que
+                      entrega el Registro Civil una vez hecha la inscripción de
+                      defunción.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -503,7 +516,7 @@ function HomePage() {
                   aria-expanded="false"
                   aria-controls="collapseFour"
                 >
-                  Lorem ipsum dolor sit amet.
+                  Si la persona fallecida no tiene una sepultura
                 </button>
               </h2>
               <div
@@ -513,19 +526,21 @@ function HomePage() {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corrupti et facilis blanditiis expedita eius, dolore harum
-                    nihil illum culpa rerum laudantium impedit reprehenderit,
-                    dolorum iste fugiat labore nam voluptatibus mollitia. Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Sit iure
-                    cumque enim earum. In, reprehenderit perspiciatis! Maxime,
-                    provident placeat? Iure, quibusdam. Dolor distinctio, alias,
-                    consequuntur doloribus doloremque veniam excepturi error sed
-                    cupiditate inventore at. Nostrum, rerum eum possimus
-                    consectetur obcaecati cum facilis porro hic aut. Officiis a
-                    quo accusamus nihil!
-                  </p>
+                  <ul>
+                    <li>
+                      Si la persona fallecida o la familia no cuenta con un
+                      lugar para la sepultación, deberá acercarse a un
+                      cementerio para adquirir un lugar para realizar el
+                      entierro. En algunos casos, las sepulturas o nichos se
+                      arriendan por un determinado periodo de tiempo, el que
+                      puede renovarse.
+                    </li>
+                    <li>
+                      No olvide entregar el pase de sepultación, documento que
+                      entrega el Registro Civil una vez hecha la inscripción de
+                      defunción
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -540,7 +555,7 @@ function HomePage() {
                   aria-expanded="false"
                   aria-controls="collapseFive"
                 >
-                  Lorem ipsum dolor sit amet.
+                  Si la persona fallecida pidío ser cremada
                 </button>
               </h2>
               <div
@@ -551,18 +566,67 @@ function HomePage() {
               >
                 <div className="accordion-body">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corrupti et facilis blanditiis expedita eius, dolore harum
-                    nihil illum culpa rerum laudantium impedit reprehenderit,
-                    dolorum iste fugiat labore nam voluptatibus mollitia. Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Sit iure
-                    cumque enim earum. In, reprehenderit perspiciatis! Maxime,
-                    provident placeat? Iure, quibusdam. Dolor distinctio, alias,
-                    consequuntur doloribus doloremque veniam excepturi error sed
-                    cupiditate inventore at. Nostrum, rerum eum possimus
-                    consectetur obcaecati cum facilis porro hic aut. Officiis a
-                    quo accusamus nihil!
+                    ¿Qué documentos debo presentar si la persona fallecida pidió
+                    ser cremada?
                   </p>
+                  <ul>
+                    <li>
+                      Autorización previa del director general del Servicio
+                      Nacional de Salud o de su delegado, siempre que pase
+                      alguna de las dos siguientes situaciones:
+                      <ul>
+                        <li>
+                          Exista declaración escrita hecha antes por la persona
+                          fallecida en una notaría o en el registro que deben
+                          llevar todos los cementerios para ello.
+                        </li>
+                        <li>
+                          Exista solicitud del cónyuge sobreviviente o de la
+                          mayoría de los hijos quienes autoricen la cremación
+                          ante notario público. En caso de no existir cónyuge
+                          sobreviviente ni hijos, el Reglamento de Cementerios
+                          autoriza a otras personas a solicitarlo.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Pase de sepultación, emitido por el Registro Civil del
+                      lugar donde ocurrió el fallecimiento, más una fotocopia
+                      del certificado de defunción emitido por el médico.
+                    </li>
+                    <li>
+                      Autorización judicial, sólo si el fallecimiento ocurrió
+                      por accidente o por causas que hagan suponer algún grado
+                      de delito.
+                    </li>
+                    <p>
+                      Importante: los documentos deben ser presentados en el
+                      lugar dónde se va a realizar la incineración.
+                    </p>
+                  </ul>
+                  <p>¿Cuáles son los plazos para realizar la cremación?</p>
+                  <ul>
+                    <li>
+                      En caso de producirse muerte natural, la cremación se hace
+                      generalmente 1 ó 2 días después de recibido el cuerpo.
+                      Según el código sanitario, una vez ocurrida la muerte,
+                      deberá existir una fecha de muerte de a lo menos 24 horas
+                      y no deberá superar las 48 horas antes de ser ingresado a
+                      un cementerio, ya sea para ser cremado o sepultado.
+                    </li>
+                  </ul>
+                  <p>
+                    ¿Que hacer en el caso de una persona extranjera sin
+                    familiares en Chile?
+                  </p>
+                  <ul>
+                    <li>
+                      En el caso de las personas extranjeras que no tengan
+                      parientes en el país, bastará la petición formulada por el
+                      representante diplomático o consular del país de origen de
+                      la persona fallecida para que pueda ser cremada.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -577,7 +641,7 @@ function HomePage() {
                   aria-expanded="false"
                   aria-controls="collapseSix"
                 >
-                  Lorem ipsum dolor sit amet.
+                  Reembolso de gastos funerarios
                 </button>
               </h2>
               <div
@@ -588,18 +652,174 @@ function HomePage() {
               >
                 <div className="accordion-body">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corrupti et facilis blanditiis expedita eius, dolore harum
-                    nihil illum culpa rerum laudantium impedit reprehenderit,
-                    dolorum iste fugiat labore nam voluptatibus mollitia. Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Sit iure
-                    cumque enim earum. In, reprehenderit perspiciatis! Maxime,
-                    provident placeat? Iure, quibusdam. Dolor distinctio, alias,
-                    consequuntur doloribus doloremque veniam excepturi error sed
-                    cupiditate inventore at. Nostrum, rerum eum possimus
-                    consectetur obcaecati cum facilis porro hic aut. Officiis a
-                    quo accusamus nihil!
+                    Existen muchas situaciones y alternativas para que se
+                    reembolsen los gastos funerarios:
                   </p>
+                  <ul>
+                    <li>
+                      Si la persona fallecida estaba afiliada al sistema de AFP
+                      con una cuenta de capitalización abierta y vigente, quien
+                      acredite haberse hecho cargo de los gastos del funeral con
+                      la correspondiente factura, tiene derecho al pago de 15
+                      Unidades de Fomento (UF) por parte de la AFP y cargados a
+                      la cuenta de capitalización individual del causante. Esto
+                      significa que, si el saldo de esa cuenta es menor que 15
+                      UF al momento del fallecimiento, la Cuota Mortuoria solo
+                      equivaldrá al saldo remanente. Ahora bien, si la persona
+                      fallecida percibía PGU o beneficios del Pilar Solidario de
+                      Invalidez, tiene derecho a la totalidad de la Cuota
+                      Mortuoria, para cuyos efectos la AFP pagará su monto
+                      íntegro con fondo propios si fuere necesario, para luego
+                      recuperarlos directamente del IPS.
+                    </li>
+                    <li>
+                      Si la persona fallecida afiliada al sistema de AFP estaba
+                      pensionada en la modalidad de renta vitalicia, la compañía
+                      de seguros pagará 15 UF a la persona que acredite haberse
+                      hecho cargo de los gastos funerarios del causante,
+                      independientemente de si percibía o no PGU o algún
+                      beneficio del Pilar Solidario de Invalidez al momento de
+                      fallecer.
+                    </li>
+                    <li>
+                      Si la persona fallecida estaba afiliada al sistema
+                      previsional antiguo (ex INP), se autorizará a quien haya
+                      pagado los gastos funerarios el derecho a cobrar la
+                      Asignación por Muerte, la que será pagada directamente por
+                      el IPS, equivalente a tres ingresos mínimos para fines no
+                      remuneracionales. La única excepción a este derecho es el
+                      caso de los pensionados de orfandad en el sistema antiguo
+                      que fallecen sin estar percibiendo además PGU o algún
+                      beneficio del Pilar Solidario. Actualmente, la Asignación
+                      por Muerte corresponde a $773 mil 508 (equivalentes a tres
+                      ingresos mínimos para fines no remuneracionales vigentes a
+                      la fecha del fallecimiento). Obtén más información sobre
+                      la Asignación por Muerte y/o descarga el certificado de
+                      defunción para asignación familiar.
+                    </li>
+                    <li>
+                      Si la persona no estaba afiliada a ningún sistema
+                      previsional que cause beneficios mortuorios y solo
+                      percibía PGU, genera derecho de Cuota Mortuoria, pagada
+                      directamente por el IPS. En el mismo caso, si solo
+                      percibía beneficios del Pilar Solidario de Invalidez o
+                      subsidio de discapacidad para menores de edad, genera
+                      derecho a Asignación por Muerte, también pagada
+                      directamente por el IPS.
+                    </li>
+                    <li>
+                      Además, sobre la Cuota Mortuoria, si los gastos funerarios
+                      fueron hechos por una persona distinta del cónyuge o
+                      conviviente civil, hijos o padre del afiliado fallecido,
+                      solo tendrá derecho a tal retiro hasta la comprobación del
+                      monto efectivo de su gasto, con el límite de 15 Unidades
+                      de Fomento, quedando el saldo hasta completar esa cifra a
+                      disposición del o la cónyuge o conviviente civil
+                      sobreviviente, y a falta de este, de los hijos o los
+                      padres del afiliado.
+                    </li>
+                    <li>
+                      Por su parte, tratándose de Asignación por Muerte, tendrá
+                      derecho al monto máximo el beneficiario que sea cónyuge,
+                      hijo, padre o madre del causante. Cualquier otro
+                      beneficiario tendrá derecho solamente al reembolso del
+                      gasto que pruebe haber realizado hasta el monto máximo de
+                      la asignación.
+                    </li>
+                    <li>
+                      Como esos gastos corren generalmente por cuenta de la
+                      funeraria, es ella la que se hace cargo de cobrar ese
+                      dinero para cubrir el servicio fúnebre.
+                    </li>
+                    <li>
+                      Generalmente, las funerarias tienen servicios fúnebres
+                      básicos, de manera que no tengas que pagar extra a la
+                      funeraria, pues la Cuota Mortuoria o Asignación por Muerte
+                      cubre casi todo ese gasto.
+                    </li>
+                    <li>
+                      En los casos en que las mujeres reciben beneficios del
+                      Pilar Solidario y que, además, se afilian a una AFP para
+                      obtener el Bono por Hijo, solo tendrán derecho a la cuota
+                      mortuoria y no a la asignación por muerte. Obtén más
+                      información sobre el Bono por Hijo.
+                    </li>
+                    <li>
+                      En el caso de familiares o terceros que se hayan hecho
+                      cargo de los servicios funerarios de un funcionario en
+                      servicio activo, o pensionado de retiro o montepío de la
+                      Caja de Previsión de la Defensa Nacional (Capredena),
+                      pueden solicitar una Asignación por Muerte.
+                    </li>
+                    <li>
+                      También podrán solicitar una Cuota Mortuoria los
+                      familiares o terceros que se hayan hecho cargo de los
+                      servicios funerarios de un funcionario activo, o
+                      pensionados o pensionadas de retiro, o montepíos de la
+                      Dirección de Previsión de Carabineros de Chile (Dipreca).
+                    </li>
+                  </ul>
+                  <p>
+                    Importante: para información sobre costos de sepultura,
+                    renovación o cambios de las condiciones, consulte
+                    directamente con la administración del cementerio.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingSeven">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven"
+                  aria-expanded="false"
+                  aria-controls="collapseSeven"
+                >
+                  Traslado de una persona fallecida
+                </button>
+              </h2>
+              <div
+                id="collapseSeven"
+                className="accordion-collapse collapse"
+                aria-labelledby="headingseven"
+                data-bs-parent="#accordionExample"
+              >
+                <div className="accordion-body">
+                  <p>¿Quiénes están autorizados para trasladar difuntos?</p>
+                  <ul>
+                    <li>
+                      Los funcionarios de los cementerios. Las casas funerarias
+                      pueden hacerlo, siempre y cuando cuenten con la
+                      autorización del Servicio Nacional de Salud.
+                    </li>
+                  </ul>
+                  <p>Para traslado de ciudad en Chile</p>
+                  <ul>
+                    <li>
+                      Se debe obtener un permiso de la autoridad sanitaria y de
+                      la SEREMI de salud del área en que la persona falleció.
+                      Para realizar este trámite, el ataúd debe estar sellado.
+                    </li>
+                  </ul>
+                  <p>Para traslado fuera de Chile</p>
+                  <ul>
+                    <li>
+                      Hacia el extranjero: el ataúd debe ser colocado en un
+                      compartimento separado, dentro del vehículo de transporte,
+                      y debe ser sellado por la autoridad sanitaria.
+                    </li>
+                    <li>
+                      Desde el extranjero: solo podrá ingresar si previamente se
+                      acredita ante la autoridad sanitaria, por medio de
+                      documentos extendidos por las autoridades sanitarias del
+                      punto de origen, debidamente visados por el cónsul de
+                      Chile, que el transporte no representa un peligro para la
+                      salud pública.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -608,7 +828,7 @@ function HomePage() {
       </div>
 
       <div className="formContainerHome" id="contacto">
-        <h3>Déjanos un comentario</h3>
+        <h3>Escríbenos un mensaje</h3>
         <ContactForm />
       </div>
 

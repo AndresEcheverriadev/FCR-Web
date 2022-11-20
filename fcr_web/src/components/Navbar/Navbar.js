@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../images/logo.svg";
 import "./Navbar.css";
 import "./NavbarResponsive.css";
@@ -31,7 +31,7 @@ function Navbar() {
                 Inicio
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={() => this.handleScroll()}>
               <a href="#servicios" className="animLink">
                 Servicios funerarios
               </a>
