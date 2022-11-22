@@ -66,14 +66,30 @@ function PersonPage() {
   return (
     <div className="personPageMainWrapper">
       <Helmet>
-        <meta property="og:image" content={urlPreview} />
-        <title>
-          Obituario {`${record?.nombre}`} {`${record?.segundoNombre}`}
-        </title>
+        <meta
+          property="og:title"
+          content={`Obiturio de ${record?.nombre} ${record?.segundoNombre}`}
+        />
+        <meta
+          property="og:url"
+          content={`http://www.cristorey.cl/${personId}`}
+        />
         <meta
           property="og:description"
           content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
         />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content="https://i.postimg.cc/HLhPLqBs/url-Preview.png"
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="200" />
+        <title>
+          Obituario {`${record?.nombre}`} {`${record?.segundoNombre}`}
+        </title>
+
         <link rel="canonical" href="http://cristoreyangol.cl" />
       </Helmet>
       <NavLink to="/" className="logoContainer">
