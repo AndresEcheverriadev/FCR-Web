@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../Navbar/Navbar";
-import "./ObituarioPage.css";
 import { NavLink } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+import { Helmet } from "react-helmet";
+import "./ObituarioPage.css";
 
 function ObituarioPage() {
   const [records, setRecords] = useState([]);
@@ -46,6 +47,32 @@ function ObituarioPage() {
   );
   return (
     <div className="obituarioPageMainWrapper">
+      <Helmet>
+        <meta
+          property="og:title"
+          content={`Sitio web servicios funerarios Cristo Rey`}
+        />
+        <meta property="og:url" content={`http://www.cristorey.cl/`} />
+        <meta
+          property="og:description"
+          content="Sitio web servicios funerarios Cristo Rey"
+        />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content="https://i.postimg.cc/HLhPLqBs/url-Preview.png"
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="200" />
+        <title>Servicios Funerarios Cristo Rey</title>
+        <meta
+          name="description"
+          content="Sitio web servicios funerarios Cristo Rey"
+        ></meta>
+
+        <link rel="canonical" href="http://cristoreyangol.cl/" />
+      </Helmet>
       <header className="headerContainer">
         <Navbar />
       </header>

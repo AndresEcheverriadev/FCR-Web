@@ -5,6 +5,7 @@ import imgHome from "../../images/imgHome.jpg";
 import imgHistoria from "../../images/imgDemoHistoria2.jpg";
 import arregloFooter from "../../images/arregloFooter.png";
 import Footer from "../Footer/Footer";
+import { Helmet } from "react-helmet";
 import "./HomePage.css";
 import "./HomePageResponsive.css";
 
@@ -15,6 +16,32 @@ function HomePage() {
 
   return (
     <>
+      <Helmet>
+        <meta
+          property="og:title"
+          content={`Sitio web servicios funerarios Cristo Rey`}
+        />
+        <meta property="og:url" content={`http://www.cristorey.cl/`} />
+        <meta
+          property="og:description"
+          content="Sitio web servicios funerarios Cristo Rey"
+        />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content="https://i.postimg.cc/HLhPLqBs/url-Preview.png"
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="200" />
+        <title>Servicios Funerarios Cristo Rey</title>
+        <meta
+          name="description"
+          content="Sitio web servicios funerarios Cristo Rey"
+        ></meta>
+
+        <link rel="canonical" href="http://cristoreyangol.cl/" />
+      </Helmet>
       <div className="homePageMainContainer">
         <div className="viewHomeContainer">
           <header className="headerContainer">
