@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/logo.svg";
+import { LoginContext } from "../context/loginContext.js";
 import "./LoginPage.css";
 
 function LoginPage() {
@@ -8,9 +10,10 @@ function LoginPage() {
   const navigate = useNavigate();
   const input = document.getElementById("inputPassManager");
   const [passer, setPasser] = useState({ pass: "" });
-
+  const { logIn } = useContext(LoginContext);
   function login() {
     if (passer.pass === password) {
+      logIn();
       navigate("/manager");
       input.value = "";
     } else {
@@ -18,7 +21,6 @@ function LoginPage() {
       alert("Password incorrecto");
     }
   }
-
   return (
     <div className="loginPageMainWrapper">
       <NavLink to="/" className="loginLogoContainer">

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { LoginContext } from "../context/loginContext";
 import Navbar from "../Navbar/Navbar";
 import "./ManagerPage.css";
-import { NavLink } from "react-router-dom";
 
 function ManagerPage() {
-  // const urldb = `http://www.cristoreyangol.cl:5000/updatePersonales/${id}`;
+  const { logOut } = useContext(LoginContext);
   const [records, setRecords] = useState([]);
   const [image, setImage] = useState({ data: "" });
   const [status, setStatus] = useState("");
@@ -20,7 +21,6 @@ function ManagerPage() {
     fechaResponso: "",
     lugarCementerio: "",
   });
-
   const [updateData, setUpdateData] = useState({
     id: "",
     date: "",
@@ -29,7 +29,6 @@ function ManagerPage() {
     paterno: "",
     materno: "",
   });
-
   const [updateFuneral, setUpdateFuneral] = useState({
     id: "",
     lugarVelatorio: "",
@@ -37,7 +36,6 @@ function ManagerPage() {
     fechaResponso: "",
     lugarCementerio: "",
   });
-
   useEffect(() => {
     async function getRecords() {
       const response = await fetch(`http://www.cristoreyangol.cl:5000/record`);
@@ -56,13 +54,11 @@ function ManagerPage() {
 
     return;
   }, [records.length]);
-
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
     });
   }
-
   async function addObituario(e) {
     e.preventDefault();
     const newPerson = { ...form };
@@ -89,7 +85,6 @@ function ManagerPage() {
     });
     window.location.reload(false);
   }
-
   async function addImage(id, e) {
     e.preventDefault();
     let formData = new FormData();
@@ -104,14 +99,12 @@ function ManagerPage() {
     if (response) setStatus(response.statusText);
     window.location.reload(false);
   }
-
   const handleFileChange = (e) => {
     const img = {
       data: e.target.files[0],
     };
     setImage(img);
   };
-
   function dataPersonUpdate(
     e,
     idPerson,
@@ -133,7 +126,6 @@ function ManagerPage() {
 
     setUpdateData(newData);
   }
-
   async function updatePersonales(e) {
     e.preventDefault();
     const id = updateData.id;
@@ -145,7 +137,6 @@ function ManagerPage() {
       paterno: updateData.paterno,
       materno: updateData.materno,
     };
-
     await fetch(`http://www.cristoreyangol.cl:5000/updatePersonales/${id}`, {
       method: "POST",
       headers: {
@@ -158,7 +149,6 @@ function ManagerPage() {
     });
     window.location.reload(false);
   }
-
   function dataFuneralUpdate(
     e,
     id,
@@ -178,7 +168,6 @@ function ManagerPage() {
 
     setUpdateFuneral(newData);
   }
-
   async function updateFuneralData(e) {
     e.preventDefault();
     const id = updateFuneral.id;
@@ -188,7 +177,6 @@ function ManagerPage() {
       fechaResponso: updateFuneral.fechaResponso,
       lugarCementerio: updateFuneral.lugarCementerio,
     };
-
     await fetch(`http://www.cristoreyangol.cl:5000/updateFuneral/${id}`, {
       method: "POST",
       headers: {
@@ -201,16 +189,13 @@ function ManagerPage() {
     });
     window.location.reload(false);
   }
-
   async function deleteRecord(id) {
     await fetch(`http://www.cristoreyangol.cl:5000/${id}`, {
       method: "DELETE",
     });
-
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
   }
-
   const iconCross = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -226,7 +211,6 @@ function ManagerPage() {
       />
     </svg>
   );
-
   return (
     <div className="mnanagerPageMainWrapper">
       <header className="managerHeaderContainer">
@@ -397,7 +381,6 @@ function ManagerPage() {
           </div>
         </div>
       </div>
-
       <div
         class="modal fade"
         id="modalActualizarDatos"
@@ -507,7 +490,6 @@ function ManagerPage() {
           </div>
         </div>
       </div>
-
       <div
         class="modal fade"
         id="modalActualizarFuneral"
@@ -624,9 +606,15 @@ function ManagerPage() {
           </div>
         </div>
       </div>
-
       <main className="managerPageMainContainer">
         <h1>Manager de Obituario</h1>
+        <button
+          type="submit"
+          class="btnLogoutObituario"
+          onClick={() => logOut()}
+        >
+          Salir
+        </button>
         <div className="addObituarioContainer">
           <button
             className="btnAddObituario"
@@ -693,7 +681,6 @@ function ManagerPage() {
                       Eliminar del obituario
                     </button>
                   </div>
-
                   <form
                     className="formImg"
                     id="formImg"
