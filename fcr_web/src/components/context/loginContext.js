@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LoginContext = createContext([]);
 function LoginContextProvider({ children }) {
-  const [isLoggedIn, setisLoggedIn] = useState(false);
-
+  const navigate = useNavigate();
   const logIn = () => {
     const data = sessionStorage.getItem("adminLogged");
-    if (!data) {
+    if (data == null) {
       sessionStorage.setItem(
         "adminLogged",
         JSON.stringify(`adminLogged${Date.now()}`)
@@ -17,21 +17,25 @@ function LoginContextProvider({ children }) {
     }
   };
   const logOut = () => {
-    setisLoggedIn(false);
     sessionStorage.clear();
+    return navigate("/");
   };
 
-  useEffect(() => {
+  const checkToken = () => {
     const data = sessionStorage.getItem("adminLogged");
     if (data) {
       setisLoggedIn(true);
     } else {
-      logOut();
+      setisLoggedIn(false);
     }
-  }, []);
+  };
+
+  const [isLoggedIn, setisLoggedIn] = useState();
 
   return (
-    <LoginContext.Provider value={{ isLoggedIn, setisLoggedIn, logIn, logOut }}>
+    <LoginContext.Provider
+      value={{ logIn, logOut, isLoggedIn, setisLoggedIn, checkToken }}
+    >
       {children}
     </LoginContext.Provider>
   );
