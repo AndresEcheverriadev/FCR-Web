@@ -19,7 +19,7 @@ function PersonPage() {
     async function getPerson() {
       const id = personId.toString();
       const response = await fetch(
-        `http://www.cristoreyangol.cl:5000/record/${id}`
+        `${process.env.REACT_APP_SERVER_URL_RECORD}/${id}`
       );
       const record = await response.json();
       setRecord(record);
@@ -32,7 +32,7 @@ function PersonPage() {
 
   const sendMesagge = async (id) => {
     const newMesagge = { author: msgText.author, mesagge: msgText.mesagge };
-    await fetch(`http://www.cristoreyangol.cl:5000/updateMensajes/${id}`, {
+    await fetch(`${process.env.REACT_APP_SERVER_URL_MESAGGES}/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

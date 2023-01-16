@@ -6,7 +6,7 @@ import { LoginContext } from "../context/loginContext.js";
 import "./LoginPage.css";
 
 function LoginPage() {
-  const password = "obituarioFCR119852+";
+  const password = `${process.env.REACT_APP_PASSOBITUARIO}`;
   const navigate = useNavigate();
   const input = document.getElementById("inputPassManager");
   const [passer, setPasser] = useState({ pass: "" });

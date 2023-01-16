@@ -38,7 +38,9 @@ function ManagerPage() {
   });
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://www.cristoreyangol.cl:5000/record`);
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER_URL_RECORD}`
+      );
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -62,7 +64,7 @@ function ManagerPage() {
   async function addObituario(e) {
     e.preventDefault();
     const newPerson = { ...form };
-    await fetch("http://www.cristoreyangol.cl:5000/record/add", {
+    await fetch(`${process.env.REACT_APP_SERVER_URL_ADD}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -90,7 +92,7 @@ function ManagerPage() {
     let formData = new FormData();
     formData.append("imgDeceso", image.data);
     const response = await fetch(
-      `http://www.cristoreyangol.cl:5000/record/addImage/${id}`,
+      `${process.env.REACT_APP_SERVER_URL_ADDIMAGE}/${id}`,
       {
         method: "POST",
         body: formData,
@@ -137,7 +139,7 @@ function ManagerPage() {
       paterno: updateData.paterno,
       materno: updateData.materno,
     };
-    await fetch(`http://www.cristoreyangol.cl:5000/updatePersonales/${id}`, {
+    await fetch(`${process.env.REACT_APP_SERVER_URL_UPDATEPERSONALES}/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -177,7 +179,7 @@ function ManagerPage() {
       fechaResponso: updateFuneral.fechaResponso,
       lugarCementerio: updateFuneral.lugarCementerio,
     };
-    await fetch(`http://www.cristoreyangol.cl:5000/updateFuneral/${id}`, {
+    await fetch(`${process.env.REACT_APP_SERVER_URL_UPDATEFUNERAL}/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -190,7 +192,7 @@ function ManagerPage() {
     window.location.reload(false);
   }
   async function deleteRecord(id) {
-    await fetch(`http://www.cristoreyangol.cl:5000/${id}`, {
+    await fetch(`${process.env.REACT_APP_SERVER_URL_DELETE}/${id}`, {
       method: "DELETE",
     });
     const newRecords = records.filter((el) => el._id !== id);

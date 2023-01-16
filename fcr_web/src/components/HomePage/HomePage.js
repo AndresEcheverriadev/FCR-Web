@@ -21,7 +21,7 @@ function HomePage() {
           property="og:title"
           content={`Sitio web servicios funerarios Cristo Rey`}
         />
-        <meta property="og:url" content={`http://www.cristorey.cl/`} />
+        <meta property="og:url" content={`https://www.cristoreyangol.cl/`} />
         <meta
           property="og:description"
           content="Sitio web servicios funerarios Cristo Rey"
@@ -40,7 +40,7 @@ function HomePage() {
           content="Sitio web servicios funerarios Cristo Rey"
         ></meta>
 
-        <link rel="canonical" href="http://cristoreyangol.cl/" />
+        <link rel="canonical" href="https://www.cristoreyangol.cl/" />
       </Helmet>
       <div className="homePageMainContainer">
         <div className="viewHomeContainer">
