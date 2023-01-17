@@ -31,7 +31,11 @@ function PersonPage() {
   }, [record.mesaggesWall]);
 
   const sendMesagge = async (id) => {
-    const newMesagge = { author: msgText.author, mesagge: msgText.mesagge };
+    const newMesagge = {
+      author: msgText.author,
+      mesagge: msgText.mesagge,
+    };
+    alert(JSON.stringify(newMesagge));
     await fetch(`${process.env.REACT_APP_SERVER_URL_MESAGGES}/${id}`, {
       method: "POST",
       headers: {
@@ -220,7 +224,7 @@ function PersonPage() {
 
         <div className="form-floating">
           <textarea
-            className="form-control"
+            className="form-control textArea"
             id="inputMesagge"
             placeholder="Su mensaje"
             onChange={(e) =>

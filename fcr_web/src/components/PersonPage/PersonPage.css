@@ -199,6 +199,11 @@
   text-align: left;
 }
 
+.textArea {
+  height: 100px !important;
+  width: auto;
+}
+
 .btnSubmitMesagge {
   display: flex;
   flex-direction: row;

@@ -160,6 +160,32 @@
   color: var(--blanco);
 }
 
+.btnDeleteObituario {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  border-style: solid;
+  border-color: var(--grisClaro);
+  border-width: 2px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnDeleteObituario:enabled:hover {
+  background-color: var(--error);
+  color: var(--blanco);
+}
+
+.checkCtrlObituario {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+}
+
 .addObituarioContainer {
   display: flex;
   flex-direction: row;

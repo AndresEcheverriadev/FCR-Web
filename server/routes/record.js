@@ -3,12 +3,14 @@ const upload = require("../multer/multerConfig.js");
 const recordRoutes = express.Router();
 const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
+const timestamp = Date.now();
 
 recordRoutes.route("/record").get(function (req, res) {
   let db_connect = dbo.getDb();
   db_connect
     .collection("obituarioPersons")
     .find({})
+    .sort({ date: -1 })
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -39,12 +41,12 @@ recordRoutes.route("/record/add").post(function (req, response) {
     lugarResponso: req.body.lugarResponso,
     fechaResponso: req.body.fechaResponso,
     lugarCementerio: req.body.lugarCementerio,
+    createdAt: timestamp,
   };
   db_connect
     .collection("obituarioPersons")
     .insertOne(myobj, function (err, res) {
       if (err) throw err;
-      console.log("agregado al obituario");
       response.json(res);
     });
 });
@@ -64,7 +66,6 @@ recordRoutes
       .collection("obituarioPersons")
       .updateOne(myquery, newvalues, function (err, res) {
         if (err) throw err;
-        console.log("imagen actualizada");
         response.json(res);
       });
   });
@@ -86,7 +87,6 @@ recordRoutes.route("/updatePersonales/:id").post(function (req, response) {
     .collection("obituarioPersons")
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
-      console.log("datos personales actualizados");
       response.json(res);
     });
 });
@@ -107,7 +107,6 @@ recordRoutes.route("/updateFuneral/:id").post(function (req, response) {
     .collection("obituarioPersons")
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
-      console.log("datos de funeral actualizados");
       response.json(res);
     });
 });
@@ -115,7 +114,11 @@ recordRoutes.route("/updateFuneral/:id").post(function (req, response) {
 recordRoutes.route("/updateMensajes/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId(req.params.id) };
-  let message = { mesagge: req.body.mesagge, author: req.body.author };
+  let message = {
+    mesagge: req.body.mesagge,
+    author: req.body.author,
+    time: timestamp,
+  };
   let newvalues = {
     $push: {
       mesaggesWall: message,
@@ -125,7 +128,6 @@ recordRoutes.route("/updateMensajes/:id").post(function (req, response) {
     .collection("obituarioPersons")
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
-      console.log("1 document updated");
       response.json(res);
     });
 });

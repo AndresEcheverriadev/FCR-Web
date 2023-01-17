@@ -213,6 +213,25 @@ function ManagerPage() {
       />
     </svg>
   );
+
+  // const disablerEraseBtn = (decesoid) => {
+  //   const btn = document.getElementById(decesoid);
+  //   if (btn.attributes.disabled) {
+  //     btn.removeAttribute("disabled");
+  //   } else {
+  //     btn.setAttribute("disabled", true);
+  //   }
+  // };
+
+  const disablerEraseBtn = (decesoid) => {
+    const btn = document.getElementById(decesoid);
+    if (btn.attributes.disabled) {
+      btn.removeAttribute("disabled");
+    } else {
+      btn.setAttribute("disabled", true);
+    }
+  };
+
   return (
     <div className="mnanagerPageMainWrapper">
       <header className="managerHeaderContainer">
@@ -253,7 +272,11 @@ function ManagerPage() {
                     name="date"
                     id="date"
                     value={form.date}
-                    onChange={(e) => updateForm({ date: e.target.value })}
+                    onChange={(e) =>
+                      updateForm({
+                        date: e.target.value,
+                      })
+                    }
                   />
                 </div>
                 <div className="inputContainer">
@@ -677,7 +700,9 @@ function ManagerPage() {
                       Editar datos funeral
                     </button>
                     <button
-                      className="btnCtrlObituario"
+                      id={`btnDelete${deceso._id}`}
+                      className="btnDeleteObituario"
+                      disabled={"disabled"}
                       onClick={() => deleteRecord(deceso._id)}
                     >
                       Eliminar del obituario
@@ -698,6 +723,14 @@ function ManagerPage() {
                       Agregar imagen
                     </button>
                   </form>
+                  <div class="checkCtrlObituario">
+                    <input
+                      type="checkbox"
+                      id={`check${deceso._id}`}
+                      onClick={() => disablerEraseBtn(`btnDelete${deceso._id}`)}
+                    />
+                    Activar eliminación
+                  </div>
                 </div>
               </div>
             );
