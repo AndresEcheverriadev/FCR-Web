@@ -35,7 +35,7 @@ function ObituarioPage() {
 
   const iconCross = (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       width="16"
       height="16"
       fill="currentColor"
@@ -55,7 +55,7 @@ function ObituarioPage() {
           property="og:title"
           content={`Sitio web servicios funerarios Cristo Rey`}
         />
-        <meta property="og:url" content={`http://www.cristorey.cl/`} />
+        <meta property="og:url" content={`https://www.cristorey.cl/`} />
         <meta
           property="og:description"
           content="Sitio web servicios funerarios Cristo Rey"
@@ -74,7 +74,7 @@ function ObituarioPage() {
           content="Sitio web servicios funerarios Cristo Rey"
         ></meta>
 
-        <link rel="canonical" href="http://cristoreyangol.cl/" />
+        <link rel="canonical" href="https://cristoreyangol.cl/" />
       </Helmet>
       <header className="headerContainer">
         <Navbar />

@@ -53,7 +53,7 @@ function PersonPage() {
 
   const iconCross = (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       width="16"
       height="16"
       fill="currentColor"
@@ -76,7 +76,7 @@ function PersonPage() {
         />
         <meta
           property="og:url"
-          content={`http://www.cristorey.cl/${personId}`}
+          content={`https://www.cristorey.cl/${personId}`}
         />
         <meta
           property="og:description"
@@ -98,7 +98,7 @@ function PersonPage() {
           content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
         ></meta>
 
-        <link rel="canonical" href="http://cristoreyangol.cl" />
+        <link rel="canonical" href="https://cristoreyangol.cl" />
       </Helmet>
       <NavLink to="/" className="logoContainer">
         <img src={logo} alt="" />
@@ -140,7 +140,7 @@ function PersonPage() {
               <p>Compartir</p>
               <div className="shareInfoIcons">
                 <a
-                  href={`https://wa.me/?text=http://www.cristoreyangol.cl/${record._id}                                            
+                  href={`https://wa.me/?text=https://www.cristoreyangol.cl/${record._id}                                            
                   En este link puedes honrar la memoria de ${record?.nombre} ${record?.paterno}.                                                 
                   Servicios Funerarios Cristo Rey.
                                        
@@ -152,7 +152,7 @@ function PersonPage() {
                   `}
                 >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="20"
                     height="20"
                     fill="currentColor"
@@ -164,10 +164,10 @@ function PersonPage() {
                 </a>
 
                 <a
-                  href={`https://www.facebook.com/sharer/sharer.php?u=http://www.cristoreyangol.cl/${record._id}`}
+                  href={`https://www.facebook.com/sharer/sharer.php?u=https://www.cristoreyangol.cl/${record._id}`}
                 >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="20"
                     height="20"
                     fill="currentColor"
@@ -192,7 +192,7 @@ function PersonPage() {
                 </div>
                 <div className="messaggeSeparator">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="16"
                     height="16"
                     fill="currentColor"
@@ -240,7 +240,7 @@ function PersonPage() {
         >
           <p>Enviar mensaje</p>
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             width="16"
             height="16"
             fill="currentColor"

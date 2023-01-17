@@ -68,7 +68,7 @@ function HomePage() {
               <a className="phoneButton" href={`tel:${fono1}`}>
                 <div className="callPhone">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="16"
                     height="16"
                     fill="currentColor"
@@ -87,7 +87,7 @@ function HomePage() {
               <a className="phoneButton" href={`tel:${fono2}`}>
                 <div className="callPhone">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="16"
                     height="16"
                     fill="currentColor"
@@ -109,7 +109,7 @@ function HomePage() {
               >
                 <div className="callWhatsapp">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="20"
                     height="20"
                     fill="currentColor"
@@ -134,7 +134,7 @@ function HomePage() {
             <div className="servicioCard">
               <div className="servicioIcon">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   width="32"
                   height="32"
                   fill="currentColor"
@@ -180,7 +180,7 @@ function HomePage() {
             <div className="servicioCard">
               <div className="servicioIcon">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   width="32"
                   height="32"
                   fill="currentColor"
@@ -212,7 +212,7 @@ function HomePage() {
             <div className="servicioCard">
               <div className="servicioIcon">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   width="32"
                   height="32"
                   fill="currentColor"
@@ -256,7 +256,7 @@ function HomePage() {
             <div className="servicioCard">
               <div className="servicioIcon">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   width="32"
                   height="32"
                   fill="currentColor"
@@ -410,9 +410,9 @@ function HomePage() {
                   <p>
                     <b>
                       Importante: Estos trámites son parte del servicio
-                      funerario que entrega Cristo Rey. Al momento de fallecer
-                      la persona, solo debes hablarnos y te acompañaremos en
-                      cada paso.
+                      funerario que entrega Cristo Rey Angol. Al momento de
+                      fallecer la persona, solo debes hablarnos y te
+                      acompañaremos en cada paso.
                     </b>
                   </p>
                 </div>

@@ -200,7 +200,7 @@ function ManagerPage() {
   }
   const iconCross = (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://www.w3.org/2000/svg"
       width="16"
       height="16"
       fill="currentColor"
@@ -213,24 +213,6 @@ function ManagerPage() {
       />
     </svg>
   );
-
-  // const disablerEraseBtn = (decesoid) => {
-  //   const btn = document.getElementById(decesoid);
-  //   if (btn.attributes.disabled) {
-  //     btn.removeAttribute("disabled");
-  //   } else {
-  //     btn.setAttribute("disabled", true);
-  //   }
-  // };
-
-  const disablerEraseBtn = (decesoid) => {
-    const btn = document.getElementById(decesoid);
-    if (btn.attributes.disabled) {
-      btn.removeAttribute("disabled");
-    } else {
-      btn.setAttribute("disabled", true);
-    }
-  };
 
   return (
     <div className="mnanagerPageMainWrapper">
@@ -682,6 +664,7 @@ function ManagerPage() {
                     >
                       Editar datos personales
                     </button>
+
                     <button
                       className="btnCtrlObituario"
                       data-bs-toggle="modal"
@@ -699,14 +682,6 @@ function ManagerPage() {
                     >
                       Editar datos funeral
                     </button>
-                    <button
-                      id={`btnDelete${deceso._id}`}
-                      className="btnDeleteObituario"
-                      disabled={"disabled"}
-                      onClick={() => deleteRecord(deceso._id)}
-                    >
-                      Eliminar del obituario
-                    </button>
                   </div>
                   <form
                     className="formImg"
@@ -723,13 +698,38 @@ function ManagerPage() {
                       Agregar imagen
                     </button>
                   </form>
-                  <div class="checkCtrlObituario">
-                    <input
-                      type="checkbox"
-                      id={`check${deceso._id}`}
-                      onClick={() => disablerEraseBtn(`btnDelete${deceso._id}`)}
-                    />
-                    Activar eliminación
+
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button
+                          class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target={`#collapse${deceso._id}`}
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                        >
+                          Eliminar del obituario
+                        </button>
+                      </h2>
+                      <div
+                        id={`collapse${deceso._id}`}
+                        class="accordion-collapse collapse "
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">
+                          <button
+                            id={`btnDelete${deceso._id}`}
+                            className="btnDeleteObituario"
+                            onClick={() => deleteRecord(deceso._id)}
+                          >
+                            Eliminar del obituario
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
