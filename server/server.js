@@ -37,5 +37,8 @@ const credentials = {
 const httpsServer = https.createServer(credentials, app);
 
 httpsServer.listen(port, () => {
+  dbo.connectToServer(function (err) {
+    if (err) console.error(err);
+  });
   console.log(`Servidor HTTPS corriendo en puerto ${port}`);
 });
