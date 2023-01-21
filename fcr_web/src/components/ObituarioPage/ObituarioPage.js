@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import "./ObituarioPage.css";
 
 function ObituarioPage() {
@@ -50,7 +50,7 @@ function ObituarioPage() {
   );
   return (
     <div className="obituarioPageMainWrapper">
-      <Helmet>
+      {/* <Helmet>
         <meta
           property="og:title"
           content={`Sitio web servicios funerarios Cristo Rey`}
@@ -75,7 +75,7 @@ function ObituarioPage() {
         ></meta>
 
         <link rel="canonical" href="https://cristoreyangol.cl/" />
-      </Helmet>
+      </Helmet> */}
       <header className="headerContainer">
         <Navbar />
       </header>
