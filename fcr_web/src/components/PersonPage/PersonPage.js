@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import logo from "../../images/logo.svg";
-import urlPreview from "../../images/urlPreview.png";
-// import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 import "./PersonPage.css";
 
 function PersonPage() {
@@ -14,7 +13,6 @@ function PersonPage() {
   });
   const inputMesagge = document.getElementById("inputMesagge");
   const inputAuthor = document.getElementById("inputAuthor");
-  const shareWhatsapp = `En este link puedes honrar la memoria de ${record?.nombre} ${record?.paterno}:  `;
   useEffect(() => {
     async function getPerson() {
       const id = personId.toString();
@@ -35,22 +33,25 @@ function PersonPage() {
       author: msgText.author,
       mesagge: msgText.mesagge,
     };
-    alert(JSON.stringify(newMesagge));
-    await fetch(`${process.env.REACT_APP_SERVER_URL_MESAGGES}/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newMesagge),
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    });
-
-    inputAuthor.value = "";
-    inputMesagge.value = "";
+    if (newMesagge.author && newMesagge.mesagge) {
+      await fetch(`${process.env.REACT_APP_SERVER_URL_MESAGGES}/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newMesagge),
+      }).catch((error) => {
+        window.alert(error);
+        return;
+      });
+      msgText.author = "";
+      msgText.mesagge = "";
+      inputAuthor.value = "";
+      inputMesagge.value = "";
+    } else {
+      alert("Debe escribir su nombre y un mensaje");
+    }
   };
-
   const iconCross = (
     <svg
       xmlns="https://www.w3.org/2000/svg"
@@ -69,37 +70,45 @@ function PersonPage() {
 
   return (
     <div className="personPageMainWrapper">
-      {/* <Helmet>
+      <Helmet>
+        <title>
+          Obituario {`${record?.nombre}`} {`${record?.segundoNombre}`}
+        </title>
         <meta
           property="og:title"
           content={`Obituario de ${record?.nombre} ${record?.segundoNombre}`}
         />
+        <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://www.cristorey.cl/${personId}`}
+          content={`https://www.cristoreyangol.cl/${personId}`}
+        />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content={`/assets/obituarioImages/urlPreview.png`}
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://i.postimg.cc/HLhPLqBs/url-Preview.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="200" />
+        <meta
+          property="og:image:alt"
+          content="Obituario servicios funerarios Cristo Rey"
         />
         <meta
           property="og:description"
           content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
         />
         <meta
-          property="og:image"
-          itemProp="image"
-          content="https://i.postimg.cc/HLhPLqBs/url-Preview.png"
-        />
-        <meta property="og:type" content="article" />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="200" />
-        <title>
-          Obituario {`${record?.nombre}`} {`${record?.segundoNombre}`}
-        </title>
-        <meta
           name="description"
           content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
         ></meta>
-
         <link rel="canonical" href="https://cristoreyangol.cl" />
-      </Helmet> */}
+      </Helmet>
       <NavLink to="/" className="logoContainer">
         <img src={logo} alt="" />
       </NavLink>
@@ -143,12 +152,6 @@ function PersonPage() {
                   href={`https://wa.me/?text=https://www.cristoreyangol.cl/${record._id}                                            
                   En este link puedes honrar la memoria de ${record?.nombre} ${record?.paterno}.                                                 
                   Servicios Funerarios Cristo Rey.
-                                       
-                  
-                  
-                  tel: 569 5253 9500                                                                                                           
-                  Avda. Bernardo Ohiggins 731 - Angol
-                  Atención las 24 hrs.
                   `}
                 >
                   <svg
