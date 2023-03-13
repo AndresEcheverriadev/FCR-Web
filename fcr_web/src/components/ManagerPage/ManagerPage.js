@@ -97,7 +97,10 @@ function ManagerPage() {
         method: "POST",
         body: formData,
       }
-    );
+    ).catch((error) => {
+      window.alert(error);
+      return;
+    });
     if (response) setStatus(response.statusText);
     window.location.reload(false);
   }
@@ -687,6 +690,7 @@ function ManagerPage() {
                     className="formImg"
                     id="formImg"
                     onSubmit={(e) => addImage(deceso._id, e)}
+                    enctype="multipart/form-data"
                   >
                     <input
                       type="file"

@@ -4,6 +4,7 @@ const recordRoutes = express.Router();
 const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 const timestamp = Date.now();
+const fs = require("fs").promises;
 
 recordRoutes.route("/record").get(function (req, res) {
   let db_connect = dbo.getDb();
@@ -54,6 +55,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
 recordRoutes
   .route("/record/addImage/:id")
   .post(upload.single("imgDeceso"), function (req, response) {
+    console.log("ruta ok");
     let db_connect = dbo.getDb();
     var img = req.file.filename;
     let myquery = { _id: ObjectId(req.params.id) };
@@ -142,5 +144,15 @@ recordRoutes.route("/:id").delete((req, response) => {
       response.json(obj);
     });
 });
+
+const deleteFile = async (file) => {
+  await fs.access(`${file}`, (error) => {
+    if (!error) {
+      fs.unlink(`${file}`);
+    } else {
+      console.error("Error borrando archivo:", error);
+    }
+  });
+};
 
 module.exports = recordRoutes;

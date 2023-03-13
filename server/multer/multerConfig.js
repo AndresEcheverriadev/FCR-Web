@@ -3,10 +3,7 @@ const path = require("path");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(
-      null,
-      path.join(__dirname, "../..", "fcr_web/public/assets/obituarioImages")
-    );
+    cb(null, path.join(__dirname, "../..", "html/assets/obituarioImages"));
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}.${file.mimetype.split("/")[1]}`);

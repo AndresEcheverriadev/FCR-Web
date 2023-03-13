@@ -18,7 +18,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/obituario" element={<ObituarioPage />} />
             <Route path="/:personId" element={<PersonPage />} />
-            <Route path="/*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to="/" />} />
             <Route path="/login" element={<LoginPage />} />
             <Route
               path="/manager"
