@@ -453,3 +453,36 @@
   height: auto;
   margin-right: -100px;
 }
+
+.addressWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 100px;
+}
+
+.googleMapFrame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  background-color: var(--blanco);
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.googleMapContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 400px;
+}

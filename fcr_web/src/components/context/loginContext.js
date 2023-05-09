@@ -9,8 +9,8 @@ function LoginContextProvider({ children }) {
     const data = sessionStorage.getItem("adminLogged");
     if (data == null) {
       sessionStorage.setItem(
-        "adminLogged",
-        JSON.stringify(`adminLogged${Date.now()}`)
+        "token",
+        JSON.stringify(`${process.env.REACT_APP_JWT_SECRET_KEY}`)
       );
     } else {
       alert("Ya existe sesión");
@@ -22,7 +22,7 @@ function LoginContextProvider({ children }) {
   };
 
   const checkToken = () => {
-    const data = sessionStorage.getItem("adminLogged");
+    const data = sessionStorage.getItem("token");
     if (data) {
       setisLoggedIn(true);
     } else {

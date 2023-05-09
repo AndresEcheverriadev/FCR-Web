@@ -15,15 +15,8 @@ function RecordLoader() {
           },
         }
       );
-
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-
       const records = await response.json();
-      setRecords(records);
+      setRecords(records.data);
     }
 
     getRecords();

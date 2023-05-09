@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import Navbar from "../Navbar/Navbar";
 import ContactForm from "../ContactForm/ContactForm";
@@ -6,6 +6,7 @@ import imgHome from "../../images/imgHome.jpg";
 import imgHistoria from "../../images/imgDemoHistoria2.jpg";
 import arregloFooter from "../../images/arregloFooter.png";
 import Footer from "../Footer/Footer";
+import GoogleMapModule from "../GoogleMapModule/GoogleMapModule.js";
 import "./HomePage.css";
 import "./HomePageResponsive.css";
 
@@ -13,6 +14,18 @@ function HomePage() {
   const fono1 = "+569 5253 9500";
   const fono2 = "+569 9032 7836";
   const whatsappCode = "56952539500";
+
+  const mapWidth = "200px";
+  const mapHeight = "200px";
+
+  const refMapContainer = useRef(null);
+  const [widthMapContainer, setWidthMapContainer] = useState(0);
+  const [heightMapContainer, setHeightMapContainer] = useState(0);
+
+  useLayoutEffect(() => {
+    setWidthMapContainer(refMapContainer.current.offsetWidth);
+    setHeightMapContainer(refMapContainer.current.offsetHeight);
+  }, []);
 
   return (
     <>
@@ -348,6 +361,18 @@ function HomePage() {
                 familias satisfechas que avalan nuestro trabajo.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="addressWrapper" id="map">
+        <h3>Visitenos</h3>
+        <div className="googleMapFrame">
+          <div className="googleMapContainer" ref={refMapContainer}>
+            <GoogleMapModule
+              mapWidth={widthMapContainer}
+              mapHeight={heightMapContainer}
+            />
           </div>
         </div>
       </div>

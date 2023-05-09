@@ -20,7 +20,7 @@ function PersonPage() {
         `${process.env.REACT_APP_SERVER_URL_RECORD}/${id}`
       );
       const record = await response.json();
-      setRecord(record);
+      setRecord(record.data);
     }
 
     getPerson();
@@ -71,30 +71,58 @@ function PersonPage() {
   return (
     <div className="personPageMainWrapper">
       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="Content-Type" content="text/html;"></meta>
         <title>
-          Obituario {`${record?.nombre}`} {`${record?.segundoNombre}`}
+          Obituario {`${record?.nombre}`}{" "}
+          {`${record?.segundoNombre}-Funeraria Cristo Rey Angol`}
         </title>
+        <meta
+          http-equiv="title"
+          content={`Obituario de ${record?.nombre} ${record?.segundoNombre}-Funeraria Cristo Rey Angol`}
+        ></meta>
+        <meta
+          name="title"
+          content={`Obituario de ${record?.nombre} ${record?.segundoNombre}-Funeraria Cristo Rey Angol`}
+        />
+        <meta
+          name="description"
+          content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
+        ></meta>
+        <meta
+          name="author"
+          content={`Funeraria Cristo Rey Angol - ${new Date().getFullYear()}`}
+        ></meta>
+        <meta
+          name="copyright"
+          content={`Funeraria Cristo Rey Angol - ${new Date().getFullYear()}`}
+        ></meta>
         <meta
           property="og:title"
           content={`Obituario de ${record?.nombre} ${record?.segundoNombre}`}
         />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
         <meta
           property="og:url"
           content={`https://www.cristoreyangol.cl/${personId}`}
         />
         <meta
+          property="og:site_name"
+          content="Funeraria_Cristo_Rey_Angol"
+        ></meta>
+        <meta
           property="og:image"
-          itemProp="image"
-          content={`/assets/obituarioImages/urlPreview.png`}
+          // itemProp="image"
+          content={`https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png`}
         />
         <meta
           property="og:image:secure_url"
-          content="https://i.postimg.cc/HLhPLqBs/url-Preview.png"
+          content="https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png"
         />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="200" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="600" />
+        <meta property="og:image:height" content="400" />
         <meta
           property="og:image:alt"
           content="Obituario servicios funerarios Cristo Rey"
@@ -103,16 +131,12 @@ function PersonPage() {
           property="og:description"
           content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
         />
-        <meta
-          name="description"
-          content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
-        ></meta>
+        <meta property="og:locale" content="es_LA"></meta>
         <link rel="canonical" href="https://cristoreyangol.cl" />
       </Helmet>
       <NavLink to="/" className="logoContainer">
         <img src={logo} alt="" />
       </NavLink>
-
       <div person={record} key={record._id} className="personCardContainer">
         <div className="personDataWrapper">
           <div className="personDataContainer">

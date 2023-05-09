@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { LoginContext } from "../context/loginContext.js";
+import { Helmet } from "react-helmet";
 import "./LoginPage.css";
 
 function LoginPage() {
@@ -22,21 +23,26 @@ function LoginPage() {
     }
   }
   return (
-    <div className="loginPageMainWrapper">
-      <NavLink to="/" className="loginLogoContainer">
-        <img src={logo} alt="" />
-      </NavLink>
-      <div className="loginInputContainer">
-        <h4>Login Obituario</h4>
-        <h5>Introduzca su contraseña</h5>
-        <input
-          type="password"
-          id="inputPassManager"
-          onChange={(e) => setPasser({ pass: e.target.value })}
-        />
-        <button onClick={login}>Entrar</button>
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <div className="loginPageMainWrapper">
+        <NavLink to="/" className="loginLogoContainer">
+          <img src={logo} alt="" />
+        </NavLink>
+        <div className="loginInputContainer">
+          <h4>Login Obituario</h4>
+          <h5>Introduzca su contraseña</h5>
+          <input
+            type="password"
+            id="inputPassManager"
+            onChange={(e) => setPasser({ pass: e.target.value })}
+          />
+          <button onClick={login}>Entrar</button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
