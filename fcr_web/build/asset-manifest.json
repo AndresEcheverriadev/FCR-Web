@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "./static/css/main.f43e0d2e.css",
+    "main.js": "./static/js/main.ed70bca1.js",
+    "static/js/220.023aba08.chunk.js": "./static/js/220.023aba08.chunk.js",
+    "static/js/787.8ac7a880.chunk.js": "./static/js/787.8ac7a880.chunk.js",
+    "static/media/Galeria4.jpg": "./static/media/Galeria4.28acc457d727b41f6a64.jpg",
+    "static/media/homeFunerariaOficina.jpg": "./static/media/homeFunerariaOficina.1e068f0f58d8c841d662.jpg",
+    "static/media/Galeria2.jpg": "./static/media/Galeria2.186e1a72a353374abf84.jpg",
+    "static/media/Galeria3.jpg": "./static/media/Galeria3.633b8c06afbc0dc7cfac.jpg",
+    "static/media/Galeria1.jpg": "./static/media/Galeria1.dd13e7ee8bdd52028a7a.jpg",
+    "static/media/homeFuneraria.jpg": "./static/media/homeFuneraria.e10ddec128539a6d8317.jpg",
+    "static/media/arreglosFlorales.jpg": "./static/media/arreglosFlorales.3e7c142bb932ecdd82f3.jpg",
+    "static/media/logo.svg": "./static/media/logo.c3ea528a31c8f65475618cd5fa5f0838.svg",
+    "static/media/logoBlanco.svg": "./static/media/logoBlanco.f4d0ce058e5d40c1b1c91cad4638c740.svg",
+    "static/media/arreglosFlorales2.jpg": "./static/media/arreglosFlorales2.c8d81e03706c619bba0a.jpg",
+    "static/media/arregloVasoFloral.png": "./static/media/arregloVasoFloral.3f1aea544b2613b2fb6e.png",
+    "static/media/miniaturaGaleria4.jpg": "./static/media/miniaturaGaleria4.cc5453ff60e9cb203ca7.jpg",
+    "static/media/logoSercotec.png": "./static/media/logoSercotec.c22903a87b5480790a42.png",
+    "static/media/miniaturaGaleria3.jpg": "./static/media/miniaturaGaleria3.fc8a5991e44b4e095b9d.jpg",
+    "static/media/miniaturaGaleria2.jpg": "./static/media/miniaturaGaleria2.f0720a741bdc39ffb978.jpg",
+    "static/media/miniaturaGaleria1.jpg": "./static/media/miniaturaGaleria1.23d2e1d9a56868d5dbbf.jpg",
+    "index.html": "./index.html",
+    "main.f43e0d2e.css.map": "./static/css/main.f43e0d2e.css.map",
+    "main.ed70bca1.js.map": "./static/js/main.ed70bca1.js.map",
+    "220.023aba08.chunk.js.map": "./static/js/220.023aba08.chunk.js.map",
+    "787.8ac7a880.chunk.js.map": "./static/js/787.8ac7a880.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f43e0d2e.css",
+    "static/js/main.ed70bca1.js"
+  ]
+}
