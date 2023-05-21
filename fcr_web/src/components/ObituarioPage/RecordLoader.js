@@ -44,7 +44,16 @@ function RecordLoader() {
       {records.map((deceso) => {
         return (
           <div className="decesoCard" key={deceso._id}>
-            <NavLink to={`/${deceso._id}`} className="decesoPersona">
+            <NavLink
+              to={`/obituario/${deceso.nombre
+                .toString()
+                .replaceAll(" ", "")
+                .toLowerCase()}/${deceso.paterno
+                .toString()
+                .replaceAll(" ", "")
+                .toLowerCase()}/${deceso._id}`}
+              className="decesoPersona"
+            >
               <div className="decesoImagen">
                 <img src={deceso.img} alt="" />
               </div>

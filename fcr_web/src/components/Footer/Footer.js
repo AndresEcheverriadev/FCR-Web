@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logoBlanco from "../../images/logoBlanco.svg";
 import logoSercotec from "../../images/logoSercotec.png";
@@ -6,6 +6,17 @@ import "./Footer.css";
 import "./FooterResponsive.css";
 
 function Footer() {
+  const [year, setYear] = useState(0);
+
+  const thisYear = () => {
+    const date = new Date();
+    return date.getFullYear();
+  };
+
+  useEffect(() => {
+    setYear(thisYear());
+  }, []);
+
   return (
     <footer>
       <div className="footerContainer">
@@ -68,7 +79,7 @@ function Footer() {
         <img src={logoSercotec} alt="" />
       </div>
       <div className="footerCopyright">
-        <p>© 2022 Funeraria Cristo Rey - Angol</p>
+        <p>© {year} Funeraria Cristo Rey - Angol</p>
       </div>
     </footer>
   );

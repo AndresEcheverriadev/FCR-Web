@@ -223,14 +223,16 @@
 .servicioText {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   height: 100%;
   justify-content: flex-start;
   align-items: flex-start;
+  overflow-wrap: break-word;
 }
 
 .servicioText p,
 .servicioText h5 {
+  overflow-wrap: break-word;
   text-align: left;
 }
 
@@ -239,6 +241,24 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+.servicioIncludesGallery {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  gap: 5px;
+}
+
+#imagenFloreria {
+  width: auto;
+  height: auto;
+}
+
+#imagenFloreria2 {
+  width: auto;
+  height: auto;
 }
 
 .includesList {
@@ -268,9 +288,11 @@
   padding-top: 20px;
   margin-bottom: 30px;
 }
+
 .nosotrosContainer h3 {
   margin-bottom: 30px;
 }
+
 .historiaContainer {
   display: flex;
   flex-direction: row;
@@ -357,11 +379,38 @@
   text-align: left;
 }
 
-.mapsWrapper {
+.mapGalleryContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.addressWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding: 0px 10px 10px 10px;
+  background-color: var(--blanco);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.googleMapContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750px;
+  height: 400px;
 }
 
 .faqsWrapper {
@@ -452,37 +501,4 @@
   width: 400px;
   height: auto;
   margin-right: -100px;
-}
-
-.addressWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: auto;
-  padding: 10px;
-  margin-bottom: 100px;
-}
-
-.googleMapFrame {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: auto;
-  padding: 5px;
-  background-color: var(--blanco);
-  border: 1px solid transparent;
-  border-radius: 10px;
-}
-
-.googleMapContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 700px;
-  height: 400px;
 }

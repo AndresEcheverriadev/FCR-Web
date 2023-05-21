@@ -113,7 +113,6 @@ function PersonPage() {
         ></meta>
         <meta
           property="og:image"
-          // itemProp="image"
           content={`https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png`}
         />
         <meta

@@ -17,20 +17,14 @@ function GoogleMapModule({ mapWidth, mapHeight }) {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
   });
 
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.setZoom(17);
-  }, []);
-
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
       options={{ disableDefaultUI: true }}
       center={center}
       zoom={17}
-      onLoad={onLoad}
     >
-      <Marker onLoad={onLoad} position={center} />
+      <Marker position={center} />
     </GoogleMap>
   ) : null;
 }

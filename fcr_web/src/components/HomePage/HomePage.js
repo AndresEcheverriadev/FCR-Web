@@ -2,21 +2,21 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import Navbar from "../Navbar/Navbar";
 import ContactForm from "../ContactForm/ContactForm";
-import imgHome from "../../images/imgHome.jpg";
-import imgHistoria from "../../images/imgDemoHistoria2.jpg";
-import arregloFooter from "../../images/arregloFooter.png";
+import imgHome from "../../images/homeFuneraria.jpg";
+import imgHistoria from "../../images/homeFunerariaOficina.jpg";
+import arregloFooter from "../../images/arregloVasoFloral.png";
 import Footer from "../Footer/Footer";
 import GoogleMapModule from "../GoogleMapModule/GoogleMapModule.js";
+import HomeGallery from "../HomeGallery/HomeGallery.js";
+import imgFloreria from "../../images/arreglosFlorales.jpg";
+import imgFloreria2 from "../../images/arreglosFlorales2.jpg";
 import "./HomePage.css";
 import "./HomePageResponsive.css";
 
 function HomePage() {
   const fono1 = "+569 5253 9500";
   const fono2 = "+569 9032 7836";
-  const whatsappCode = "56952539500";
-
-  const mapWidth = "200px";
-  const mapHeight = "200px";
+  const whatsappCode = "56927752105";
 
   const refMapContainer = useRef(null);
   const [widthMapContainer, setWidthMapContainer] = useState(0);
@@ -52,7 +52,6 @@ function HomePage() {
           name="description"
           content="Sitio web servicios funerarios Cristo Rey"
         ></meta>
-
         <link rel="canonical" href="https://www.cristoreyangol.cl/" />
       </Helmet>
       <div className="homePageMainContainer">
@@ -64,19 +63,19 @@ function HomePage() {
           <div className="homeTitlesContainer">
             <h3 className="homeTitle1">Servicios Funerarios Cristo Rey</h3>
             <h1 className="homeTitle1">
-              Más de 35 años honrando a las familias angolinas
+              Más de 40 años honrando <br />a las familias angolinas
             </h1>
           </div>
 
           <div className="carruselContainer">
-            <img src={imgHome} alt="" />
+            <img src={imgHome} alt="persona con flores tocando urna" />
           </div>
 
           <div className="contactPhonesContainer">
-            <h3>
-              Contáctanos 24/7 a nuestros teléfonos o escríbanos a nuestro
-              Whatsapp.
-            </h3>
+            <h4>
+              Contáctanos 24/7 a nuestros teléfonos <br /> o escríbanos a
+              nuestro Whatsapp.
+            </h4>
             <div className="phonesWrapper">
               <a className="phoneButton" href={`tel:${fono1}`}>
                 <div className="callPhone">
@@ -132,7 +131,10 @@ function HomePage() {
                     <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
                   </svg>
                 </div>
-                <h5>Conversemos</h5>
+                <h6>
+                  Conversemos <br />
+                  por Whatsapp
+                </h6>
               </a>
             </div>
           </div>
@@ -165,14 +167,14 @@ function HomePage() {
                   se consuelen mutuamente y poco a poco comiencen a sanar y
                   conmemorar una vida bien vivida, los deudos pueden realizar un
                   funeral para honrar a sus ser querido, para esto Servicios
-                  funerarios cristo rey se complace en ofrecer un funeral
-                  tradicional o algo completamente único
+                  Funerarios Cristo Rey se complace en ofrecer un funeral
+                  tradicional o algo completamente único.
                 </p>
                 <div className="servicioIncludes">
                   <p>El Servicio Funerario Tradicional Incluye:</p>
                   <ul className="includesList list-group list-group-flush">
                     <li className="list-group-item">
-                      Servicios básicos del personal de servicios funerarios
+                      Servicios básicos del personal de Servicios Funerarios
                       Cristo Rey.
                     </li>
                     <li className="list-group-item">
@@ -208,15 +210,13 @@ function HomePage() {
                 <h5>Servicio Funerario Futuro</h5>
                 <p>
                   Comparta con nosotros una planificación previa de un servicio
-                  funerarios, permitiéndonos honrar de la mejor manera la
-                  memoria de ese ser querido. Planificamos la mayoría de los
-                  hitos de nuestra vida,
-                  matrimonios,familia,universidad,jubilacion, la planificación
-                  de los gastos al final de la vida es igualmente importante y
-                  proporciona muchos beneficios emocionales y financieros.
-                  <br />
-                  <br />
-                  La mejor forma vivir un luto es prepararlo.
+                  funerario, permitiéndonos honrar de la mejor manera la memoria
+                  de ese ser querido. Planificamos la mayoría de los hitos de
+                  nuestra vida, matrimonios, familia, universidad, jubilacion,
+                  la planificación de los gastos al final de la vida es
+                  igualmente importante y proporciona muchos beneficios
+                  emocionales y financieros. La mejor forma vivir un luto es
+                  prepararlo.
                 </p>
               </div>
               <div className="spacerCard"></div>
@@ -246,7 +246,7 @@ function HomePage() {
                   <p>El Traslado Funerario Incluye:</p>
                   <ul className="includesList list-group list-group-flush">
                     <li className="list-group-item">
-                      Servicios básicos del personal de servicios funerarios
+                      Servicios básicos del personal de Servicios Funerarios
                       Cristo Rey.
                     </li>
                     <li className="list-group-item">
@@ -302,27 +302,84 @@ function HomePage() {
                 <div className="spacerCard2"></div>
               </div>
             </div>
+
+            <div className="servicioCard">
+              <div className="servicioIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="currentColor"
+                  class="bi bi-flower1"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M6.174 1.184a2 2 0 0 1 3.652 0A2 2 0 0 1 12.99 3.01a2 2 0 0 1 1.826 3.164 2 2 0 0 1 0 3.652 2 2 0 0 1-1.826 3.164 2 2 0 0 1-3.164 1.826 2 2 0 0 1-3.652 0A2 2 0 0 1 3.01 12.99a2 2 0 0 1-1.826-3.164 2 2 0 0 1 0-3.652A2 2 0 0 1 3.01 3.01a2 2 0 0 1 3.164-1.826zM8 1a1 1 0 0 0-.998 1.03l.01.091c.012.077.029.176.054.296.049.241.122.542.213.887.182.688.428 1.513.676 2.314L8 5.762l.045-.144c.248-.8.494-1.626.676-2.314.091-.345.164-.646.213-.887a4.997 4.997 0 0 0 .064-.386L9 2a1 1 0 0 0-1-1zM2 9l.03-.002.091-.01a4.99 4.99 0 0 0 .296-.054c.241-.049.542-.122.887-.213a60.59 60.59 0 0 0 2.314-.676L5.762 8l-.144-.045a60.59 60.59 0 0 0-2.314-.676 16.705 16.705 0 0 0-.887-.213 4.99 4.99 0 0 0-.386-.064L2 7a1 1 0 1 0 0 2zm7 5-.002-.03a5.005 5.005 0 0 0-.064-.386 16.398 16.398 0 0 0-.213-.888 60.582 60.582 0 0 0-.676-2.314L8 10.238l-.045.144c-.248.8-.494 1.626-.676 2.314-.091.345-.164.646-.213.887a4.996 4.996 0 0 0-.064.386L7 14a1 1 0 1 0 2 0zm-5.696-2.134.025-.017a5.001 5.001 0 0 0 .303-.248c.184-.164.408-.377.661-.629A60.614 60.614 0 0 0 5.96 9.23l.103-.111-.147.033a60.88 60.88 0 0 0-2.343.572c-.344.093-.64.18-.874.258a5.063 5.063 0 0 0-.367.138l-.027.014a1 1 0 1 0 1 1.732zM4.5 14.062a1 1 0 0 0 1.366-.366l.014-.027c.01-.02.021-.048.036-.084a5.09 5.09 0 0 0 .102-.283c.078-.233.165-.53.258-.874a60.6 60.6 0 0 0 .572-2.343l.033-.147-.11.102a60.848 60.848 0 0 0-1.743 1.667 17.07 17.07 0 0 0-.629.66 5.06 5.06 0 0 0-.248.304l-.017.025a1 1 0 0 0 .366 1.366zm9.196-8.196a1 1 0 0 0-1-1.732l-.025.017a4.951 4.951 0 0 0-.303.248 16.69 16.69 0 0 0-.661.629A60.72 60.72 0 0 0 10.04 6.77l-.102.111.147-.033a60.6 60.6 0 0 0 2.342-.572c.345-.093.642-.18.875-.258a4.993 4.993 0 0 0 .367-.138.53.53 0 0 0 .027-.014zM11.5 1.938a1 1 0 0 0-1.366.366l-.014.027c-.01.02-.021.048-.036.084a5.09 5.09 0 0 0-.102.283c-.078.233-.165.53-.258.875a60.62 60.62 0 0 0-.572 2.342l-.033.147.11-.102a60.848 60.848 0 0 0 1.743-1.667c.252-.253.465-.477.629-.66a5.001 5.001 0 0 0 .248-.304l.017-.025a1 1 0 0 0-.366-1.366zM14 9a1 1 0 0 0 0-2l-.03.002a4.996 4.996 0 0 0-.386.064c-.242.049-.543.122-.888.213-.688.182-1.513.428-2.314.676L10.238 8l.144.045c.8.248 1.626.494 2.314.676.345.091.646.164.887.213a4.996 4.996 0 0 0 .386.064L14 9zM1.938 4.5a1 1 0 0 0 .393 1.38l.084.035c.072.03.166.064.283.103.233.078.53.165.874.258a60.88 60.88 0 0 0 2.343.572l.147.033-.103-.111a60.584 60.584 0 0 0-1.666-1.742 16.705 16.705 0 0 0-.66-.629 4.996 4.996 0 0 0-.304-.248l-.025-.017a1 1 0 0 0-1.366.366zm2.196-1.196.017.025a4.996 4.996 0 0 0 .248.303c.164.184.377.408.629.661A60.597 60.597 0 0 0 6.77 5.96l.111.102-.033-.147a60.602 60.602 0 0 0-.572-2.342c-.093-.345-.18-.642-.258-.875a5.006 5.006 0 0 0-.138-.367l-.014-.027a1 1 0 1 0-1.732 1zm9.928 8.196a1 1 0 0 0-.366-1.366l-.027-.014a5 5 0 0 0-.367-.138c-.233-.078-.53-.165-.875-.258a60.619 60.619 0 0 0-2.342-.572l-.147-.033.102.111a60.73 60.73 0 0 0 1.667 1.742c.253.252.477.465.66.629a4.946 4.946 0 0 0 .304.248l.025.017a1 1 0 0 0 1.366-.366zm-3.928 2.196a1 1 0 0 0 1.732-1l-.017-.025a5.065 5.065 0 0 0-.248-.303 16.705 16.705 0 0 0-.629-.661A60.462 60.462 0 0 0 9.23 10.04l-.111-.102.033.147a60.6 60.6 0 0 0 .572 2.342c.093.345.18.642.258.875a4.985 4.985 0 0 0 .138.367.575.575 0 0 0 .014.027zM8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                </svg>
+              </div>
+              <div className="servicioText">
+                <h5>Servicio de florería</h5>
+                <p>
+                  Ponemos a su disposición hermosos arreglos florales para
+                  acompañar la despedida de su ser querido con un toque de
+                  elegancia único.
+                </p>
+                <div className="servicioIncludes">
+                  <p>
+                    Nuestros arreglos son hechos con flores de la mayor calidad
+                    disponible:
+                  </p>
+                  <div className="servicioIncludesGallery">
+                    <img
+                      src={imgFloreria}
+                      id="imagenFloreria"
+                      alt="arreglo floral funerario"
+                    />
+                    <img
+                      src={imgFloreria2}
+                      id="imagenFloreria2"
+                      alt="arreglo floral funerario en conservador refrigerado"
+                    />
+                  </div>
+                </div>
+                <div className="spacerCard2"></div>
+              </div>
+            </div>
           </div>
         </main>
       </div>
+
+      <div className="mapGalleryContainer">
+        <h3>Visítenos en nuestro salón de ventas</h3>
+        <h4>Av. Bernardo O'Higgins 731 - Angol </h4>
+        <div className="addressWrapper" id="map">
+          <div className="googleMapContainer" ref={refMapContainer}>
+            <GoogleMapModule
+              mapWidth={widthMapContainer}
+              mapHeight={heightMapContainer}
+            />
+          </div>
+        </div>
+      </div>
+      <HomeGallery />
 
       <div className="nosotrosContainer" id="nosotros">
         <h3>Nuestra Historia</h3>
         <div className="historiaContainer">
           <div className="historiaTextBox">
             <p className="historiaText">
-              Responsables de un legado familiar y funerario de mas de 40 años
-              sirviendo a la comunidad y a quienes confían sus seres queridos a
-              nuestro cuidado, nuestro foco ha sido brindar a cada familia la
-              mayor atención, calidad y profesionalismo procurando honrar de la
-              mejor manera la memoria de los seres queridos acaecidos.
+              Somos responsables de un legado familiar y funerario de mas de 40
+              años sirviendo a la comunidad y a quienes confían sus seres
+              queridos a nuestro cuidado. Nuestro motivación siempre ha sido
+              brindar a cada familia la mayor atención, calidad y
+              profesionalismo procurando honrar de la mejor manera la memoria de
+              sus seres queridos.
             </p>
           </div>
 
           <div className="historiaImg">
             <img
               src={imgHistoria}
-              alt="Teobaldo Echeverría fundador de Funeraria Cristo Rey"
+              alt="imagen de nuestro local ubicado en Angol"
             />
           </div>
         </div>
@@ -361,18 +418,6 @@ function HomePage() {
                 familias satisfechas que avalan nuestro trabajo.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="addressWrapper" id="map">
-        <h3>Visitenos</h3>
-        <div className="googleMapFrame">
-          <div className="googleMapContainer" ref={refMapContainer}>
-            <GoogleMapModule
-              mapWidth={widthMapContainer}
-              mapHeight={heightMapContainer}
-            />
           </div>
         </div>
       </div>
@@ -434,9 +479,9 @@ function HomePage() {
                   </ul>
                   <p>
                     <b>
-                      Importante: Estos trámites son parte del servicio
-                      funerario que entrega Cristo Rey Angol. Al momento de
-                      fallecer la persona, solo debes hablarnos y te
+                      Importante: Estos trámites son parte del servicio que
+                      entrega Servicios Funerarios Cristo Rey. Al momento de
+                      fallecer la persona, solo debe hablarnos y le
                       acompañaremos en cada paso.
                     </b>
                   </p>
@@ -878,7 +923,7 @@ function HomePage() {
             morirá jamás.
           </p>
         </div>
-        <img src={arregloFooter} alt="" />
+        <img src={arregloFooter} alt="jarron con flores blancas" />
       </div>
 
       <Footer />

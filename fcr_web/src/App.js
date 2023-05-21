@@ -17,8 +17,11 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/obituario" element={<ObituarioPage />} />
-            <Route path="/:personId" element={<PersonPage />} />
-            <Route path="*" element={<Navigate to="/" />} />
+            {/* <Route path="/obituario/:personId" element={<PersonPage />} /> */}
+            <Route
+              path="/obituario/:nombre/:apellido/:personId"
+              element={<PersonPage />}
+            />
             <Route path="/login" element={<LoginPage />} />
             <Route
               path="/manager"
@@ -28,6 +31,7 @@ function App() {
                 </Protected>
               }
             />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
       </LoginContextProvider>
