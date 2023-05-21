@@ -131,7 +131,7 @@ function PersonPage() {
           content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
         />
         <meta property="og:locale" content="es_LA"></meta>
-        <link rel="canonical" href="https://cristoreyangol.cl" />
+        <link rel="canonical" href="https://www.cristoreyangol.cl" />
       </Helmet>
       <NavLink to="/" className="logoContainer">
         <img src={logo} alt="" />

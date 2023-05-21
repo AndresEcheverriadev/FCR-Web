@@ -33,7 +33,7 @@ function ObituarioPage() {
           content="Sitio web servicios funerarios Cristo Rey"
         ></meta>
 
-        <link rel="canonical" href="https://cristoreyangol.cl/" />
+        <link rel="canonical" href="https://www.cristoreyangol.cl/" />
       </Helmet>
       <header className="headerContainer">
         <Navbar />
