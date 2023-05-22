@@ -231,6 +231,17 @@
   color: var(--blanco);
 }
 
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 @media (max-width: 1000px) {
   .personCardContainer {
     width: 100%;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import logo from "../../images/logo.svg";
 import { Helmet } from "react-helmet";
+import Navbar from "../Navbar/Navbar";
 import "./PersonPage.css";
 
 function PersonPage() {
@@ -133,9 +133,9 @@ function PersonPage() {
         <meta property="og:locale" content="es_LA"></meta>
         <link rel="canonical" href="https://www.cristoreyangol.cl" />
       </Helmet>
-      <NavLink to="/" className="logoContainer">
-        <img src={logo} alt="" />
-      </NavLink>
+      <header className="headerContainer">
+        <Navbar />
+      </header>
       <div person={record} key={record._id} className="personCardContainer">
         <div className="personDataWrapper">
           <div className="personDataContainer">
