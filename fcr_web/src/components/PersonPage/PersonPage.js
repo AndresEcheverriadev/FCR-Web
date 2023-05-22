@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Navbar from "../Navbar/Navbar";
 import "./PersonPage.css";
 
 function PersonPage() {
   const [record, setRecord] = useState({});
+  const [recordNombre, setRecordNombre] = useState("");
+  const [recordPaterno, setRecordPaterno] = useState("");
   const { personId } = useParams();
   const [msgText, setMsgText] = useState({
     mesagge: "",
@@ -26,7 +28,12 @@ function PersonPage() {
     getPerson();
 
     return;
-  }, [record.mesaggesWall]);
+  }, [personId]);
+
+  useEffect(() => {
+    setRecordNombre(record?.nombre?.toLowerCase().replaceAll(" ", ""));
+    setRecordPaterno(record?.paterno?.toLowerCase().replaceAll(" ", ""));
+  }, [record]);
 
   const sendMesagge = async (id) => {
     const newMesagge = {
@@ -62,7 +69,7 @@ function PersonPage() {
       viewBox="0 0 16 16"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
       />
     </svg>
@@ -136,7 +143,7 @@ function PersonPage() {
       <header className="headerContainer">
         <Navbar />
       </header>
-      <div person={record} key={record._id} className="personCardContainer">
+      <div key={record._id} className="personCardContainer">
         <div className="personDataWrapper">
           <div className="personDataContainer">
             <div className="personImageContainer">
@@ -153,7 +160,6 @@ function PersonPage() {
               <p className="decesoFecha">{record.date}</p>
             </div>
           </div>
-
           <div className="funeralDataContainer">
             <div className="funeralInfo">
               <div className="infoResponso">
@@ -172,8 +178,8 @@ function PersonPage() {
               <p>Compartir</p>
               <div className="shareInfoIcons">
                 <a
-                  href={`https://wa.me/?text=https://www.cristoreyangol.cl/${record._id}                                            
-                  En este link puedes honrar la memoria de ${record?.nombre} ${record?.paterno}.                                                 
+                  href={`https://wa.me/?text=https://www.cristoreyangol.cl/obituario/${recordNombre}/${recordPaterno}/${record?._id}                                            
+                  En este link acompañanos a honrar la memoria de ${record?.nombre} ${record?.paterno}.                                                 
                   Servicios Funerarios Cristo Rey.
                   `}
                 >
@@ -190,7 +196,7 @@ function PersonPage() {
                 </a>
 
                 <a
-                  href={`https://www.facebook.com/sharer/sharer.php?u=https://www.cristoreyangol.cl/${record._id}`}
+                  href={`https://www.facebook.com/sharer/sharer.php?u=https://www.cristoreyangol.cl/obituario/${recordNombre}/${recordPaterno}/${record?._id}`}
                 >
                   <svg
                     xmlns="https://www.w3.org/2000/svg"
@@ -212,7 +218,7 @@ function PersonPage() {
           {record.mesaggesWall?.map((mensaje) => {
             return (
               <>
-                <div className="mensajeCard">
+                <div className="mensajeCard" key={record.mesaggesWall.id}>
                   <p className="mensajeText">{mensaje.mesagge}</p>
                   <p className="mensajeAuthor">{mensaje.author}</p>
                 </div>
@@ -234,7 +240,6 @@ function PersonPage() {
           })}
         </div>
       </div>
-
       <div className="newMesaggeContainer">
         <div className="form-floating">
           <textarea
@@ -245,7 +250,7 @@ function PersonPage() {
               setMsgText((msgText) => ({ ...msgText, author: e.target.value }))
             }
           ></textarea>
-          <label for="floatingTextarea">Su nombre</label>
+          <label htmlFor="floatingTextarea">Su nombre</label>
         </div>
 
         <div className="form-floating">
@@ -257,7 +262,7 @@ function PersonPage() {
               setMsgText((msgText) => ({ ...msgText, mesagge: e.target.value }))
             }
           ></textarea>
-          <label for="floatingTextarea2">Escriba su mensaje</label>
+          <label htmlFor="floatingTextarea2">Escriba su mensaje</label>
         </div>
 
         <button
@@ -274,7 +279,7 @@ function PersonPage() {
             viewBox="0 0 16 16"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
             />
           </svg>

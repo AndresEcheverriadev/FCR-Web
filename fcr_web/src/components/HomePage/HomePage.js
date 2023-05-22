@@ -317,11 +317,15 @@ function HomePage() {
                 </svg>
               </div>
               <div className="servicioText">
-                <h5>Servicio de florería</h5>
+                <h5>Servicio de Floristería de Autor</h5>
                 <p>
-                  Ponemos a su disposición hermosos arreglos florales para
-                  acompañar la despedida de su ser querido con un toque de
-                  elegancia único.
+                  Todos nuestros servicios funerarios cuentan con floristeria de
+                  autor, un servicio propio de nuestra empresa donde creamos
+                  hermosos tributos florales personalizados ademas de un
+                  workshop floral donde usted mismo puedes crear sus arreglos
+                  con bellas rosas ecuatorianas. Este servicio le entrega una
+                  alta personalizacion y elegancia para el servicio funerario de
+                  su ser querido.
                 </p>
                 <div className="servicioIncludes">
                   <p>
