@@ -59,6 +59,7 @@ function Footer() {
             <a
               href="https://web.facebook.com/funerariasangol"
               target="_blank"
+              rel="noreferrer noopener"
               className="footerLink"
             >
               <svg
@@ -75,6 +76,7 @@ function Footer() {
             <a
               href="https://www.instagram.com/cristoreyangol/"
               target="_blank"
+              rel="noreferrer noopener"
               className="footerLink"
             >
               <svg
@@ -98,6 +100,7 @@ function Footer() {
           <a
             href="https://web.facebook.com/funerariasangol"
             target="_blank"
+            rel="noreferrer noopener"
             className="footerLink"
           >
             <svg
@@ -114,6 +117,7 @@ function Footer() {
           <a
             href="https://www.instagram.com/cristoreyangol/"
             target="_blank"
+            rel="noreferrer noopener"
             className="footerLink"
           >
             <svg
