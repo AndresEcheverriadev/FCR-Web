@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import Navbar from "../Navbar/Navbar";
 import "./PersonPage.css";
 
@@ -28,7 +28,7 @@ function PersonPage() {
     getPerson();
 
     return;
-  }, [personId]);
+  }, [record]);
 
   useEffect(() => {
     setRecordNombre(record?.nombre?.toLowerCase().replaceAll(" ", ""));
@@ -77,69 +77,72 @@ function PersonPage() {
 
   return (
     <div className="personPageMainWrapper">
-      <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta charset="utf-8"></meta>
-        <meta http-equiv="Content-Type" content="text/html;"></meta>
-        <title>
-          Obituario {`${record?.nombre}`}{" "}
-          {`${record?.segundoNombre}-Funeraria Cristo Rey Angol`}
-        </title>
-        <meta
-          http-equiv="title"
-          content={`Obituario de ${record?.nombre} ${record?.segundoNombre}-Funeraria Cristo Rey Angol`}
-        ></meta>
-        <meta
-          name="title"
-          content={`Obituario de ${record?.nombre} ${record?.segundoNombre}-Funeraria Cristo Rey Angol`}
-        />
-        <meta
-          name="description"
-          content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
-        ></meta>
-        <meta
-          name="author"
-          content={`Funeraria Cristo Rey Angol - ${new Date().getFullYear()}`}
-        ></meta>
-        <meta
-          name="copyright"
-          content={`Funeraria Cristo Rey Angol - ${new Date().getFullYear()}`}
-        ></meta>
-        <meta
-          property="og:title"
-          content={`Obituario de ${record?.nombre} ${record?.segundoNombre}`}
-        />
-        <meta property="og:type" content="article" />
-        <meta
-          property="og:url"
-          content={`https://www.cristoreyangol.cl/${personId}`}
-        />
-        <meta
-          property="og:site_name"
-          content="Funeraria_Cristo_Rey_Angol"
-        ></meta>
-        <meta
-          property="og:image"
-          content={`https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png`}
-        />
-        <meta
-          property="og:image:secure_url"
-          content="https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png"
-        />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="400" />
-        <meta
-          property="og:image:alt"
-          content="Obituario servicios funerarios Cristo Rey"
-        />
-        <meta
-          property="og:description"
-          content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.segundoNombre}`}
-        />
-        <meta property="og:locale" content="es_LA"></meta>
-        <link rel="canonical" href="https://www.cristoreyangol.cl" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+          <meta charset="utf-8"></meta>
+          <meta http-equiv="Content-Type" content="text/html;"></meta>
+          <title>
+            Obituario {`${record?.nombre}`}{" "}
+            {`${record?.paterno}-Funeraria Cristo Rey Angol`}
+          </title>
+          <meta
+            http-equiv="title"
+            content={`Obituario de ${record?.nombre} ${record?.paterno}-Funeraria Cristo Rey Angol`}
+          ></meta>
+          <meta
+            name="title"
+            content={`Obituario de ${record?.nombre} ${record?.paterno}-Funeraria Cristo Rey Angol`}
+          />
+          <meta
+            name="description"
+            content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.paterno}`}
+          ></meta>
+          <meta
+            name="author"
+            content={`Funeraria Cristo Rey Angol - ${new Date().getFullYear()}`}
+          ></meta>
+          <meta
+            name="copyright"
+            content={`Funeraria Cristo Rey Angol - ${new Date().getFullYear()}`}
+          ></meta>
+          <meta
+            property="og:title"
+            content={`Obituario de ${record?.nombre} ${record?.paterno}`}
+          />
+          <meta property="og:type" content="article" />
+          <meta
+            property="og:url"
+            content={`https://www.cristoreyangol.cl/${personId}`}
+          />
+          <meta
+            property="og:site_name"
+            content="Funeraria_Cristo_Rey_Angol"
+          ></meta>
+          <meta
+            property="og:image"
+            content={`https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png`}
+          />
+          <meta
+            property="og:image:secure_url"
+            content="https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png"
+          />
+          <meta property="og:image:type" content="image/jpeg" />
+          <meta property="og:image:width" content="600" />
+          <meta property="og:image:height" content="400" />
+          <meta
+            property="og:image:alt"
+            content="Obituario servicios funerarios Cristo Rey"
+          />
+          <meta
+            property="og:description"
+            content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.paterno}`}
+          />
+          <meta property="og:locale" content="es_LA"></meta>
+          <link rel="canonical" href="https://www.cristoreyangol.cl" />
+        </Helmet>
+      </HelmetProvider>
+
       <header className="headerContainer">
         <Navbar />
       </header>

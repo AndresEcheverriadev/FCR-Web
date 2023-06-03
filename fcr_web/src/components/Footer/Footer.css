@@ -57,6 +57,12 @@ footer {
 
 .linkRRSS {
   align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.linkRRSSMobile {
+  display: none;
 }
 
 .footerLink:hover {

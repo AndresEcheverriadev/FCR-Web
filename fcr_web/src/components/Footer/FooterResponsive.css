@@ -12,3 +12,26 @@
     line-height: normal;
   }
 }
+
+@media (max-width: 1000px) {
+  .linkRRSSMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .linkRRSSMobile__linksContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    gap: 20px;
+  }
+}

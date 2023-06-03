@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { LoginContext } from "../context/loginContext";
 import Navbar from "../Navbar/Navbar";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./ManagerPage.css";
 
 function ManagerPage() {
@@ -240,34 +240,36 @@ function ManagerPage() {
 
   return (
     <>
-      <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+      </HelmetProvider>
       <div className="mnanagerPageMainWrapper">
         <header className="managerHeaderContainer">
           <Navbar />
         </header>
         <div
-          class="modal fade"
+          className="modal fade"
           id="modalAgregarObituario"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
                   Agregar al obituario
                 </h1>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <form
                   onSubmit={addObituario}
                   id="formAdd"
@@ -399,7 +401,7 @@ function ManagerPage() {
               <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Cerrar
@@ -407,7 +409,7 @@ function ManagerPage() {
                 <button
                   type="submit"
                   form="formAdd"
-                  class="btn btn-primary btnAgregar"
+                  className="btn btn-primary btnAgregar"
                 >
                   Agregar
                 </button>
@@ -416,26 +418,26 @@ function ManagerPage() {
           </div>
         </div>
         <div
-          class="modal fade"
+          className="modal fade"
           id="modalActualizarDatos"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
                   Editar datos personales
                 </h1>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <form
                   onSubmit={(e) => updatePersonales(e)}
                   className="formContainer"
@@ -510,10 +512,10 @@ function ManagerPage() {
                   </div>
                 </form>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Cerrar
@@ -522,7 +524,7 @@ function ManagerPage() {
                 <button
                   type="submit"
                   form="formActualizarPersonales"
-                  class="btn btn-primary btnAgregar"
+                  className="btn btn-primary btnAgregar"
                 >
                   Actualizar
                 </button>
@@ -531,26 +533,26 @@ function ManagerPage() {
           </div>
         </div>
         <div
-          class="modal fade"
+          className="modal fade"
           id="modalActualizarFuneral"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
                   Editor datos de funeral
                 </h1>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <form
                   onSubmit={(e) => updateFuneralData(e)}
                   className="formContainer"
@@ -627,10 +629,10 @@ function ManagerPage() {
                   </div>
                 </form>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Cerrar
@@ -638,7 +640,7 @@ function ManagerPage() {
                 <button
                   type="submit"
                   form="formActualizarFuneral"
-                  class="btn btn-primary btnAgregar"
+                  className="btn btn-primary btnAgregar"
                 >
                   Actualizar
                 </button>
@@ -650,7 +652,7 @@ function ManagerPage() {
           <h1>Manager de Obituario</h1>
           <button
             type="submit"
-            class="btnLogoutObituario"
+            className="btnLogoutObituario"
             onClick={() => logOut()}
           >
             Salir

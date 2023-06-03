@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { LoginContext } from "../context/loginContext.js";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./LoginPage.css";
 
 function LoginPage() {
@@ -24,9 +24,11 @@ function LoginPage() {
   }
   return (
     <>
-      <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+      </HelmetProvider>
       <div className="loginPageMainWrapper">
         <NavLink to="/" className="loginLogoContainer">
           <img src={logo} alt="" />
