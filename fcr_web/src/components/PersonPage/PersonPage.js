@@ -177,7 +177,7 @@ function PersonPage() {
                 <p>Compartir</p>
                 <div className="shareInfoIcons">
                   <a
-                    href={`https://wa.me/?text=https://www.cristoreyangol.cl/obituario/${record?.nombre}/${record?.paterno}/${record?._id}                                            
+                    href={`https://wa.me/?text=https://www.cristoreyangol.cl/obituario/${record?._id}                                            
                   En este link acompañanos a honrar la memoria de ${record?.nombre} ${record?.paterno}.                                                 
                   Servicios Funerarios Cristo Rey.
                   `}
@@ -195,7 +195,7 @@ function PersonPage() {
                   </a>
 
                   <a
-                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.cristoreyangol.cl/obituario/${record?.nombre}/${record?.paterno}/${record?._id}`}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=https://www.cristoreyangol.cl/obituario/${record?._id}`}
                   >
                     <svg
                       xmlns="https://www.w3.org/2000/svg"
