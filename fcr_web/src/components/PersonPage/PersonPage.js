@@ -6,8 +6,6 @@ import "./PersonPage.css";
 
 function PersonPage() {
   const [record, setRecord] = useState({});
-  const [recordNombre, setRecordNombre] = useState("");
-  const [recordPaterno, setRecordPaterno] = useState("");
   const { personId } = useParams();
   const [msgText, setMsgText] = useState({
     mesagge: "",
@@ -26,11 +24,6 @@ function PersonPage() {
     if (!record) {
       getPerson();
     }
-  }, [record]);
-
-  useEffect(() => {
-    setRecordNombre(record?.nombre?.toLowerCase().replaceAll(" ", ""));
-    setRecordPaterno(record?.paterno?.toLowerCase().replaceAll(" ", ""));
   }, [record]);
 
   const sendMesagge = async (id) => {
@@ -179,7 +172,7 @@ function PersonPage() {
               <p>Compartir</p>
               <div className="shareInfoIcons">
                 <a
-                  href={`https://wa.me/?text=https://www.cristoreyangol.cl/obituario/${recordNombre}/${recordPaterno}/${record?._id}                                            
+                  href={`https://wa.me/?text=https://www.cristoreyangol.cl/obituario/${record?.nombre}/${record?.paterno}/${record?._id}                                            
                   En este link acompañanos a honrar la memoria de ${record?.nombre} ${record?.paterno}.                                                 
                   Servicios Funerarios Cristo Rey.
                   `}
@@ -197,7 +190,7 @@ function PersonPage() {
                 </a>
 
                 <a
-                  href={`https://www.facebook.com/sharer/sharer.php?u=https://www.cristoreyangol.cl/obituario/${recordNombre}/${recordPaterno}/${record?._id}`}
+                  href={`https://www.facebook.com/sharer/sharer.php?u=https://www.cristoreyangol.cl/obituario/${record?.nombre}/${record?.paterno}/${record?._id}`}
                 >
                   <svg
                     xmlns="https://www.w3.org/2000/svg"
