@@ -17,11 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/obituario" element={<ObituarioPage />} />
-            {/* <Route path="/obituario/:personId" element={<PersonPage />} /> */}
-            <Route
-              path="/obituario/:nombre/:apellido/:personId"
-              element={<PersonPage />}
-            />
+            <Route path="/obituario/:personId" element={<PersonPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route
               path="/manager"

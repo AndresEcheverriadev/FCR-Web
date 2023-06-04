@@ -9,7 +9,6 @@ function ManagerPage() {
   const { logOut } = useContext(LoginContext);
   const [records, setRecords] = useState([]);
   const [image, setImage] = useState({ data: "" });
-  const [status, setStatus] = useState("");
   const [form, setForm] = useState({
     date: "",
     nombre: "",
@@ -66,7 +65,7 @@ function ManagerPage() {
     e.preventDefault();
     const token = sessionStorage.getItem("token");
     const newPerson = { ...form };
-    const addRecord = await fetch(`${process.env.REACT_APP_SERVER_URL_ADD}`, {
+    await fetch(`${process.env.REACT_APP_SERVER_URL_ADD}`, {
       method: "POST",
       headers: {
         authorization: `${token}`,
@@ -95,20 +94,16 @@ function ManagerPage() {
     const token = sessionStorage.getItem("token");
     let formData = new FormData();
     formData.append("imgDeceso", image.data);
-    const response = await fetch(
-      `${process.env.REACT_APP_SERVER_URL_ADDIMAGE}/${id}`,
-      {
-        method: "POST",
-        headers: {
-          authorization: `${token}`,
-        },
-        body: formData,
-      }
-    ).catch((error) => {
+    await fetch(`${process.env.REACT_APP_SERVER_URL_ADDIMAGE}/${id}`, {
+      method: "POST",
+      headers: {
+        authorization: `${token}`,
+      },
+      body: formData,
+    }).catch((error) => {
       window.alert(error);
       return;
     });
-    if (response) setStatus(response.statusText);
     window.location.reload(false);
   }
   const handleFileChange = (e) => {
@@ -207,16 +202,13 @@ function ManagerPage() {
   }
   async function deleteRecord(id) {
     const token = sessionStorage.getItem("token");
-    const response = await fetch(
-      `${process.env.REACT_APP_SERVER_URL_DELETE}/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          authorization: `${token}`,
-          "Content-Type": "application/json",
-        },
-      }
-    ).catch((error) => {
+    await fetch(`${process.env.REACT_APP_SERVER_URL_DELETE}/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `${token}`,
+        "Content-Type": "application/json",
+      },
+    }).catch((error) => {
       window.alert(error);
       return;
     });
@@ -671,7 +663,7 @@ function ManagerPage() {
               return (
                 <div className="managerDecesoCard" key={deceso._id}>
                   <NavLink
-                    to={`/${deceso._id}`}
+                    to={`/obituario/${deceso._id}`}
                     className="managerDecesoPersona"
                   >
                     <div className="managerDecesoImagen">
