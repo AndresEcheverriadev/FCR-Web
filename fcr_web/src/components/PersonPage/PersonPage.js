@@ -23,10 +23,9 @@ function PersonPage() {
       const record = await response.json();
       setRecord(record.data);
     }
-
-    getPerson();
-
-    return;
+    if (!record) {
+      getPerson();
+    }
   }, [record]);
 
   useEffect(() => {
