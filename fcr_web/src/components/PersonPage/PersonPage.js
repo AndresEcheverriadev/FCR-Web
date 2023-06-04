@@ -178,7 +178,7 @@ function PersonPage() {
                 <div className="shareInfoIcons">
                   <a
                     href={`https://wa.me/?text=https://www.cristoreyangol.cl/obituario/${record?._id}                                            
-                  En este link acompañanos a honrar la memoria de ${record?.nombre} ${record?.paterno}.                                                 
+                  En este link acompáñanos a honrar la memoria de ${record?.nombre} ${record?.paterno}.                                                 
                   Servicios Funerarios Cristo Rey.
                   `}
                   >
