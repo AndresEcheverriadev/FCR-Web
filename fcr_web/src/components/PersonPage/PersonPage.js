@@ -21,9 +21,7 @@ function PersonPage() {
       const record = await response.json();
       setRecord(record.data);
     }
-    if (!record) {
-      getPerson();
-    }
+    getPerson();
   }, [record]);
 
   const sendMesagge = async (id) => {
