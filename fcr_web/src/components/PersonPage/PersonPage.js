@@ -17,9 +17,8 @@ function PersonPage() {
   const inputAuthor = document.getElementById("inputAuthor");
   useEffect(() => {
     async function getPerson() {
-      const id = personId.toString();
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER_URL_RECORD}/${id}`
+        `${process.env.REACT_APP_SERVER_URL_RECORD}/${personId}`
       );
       const record = await response.json();
       setRecord(record.data);
