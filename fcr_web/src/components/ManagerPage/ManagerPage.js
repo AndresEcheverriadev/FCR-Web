@@ -8,6 +8,7 @@ import "./ManagerPage.css";
 function ManagerPage() {
   const { logOut } = useContext(LoginContext);
   const [records, setRecords] = useState([]);
+  const [status, setStatus] = useState("");
   const [image, setImage] = useState({ data: "" });
   const [form, setForm] = useState({
     date: "",
@@ -94,17 +95,24 @@ function ManagerPage() {
     const token = sessionStorage.getItem("token");
     let formData = new FormData();
     formData.append("imgDeceso", image.data);
-    await fetch(`${process.env.REACT_APP_SERVER_URL_ADDIMAGE}/${id}`, {
-      method: "POST",
-      headers: {
-        authorization: `${token}`,
-      },
-      body: formData,
-    }).catch((error) => {
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVER_URL_ADDIMAGE}/${id}`,
+      {
+        method: "POST",
+        headers: {
+          authorization: `${token}`,
+        },
+        body: formData,
+      }
+    ).catch((error) => {
       window.alert(error);
       return;
     });
-    window.location.reload(false);
+    if (response) {
+      setStatus(response.statusText);
+      setImage({ data: "" });
+      window.location.reload(false);
+    }
   }
   const handleFileChange = (e) => {
     const updateImg = {
