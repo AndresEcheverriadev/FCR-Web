@@ -109,7 +109,6 @@ function ManagerPage() {
       return;
     });
     if (response) {
-      alert(JSON.stringify(image.data));
       setStatus(response.statusText);
       setImage({ data: "" });
       window.location.reload(false);
