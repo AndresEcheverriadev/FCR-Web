@@ -113,7 +113,6 @@ const updateMensajes = async (req, res) => {
 const addImage = async (req, res) => {
   let img = req.file.filename;
   let record = req.params.id;
-  console.log(`img :${img} - record:${record}`);
   let newvalues = {
     $set: {
       img: `/assets/obituarioImages/${img}`,
