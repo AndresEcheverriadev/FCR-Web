@@ -69,20 +69,6 @@ footer {
   color: var(--verde);
 }
 
-.selloSercotec {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.selloSercotec img {
-  width: 100px;
-  height: auto;
-}
-
 .footerLogo {
   width: 20%;
   height: auto;

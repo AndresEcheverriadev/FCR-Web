@@ -53,6 +53,10 @@
   z-index: -1;
 }
 
+.carruselContainer--mobile {
+  display: none;
+}
+
 .contactPhonesContainer {
   display: flex;
   flex-direction: column;
@@ -62,6 +66,10 @@
   height: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+#contactPhonesTitle--mobile {
+  display: none;
 }
 
 .phonesWrapper {
@@ -271,7 +279,7 @@
 }
 
 .spacerCard {
-  height: 156px;
+  height: 176px;
 }
 
 .spacerCard2 {

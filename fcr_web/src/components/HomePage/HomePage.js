@@ -1,17 +1,25 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, {
+  useLayoutEffect,
+  useRef,
+  useState,
+  lazy,
+  Suspense,
+} from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Navbar from "../Navbar/Navbar";
-import ContactForm from "../ContactForm/ContactForm";
-import imgHome from "../../images/homeFuneraria.jpg";
-import imgHistoria from "../../images/homeFunerariaOficina.jpg";
-import arregloFooter from "../../images/arregloVasoFloral.png";
-import Footer from "../Footer/Footer";
-import GoogleMapModule from "../GoogleMapModule/GoogleMapModule.js";
-import HomeGallery from "../HomeGallery/HomeGallery.js";
-import imgFloreria from "../../images/arreglosFlorales.jpg";
-import imgFloreria2 from "../../images/arreglosFlorales2.jpg";
+import Loading from "../Loading/Loading.js";
+import imgHome from "../../images/homeFuneraria.webp";
 import "./HomePage.css";
 import "./HomePageResponsive.css";
+import imgHistoria from "../../images/homeFunerariaOficina.webp";
+import imgFloreria from "../../images/arreglosFlorales.webp";
+import imgFloreria2 from "../../images/arreglosFlorales2.webp";
+const HomeGallery = lazy(() => import("../HomeGallery/HomeGallery.js"));
+const GoogleMapModule = lazy(() =>
+  import("../GoogleMapModule/GoogleMapModule.js")
+);
+const ContactForm = lazy(() => import("../ContactForm/ContactForm"));
+const Footer = lazy(() => import("../Footer/Footer"));
 
 function HomePage() {
   const fono1 = "+569 5253 9500";
@@ -30,7 +38,9 @@ function HomePage() {
   return (
     <>
       <HelmetProvider>
-        <Helmet>
+        <Helmet prioritizeSeoTags>
+          <title>Servicios Funerarios Cristo Rey</title>
+          <link rel="canonical" href="https://www.cristoreyangol.cl/" />
           <meta
             property="og:title"
             content={`Sitio web servicios funerarios Cristo Rey`}
@@ -48,12 +58,10 @@ function HomePage() {
           <meta property="og:type" content="article" />
           <meta property="og:image:width" content="300" />
           <meta property="og:image:height" content="200" />
-          <title>Servicios Funerarios Cristo Rey</title>
           <meta
             name="description"
             content="Sitio web servicios funerarios Cristo Rey"
           ></meta>
-          <link rel="canonical" href="https://www.cristoreyangol.cl/" />
         </Helmet>
       </HelmetProvider>
       <div className="homePageMainContainer">
@@ -61,23 +69,24 @@ function HomePage() {
           <header className="headerContainer">
             <Navbar />
           </header>
-
           <div className="homeTitlesContainer">
-            <h3 className="homeTitle1">Servicios Funerarios Cristo Rey</h3>
-            <h1 className="homeTitle1">
+            <h1 className="homeTitle1">Servicios Funerarios Cristo Rey</h1>
+            <h2 className="homeTitle1">
               Más de 40 años honrando <br />a las familias angolinas
-            </h1>
+            </h2>
           </div>
-
           <div className="carruselContainer">
             <img src={imgHome} alt="persona con flores tocando urna" />
           </div>
-
           <div className="contactPhonesContainer">
             <h4>
               Contáctanos 24/7 a nuestros teléfonos <br /> o escríbanos a
               nuestro Whatsapp.
             </h4>
+            <h5 id="contactPhonesTitle--mobile">
+              Contáctanos 24/7 a nuestros teléfonos o escríbanos a nuestro
+              Whatsapp.
+            </h5>
             <div className="phonesWrapper">
               <a className="phoneButton" href={`tel:${fono1}`}>
                 <div className="callPhone">
@@ -135,15 +144,16 @@ function HomePage() {
                 </div>
                 <h6>
                   Conversemos <br />
-                  por Whatsapp
+                  Whatsapp
                 </h6>
               </a>
             </div>
+            <div className="carruselContainer--mobile">
+              <img src={imgHome} alt="persona con flores tocando urna" />
+            </div>
           </div>
         </div>
-
         <hr />
-
         <main className="mainContainer" id="servicios">
           <h3>Servicios funerarios</h3>
 
@@ -337,11 +347,17 @@ function HomePage() {
                   <div className="servicioIncludesGallery">
                     <img
                       src={imgFloreria}
+                      loading="lazy"
+                      width="200"
+                      height="200"
                       id="imagenFloreria"
                       alt="arreglo floral funerario"
                     />
                     <img
                       src={imgFloreria2}
+                      loading="lazy"
+                      width="200"
+                      height="200"
                       id="imagenFloreria2"
                       alt="arreglo floral funerario en conservador refrigerado"
                     />
@@ -357,16 +373,20 @@ function HomePage() {
       <div className="mapGalleryContainer">
         <h3>Visítenos en nuestro salón de ventas</h3>
         <h4>Av. Bernardo O'Higgins 731 - Angol </h4>
+        <Suspense fallback={Loading}>
+          <HomeGallery />
+        </Suspense>
         <div className="addressWrapper" id="map">
           <div className="googleMapContainer" ref={refMapContainer}>
-            <GoogleMapModule
-              mapWidth={widthMapContainer}
-              mapHeight={heightMapContainer}
-            />
+            <Suspense fallback={Loading}>
+              <GoogleMapModule
+                mapWidth={widthMapContainer}
+                mapHeight={heightMapContainer}
+              />
+            </Suspense>
           </div>
         </div>
       </div>
-      <HomeGallery />
 
       <div className="nosotrosContainer" id="nosotros">
         <h3>Nuestra Historia</h3>
@@ -385,6 +405,9 @@ function HomePage() {
           <div className="historiaImg">
             <img
               src={imgHistoria}
+              width="455.75"
+              height="289.4"
+              loading="lazy"
               alt="imagen de nuestro local ubicado en Angol"
             />
           </div>
@@ -915,24 +938,12 @@ function HomePage() {
           </div>
         </div>
       </div>
-
-      <div className="formContainerHome" id="contacto">
-        <h3>Escríbenos un mensaje</h3>
+      <Suspense fallback={Loading}>
         <ContactForm />
-      </div>
-
-      <div className="ilustracionFooter">
-        <div className="footerTitles">
-          <p>
-            Entonces Jesús le dijo: —Yo soy la resurrección y la vida. El que
-            cree en mí vivirá, aunque muera; y todo el que vive y cree en mí no
-            morirá jamás.
-          </p>
-        </div>
-        <img src={arregloFooter} alt="jarron con flores blancas" />
-      </div>
-
-      <Footer />
+      </Suspense>
+      <Suspense fallback={Loading}>
+        <Footer />
+      </Suspense>
     </>
   );
 }

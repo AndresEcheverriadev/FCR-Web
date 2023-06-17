@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import miniatura1 from "../../images/miniaturaGaleria1.jpg";
-import miniatura2 from "../../images/miniaturaGaleria2.jpg";
-import miniatura3 from "../../images/miniaturaGaleria3.jpg";
-import miniatura4 from "../../images/miniaturaGaleria4.jpg";
-import galeria1 from "../../images/Galeria1.jpg";
-import galeria2 from "../../images/Galeria2.jpg";
-import galeria3 from "../../images/Galeria3.jpg";
-import galeria4 from "../../images/Galeria4.jpg";
+import miniatura1 from "../../images/miniaturaGaleria1.webp";
+import miniatura2 from "../../images/miniaturaGaleria2.webp";
+import miniatura3 from "../../images/miniaturaGaleria3.webp";
+import miniatura4 from "../../images/miniaturaGaleria4.webp";
+import galeria1 from "../../images/Galeria1.webp";
+import galeria2 from "../../images/Galeria2.webp";
+import galeria3 from "../../images/Galeria3.webp";
+import galeria4 from "../../images/Galeria4.webp";
 import "./HomeGallery.css";
 import "./HomeGalleryResponsive.css";
 
@@ -32,7 +32,7 @@ function HomeGallery() {
         <img
           className="imageMiniature"
           src={miniatura3}
-          alt="expocision de distintas urnas"
+          alt="exposicion de distintas urnas"
           onClick={() => setOpen(true)}
         />
         <img
