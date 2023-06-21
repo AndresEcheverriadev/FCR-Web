@@ -6,6 +6,7 @@ import React, {
   Suspense,
 } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Navbar from "../Navbar/Navbar";
 import Loading from "../Loading/Loading.js";
 import imgHome from "../../images/homeFuneraria.webp";
@@ -147,9 +148,6 @@ function HomePage() {
                   Whatsapp
                 </h6>
               </a>
-            </div>
-            <div className="carruselContainer--mobile">
-              <img src={imgHome} alt="persona con flores tocando urna" />
             </div>
           </div>
         </div>
@@ -345,21 +343,19 @@ function HomePage() {
                     disponible:
                   </p>
                   <div className="servicioIncludesGallery">
-                    <img
+                    <LazyLoadImage
                       src={imgFloreria}
-                      loading="lazy"
-                      width="200"
-                      height="200"
-                      id="imagenFloreria"
+                      width={200}
+                      height={200}
                       alt="arreglo floral funerario"
+                      id="imagenFloreria"
                     />
-                    <img
+                    <LazyLoadImage
                       src={imgFloreria2}
-                      loading="lazy"
-                      width="200"
-                      height="200"
-                      id="imagenFloreria2"
+                      width={200}
+                      height={200}
                       alt="arreglo floral funerario en conservador refrigerado"
+                      id="imagenFloreria2"
                     />
                   </div>
                 </div>
@@ -403,12 +399,11 @@ function HomePage() {
           </div>
 
           <div className="historiaImg">
-            <img
+            <LazyLoadImage
               src={imgHistoria}
-              width="455.75"
-              height="289.4"
-              loading="lazy"
-              alt="imagen de nuestro local ubicado en Angol"
+              width={455.75}
+              height={289.4}
+              alt="imagen de nuestro fundador Teobaldo Echeverría (Q.E.P.D.)"
             />
           </div>
         </div>

@@ -14,9 +14,13 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg bg-light navbarMainContainer">
       <div className="container-fluid">
         <NavLink to="/" className="logoContainer">
-          <img src={Logo} alt="" />
+          <img
+            width={200}
+            height={93.175}
+            src={Logo}
+            alt="Logo Servicio Funerario Cristo Rey"
+          />
         </NavLink>
-
         <button
           className="navbar-toggler"
           type="button"

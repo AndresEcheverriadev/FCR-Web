@@ -53,10 +53,6 @@
   z-index: -1;
 }
 
-.carruselContainer--mobile {
-  display: none;
-}
-
 .contactPhonesContainer {
   display: flex;
   flex-direction: column;

@@ -4,11 +4,13 @@
   width: 90%;
   height: auto;
   background-color: var(--cremaMedio) !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .logoContainer img {
-  width: 100%;
-  height: 8rem;
+  width: 200px;
+  height: auto;
 }
 
 .linksContainer {
@@ -36,7 +38,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 90%;
   height: 2.5rem;
   background-color: var(--cafeBase);
   color: var(--blanco);

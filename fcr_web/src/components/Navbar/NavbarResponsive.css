@@ -7,7 +7,7 @@
 @media (max-width: 992px) {
   .navbarMainContainer {
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .container-fluid {
@@ -18,7 +18,7 @@
   }
 
   .logoContainer {
-    width: 50% !important;
+    width: 90% !important;
   }
 
   .linksContainer {
