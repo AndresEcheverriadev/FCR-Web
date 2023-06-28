@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import miniatura1 from "../../images/miniaturaGaleria1.webp";
@@ -17,27 +18,35 @@ function HomeGallery() {
   return (
     <>
       <div className="miniaturesContainer">
-        <img
+        <LazyLoadImage
           className="imageMiniature"
           src={miniatura1}
+          width={164.062}
+          height={99.7125}
           alt="distintos modelos de urnas vertical"
           onClick={() => setOpen(true)}
         />
-        <img
+        <LazyLoadImage
           className="imageMiniature"
           src={miniatura2}
+          width={164.062}
+          height={99.7125}
           alt="distintos modelos de urnas horizontal"
           onClick={() => setOpen(true)}
         />
-        <img
+        <LazyLoadImage
           className="imageMiniature"
           src={miniatura3}
+          width={164.062}
+          height={99.7125}
           alt="exposicion de distintas urnas"
           onClick={() => setOpen(true)}
         />
-        <img
+        <LazyLoadImage
           className="imageMiniature"
           src={miniatura4}
+          width={164.062}
+          height={99.7125}
           alt="distintos modelos de urnas"
           onClick={() => setOpen(true)}
         />

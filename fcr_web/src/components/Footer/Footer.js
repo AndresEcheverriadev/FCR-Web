@@ -27,12 +27,17 @@ function Footer() {
             morirá jamás.
           </p>
         </div>
-        <img src={arregloFooter} alt="jarron con flores blancas" />
+        <img
+          src={arregloFooter}
+          alt="jarron con flores blancas"
+          width={400}
+          height={354}
+        />
       </div>
       <footer>
         <div className="footerContainer">
           <div className="footerLogo">
-            <img src={logoBlanco} alt="" />
+            <img src={logoBlanco} alt="" width={243.062} height={113.238} />
           </div>
 
           <div className="footerLinksWrapper">

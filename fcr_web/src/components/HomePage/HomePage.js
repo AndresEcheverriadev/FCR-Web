@@ -77,7 +77,12 @@ function HomePage() {
             </h2>
           </div>
           <div className="carruselContainer">
-            <img src={imgHome} alt="persona con flores tocando urna" />
+            <img
+              src={imgHome}
+              alt="persona con flores tocando urna"
+              height={291.675}
+              width={425.362}
+            />
           </div>
           <div className="contactPhonesContainer">
             <h4>

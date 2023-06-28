@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginContextProvider from "../src/components/context/loginContext.js";
-import HomePage from "./components/HomePage/HomePage";
 import Loading from "./components/Loading/Loading.js";
 import "./App.css";
+const HomePage = lazy(() => import("./components/HomePage/HomePage.js"));
 const ObituarioPage = lazy(() =>
   import("./components/ObituarioPage/ObituarioPage.js")
 );
