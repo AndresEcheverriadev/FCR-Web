@@ -33,7 +33,6 @@ function GoogleMapModule({ mapWidth, mapHeight }) {
             <Marker position={center} />
           </GoogleMap>
         ) : null}
-        ;
       </Suspense>
     </>
   );
