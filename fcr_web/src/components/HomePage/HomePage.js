@@ -91,10 +91,10 @@ function HomePage() {
               Contáctanos 24/7 a nuestros teléfonos <br /> o escríbanos a
               nuestro Whatsapp.
             </h4>
-            <h5 id="contactPhonesTitle--mobile">
+            <h4 id="contactPhonesTitle--mobile">
               Contáctanos 24/7 a nuestros teléfonos o escríbanos a nuestro
               Whatsapp.
-            </h5>
+            </h4>
             <div className="phonesWrapper">
               <a className="phoneButton" href={`tel:${fono1}`}>
                 <div className="callPhone">

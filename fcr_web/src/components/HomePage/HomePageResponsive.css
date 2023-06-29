@@ -140,6 +140,7 @@
   }
 
   #contactPhonesTitle--mobile {
+    font-size: var(--h5);
     display: initial;
     width: 100%;
   }

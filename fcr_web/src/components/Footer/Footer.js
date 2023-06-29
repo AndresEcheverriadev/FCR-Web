@@ -127,6 +127,7 @@ function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               className="footerLink"
+              aria-label="link al perfil de Facebook"
             >
               <svg
                 xmlns="https://www.w3.org/2000/svg"
@@ -144,6 +145,7 @@ function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               className="footerLink"
+              aria-label="link al perfil de Instagram"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
