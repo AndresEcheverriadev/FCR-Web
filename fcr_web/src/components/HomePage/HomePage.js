@@ -40,7 +40,7 @@ function HomePage() {
     <>
       <HelmetProvider>
         <Helmet prioritizeSeoTags>
-          <title>Servicios Funerarios Cristo Rey</title>
+          <title>Servicios Funerarios Cristo Rey Angol</title>
           <link rel="canonical" href="https://www.cristoreyangol.cl/" />
           <meta
             property="og:title"
@@ -71,7 +71,9 @@ function HomePage() {
             <Navbar />
           </header>
           <div className="homeTitlesContainer">
-            <h1 className="homeTitle1">Servicios Funerarios Cristo Rey</h1>
+            <h1 className="homeTitle1">
+              Servicios Funerarios Cristo Rey Angol
+            </h1>
             <h2 className="homeTitle1">
               Más de 40 años honrando <br />a las familias angolinas
             </h2>
