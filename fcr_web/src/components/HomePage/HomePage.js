@@ -80,8 +80,8 @@ function HomePage() {
             <img
               src={imgHome}
               alt="persona con flores tocando urna"
-              height={291.675}
-              width={425.362}
+              height={291}
+              width={425}
             />
           </div>
           <div className="contactPhonesContainer">
