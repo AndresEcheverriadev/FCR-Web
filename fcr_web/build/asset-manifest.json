@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6ecba380.css",
-    "main.js": "/static/js/main.a32e5921.js",
+    "main.css": "/static/css/main.adf7ae99.css",
+    "main.js": "/static/js/main.1dc43536.js",
     "static/css/183.ab6cc899.chunk.css": "/static/css/183.ab6cc899.chunk.css",
     "static/js/183.f84785e3.chunk.js": "/static/js/183.f84785e3.chunk.js",
     "static/css/292.8e131652.chunk.css": "/static/css/292.8e131652.chunk.css",
@@ -36,8 +36,8 @@
     "static/media/arregloVasoFloral.webp": "/static/media/arregloVasoFloral.eddc43c025213c230584.webp",
     "static/media/arreglosFlorales2.webp": "/static/media/arreglosFlorales2.88b57258d17d4b46071a.webp",
     "index.html": "/index.html",
-    "main.6ecba380.css.map": "/static/css/main.6ecba380.css.map",
-    "main.a32e5921.js.map": "/static/js/main.a32e5921.js.map",
+    "main.adf7ae99.css.map": "/static/css/main.adf7ae99.css.map",
+    "main.1dc43536.js.map": "/static/js/main.1dc43536.js.map",
     "183.ab6cc899.chunk.css.map": "/static/css/183.ab6cc899.chunk.css.map",
     "183.f84785e3.chunk.js.map": "/static/js/183.f84785e3.chunk.js.map",
     "292.8e131652.chunk.css.map": "/static/css/292.8e131652.chunk.css.map",
@@ -58,7 +58,7 @@
     "644.b6afd5e8.chunk.js.map": "/static/js/644.b6afd5e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ecba380.css",
-    "static/js/main.a32e5921.js"
+    "static/css/main.adf7ae99.css",
+    "static/js/main.1dc43536.js"
   ]
 }

@@ -68,6 +68,14 @@
   display: none;
 }
 
+#contactPhonesTitle--desktop {
+  font-size: var(--h4);
+}
+
+.contactPhoneCall {
+  font-size: var(--h5);
+}
+
 .phonesWrapper {
   display: flex;
   flex-direction: row;
