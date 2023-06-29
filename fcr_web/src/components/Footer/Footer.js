@@ -32,12 +32,19 @@ function Footer() {
           alt="jarron con flores blancas"
           width={400}
           height={354}
+          loading="lazy"
         />
       </div>
       <footer>
         <div className="footerContainer">
           <div className="footerLogo">
-            <img src={logoBlanco} alt="" width={243.062} height={113.238} />
+            <img
+              src={logoBlanco}
+              alt=""
+              width={243.062}
+              height={113.238}
+              loading="lazy"
+            />
           </div>
 
           <div className="footerLinksWrapper">
@@ -77,6 +84,7 @@ function Footer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="footerLink"
+                aria-label="link al perfil de Facebook"
               >
                 <svg
                   xmlns="https://www.w3.org/2000/svg"
@@ -94,6 +102,7 @@ function Footer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="footerLink"
+                aria-label="link al perfil de Instagram"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
