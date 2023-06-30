@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import Logo from "../../images/logo.svg";
 import "./Navbar.css";
 import "./NavbarResponsive.css";
 
@@ -17,7 +16,7 @@ function Navbar() {
           <img
             width={200}
             height={93.175}
-            src={Logo}
+            src="/logo.svg"
             alt="Logo Servicio Funerario Cristo Rey"
           />
         </NavLink>
