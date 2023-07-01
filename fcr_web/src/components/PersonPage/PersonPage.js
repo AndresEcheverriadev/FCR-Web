@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Navbar from "../Navbar/Navbar";
+import { AnalyticService } from "../../Services/AnalyticService";
 import "./PersonPage.css";
 
 function PersonPage() {
@@ -31,6 +32,11 @@ function PersonPage() {
   }, []);
 
   const sendMesagge = async (id) => {
+    AnalyticService.event(
+      "Interacciones",
+      "enviar_mensajeObituario",
+      "mensajeObituario"
+    );
     const newMesagge = {
       author: msgText.author,
       mesagge: msgText.mesagge,
@@ -50,6 +56,7 @@ function PersonPage() {
       msgText.mesagge = "";
       inputAuthor.value = "";
       inputMesagge.value = "";
+      window.location.reload(false);
     } else {
       alert("Debe escribir su nombre y un mensaje");
     }
@@ -69,6 +76,10 @@ function PersonPage() {
       />
     </svg>
   );
+
+  useEffect(() => {
+    AnalyticService.pageView(`/obituario/${personId}`, "Obituario_persona");
+  }, []);
 
   return (
     <>

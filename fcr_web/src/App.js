@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginContextProvider from "../src/components/context/loginContext.js";
 import Loading from "./components/Loading/Loading.js";
@@ -19,6 +19,10 @@ function App() {
     <Suspense fallback={<Loading />}>
       <BrowserRouter>
         <LoginContextProvider>
+          <h6 id="lowResolutionDeviceAlert">
+            Este sitio no se puede visualizar en dispositivos con resolución
+            menor a 320 pixeles.
+          </h6>
           <div className="App">
             <Routes>
               <Route path="/" element={<HomePage />} />

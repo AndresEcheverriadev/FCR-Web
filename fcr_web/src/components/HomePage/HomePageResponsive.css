@@ -1,4 +1,8 @@
 @media (max-width: 320px) {
+  #contactPhonesTitle--mobile {
+    display: none;
+  }
+
   .googleMapContainer {
     width: 300px !important;
     height: 300px !important;
@@ -125,6 +129,18 @@
   }
 }
 
+@media (min-width: 321px) and (max-width: 760px) {
+  .viewHomeContainer {
+    justify-content: center;
+  }
+
+  #contactPhonesTitle--mobile {
+    font-size: var(--h5);
+    display: initial;
+    width: 100%;
+  }
+}
+
 @media (max-width: 760px) {
   .homeTitlesContainer h2 {
     display: none;
@@ -139,10 +155,8 @@
     margin-top: 20px;
   }
 
-  #contactPhonesTitle--mobile {
-    font-size: var(--h5);
-    display: initial;
-    width: 100%;
+  #contactPhonesTitle--desktop {
+    display: none;
   }
 
   .contactPhonesContainer h4 {
@@ -230,10 +244,6 @@
     width: 90%;
   }
 
-  .viewHomeContainer {
-    height: auto;
-  }
-
   .serviciosCardsContainer {
     flex-direction: column;
     justify-content: center;
@@ -289,10 +299,6 @@
 }
 
 @media (min-width: 1280px) {
-  .viewHomeContainer {
-    height: 100vh;
-  }
-
   .contactPhonesContainer {
     width: 50%;
   }

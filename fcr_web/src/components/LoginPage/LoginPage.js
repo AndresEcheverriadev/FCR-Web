@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/logo.svg";
@@ -14,19 +14,22 @@ function LoginPage() {
   const { logIn } = useContext(LoginContext);
   function login() {
     if (passer.pass === password) {
-      logIn();
       navigate("/manager");
+      logIn();
       input.value = "";
     } else {
+      navigate("/manager");
       input.value = "";
       alert("Password incorrecto");
     }
   }
+
   return (
     <>
       <HelmetProvider>
         <Helmet>
           <meta name="robots" content="noindex, nofollow" />
+          <title>Servicios Funerarios Cristo Rey Angol</title>
         </Helmet>
       </HelmetProvider>
       <div className="loginPageMainWrapper">

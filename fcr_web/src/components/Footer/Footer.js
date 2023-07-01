@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logoBlanco from "../../images/logoBlanco.svg";
 import arregloFooter from "../../images/arregloVasoFloral.webp";
+import { AnalyticService } from "../../Services/AnalyticService";
 import "./Footer.css";
 import "./FooterResponsive.css";
 
@@ -85,6 +86,13 @@ function Footer() {
                 rel="noreferrer noopener"
                 className="footerLink"
                 aria-label="link al perfil de Facebook"
+                onClick={() =>
+                  AnalyticService.event(
+                    "Interacciones",
+                    "clic_linkFacebook",
+                    "link_Facebook"
+                  )
+                }
               >
                 <svg
                   xmlns="https://www.w3.org/2000/svg"
@@ -103,6 +111,13 @@ function Footer() {
                 rel="noreferrer noopener"
                 className="footerLink"
                 aria-label="link al perfil de Instagram"
+                onClick={() =>
+                  AnalyticService.event(
+                    "Interacciones",
+                    "clic_linkInstagram",
+                    "link_Instagram"
+                  )
+                }
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,6 +143,13 @@ function Footer() {
               rel="noreferrer noopener"
               className="footerLink"
               aria-label="link al perfil de Facebook"
+              onClick={() =>
+                AnalyticService.event(
+                  "Interacciones",
+                  "clic_linkFacebook",
+                  "link_Facebook"
+                )
+              }
             >
               <svg
                 xmlns="https://www.w3.org/2000/svg"
@@ -146,6 +168,13 @@ function Footer() {
               rel="noreferrer noopener"
               className="footerLink"
               aria-label="link al perfil de Instagram"
+              onClick={() =>
+                AnalyticService.event(
+                  "Interacciones",
+                  "clic_linkInstagram",
+                  "link_Instagram"
+                )
+              }
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

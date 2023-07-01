@@ -1,24 +1,28 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Loading from "../Loading/Loading.js";
 import Footer from "../Footer/Footer";
+import { AnalyticService } from "../../Services/AnalyticService";
 import "./ObituarioPage.css";
 
 function ObituarioPage() {
   const ObituarioLoader = React.lazy(() => import("./RecordLoader"));
+  useEffect(() => {
+    AnalyticService.pageView("/obituario", "Obituario general");
+  }, []);
   return (
     <div className="obituarioPageMainWrapper">
       <HelmetProvider>
         <Helmet>
           <meta
             property="og:title"
-            content={`Sitio web servicios funerarios Cristo Rey`}
+            content={`Sitio web servicios funerarios Cristo Rey Angol`}
           />
           <meta property="og:url" content={`https://www.cristoreyangol.cl/`} />
           <meta
             property="og:description"
-            content="Sitio web servicios funerarios Cristo Rey"
+            content="Sitio web servicios funerarios Cristo Rey Angol"
           />
           <meta
             property="og:image"
@@ -28,10 +32,10 @@ function ObituarioPage() {
           <meta property="og:type" content="article" />
           <meta property="og:image:width" content="300" />
           <meta property="og:image:height" content="200" />
-          <title>Servicios Funerarios Cristo Rey</title>
+          <title>Servicios Funerarios Cristo Rey Angol</title>
           <meta
             name="description"
-            content="Sitio web servicios funerarios Cristo Rey"
+            content="Sitio web servicios funerarios Cristo Rey Angol"
           ></meta>
 
           <link rel="canonical" href="https://www.cristoreyangol.cl/" />

@@ -1,9 +1,30 @@
+#lowResolutionDeviceAlert {
+  display: none;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items:center;
+  align-items: center;
   text-align: center;
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 319px) {
+  #lowResolutionDeviceAlert {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    width: 95%;
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .App {
+    display: none;
+  }
 }

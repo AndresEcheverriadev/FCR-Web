@@ -244,6 +244,7 @@ function ManagerPage() {
         <Helmet>
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
+        <title>Servicios Funerarios Cristo Rey Angol</title>
       </HelmetProvider>
       <div className="mnanagerPageMainWrapper">
         <header className="managerHeaderContainer">

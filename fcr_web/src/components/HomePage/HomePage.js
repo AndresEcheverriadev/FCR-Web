@@ -2,6 +2,7 @@ import React, {
   useLayoutEffect,
   useRef,
   useState,
+  useEffect,
   lazy,
   Suspense,
 } from "react";
@@ -12,6 +13,7 @@ import Loading from "../Loading/Loading.js";
 import imgHome from "../../images/homeFuneraria.webp";
 import "./HomePage.css";
 import "./HomePageResponsive.css";
+import { AnalyticService } from "../../Services/AnalyticService";
 import imgHistoria from "../../images/homeFunerariaOficina.webp";
 import imgFloreria from "../../images/arreglosFlorales.webp";
 import imgFloreria2 from "../../images/arreglosFlorales2.webp";
@@ -26,6 +28,14 @@ function HomePage() {
   const fono1 = "+569 5253 9500";
   const fono2 = "+569 9032 7836";
   const whatsappCode = "56927752105";
+
+  useEffect(() => {
+    AnalyticService.initialize();
+  }, []);
+
+  useEffect(() => {
+    AnalyticService.pageView("/", "Home");
+  }, []);
 
   // const refMapContainer = useRef(null);
   // const [widthMapContainer, setWidthMapContainer] = useState(0);
@@ -44,12 +54,12 @@ function HomePage() {
           <link rel="canonical" href="https://www.cristoreyangol.cl/" />
           <meta
             property="og:title"
-            content={`Sitio web servicios funerarios Cristo Rey`}
+            content={`Sitio web servicios funerarios Cristo Rey Angol`}
           />
           <meta property="og:url" content={`https://www.cristoreyangol.cl/`} />
           <meta
             property="og:description"
-            content="Sitio web servicios funerarios Cristo Rey"
+            content="Sitio web servicios funerarios Cristo Rey Angol"
           />
           <meta
             property="og:image"
@@ -61,7 +71,7 @@ function HomePage() {
           <meta property="og:image:height" content="200" />
           <meta
             name="description"
-            content="Sitio web servicios funerarios Cristo Rey"
+            content="Sitio web servicios funerarios Cristo Rey Angol"
           ></meta>
         </Helmet>
       </HelmetProvider>
@@ -96,7 +106,13 @@ function HomePage() {
               Whatsapp.
             </h3>
             <div className="phonesWrapper">
-              <a className="phoneButton" href={`tel:${fono1}`}>
+              <a
+                className="phoneButton"
+                href={`tel:${fono1}`}
+                onClick={() =>
+                  AnalyticService.event("Interacciones", "clic_Llamar", "Tel1")
+                }
+              >
                 <div className="callPhone">
                   <svg
                     xmlns="https://www.w3.org/2000/svg"
@@ -115,7 +131,13 @@ function HomePage() {
                 </div>
                 <h5>{fono1}</h5>
               </a>
-              <a className="phoneButton" href={`tel:${fono2}`}>
+              <a
+                className="phoneButton"
+                href={`tel:${fono2}`}
+                onClick={() =>
+                  AnalyticService.event("Interacciones", "clic_Llamar", "Tel2")
+                }
+              >
                 <div className="callPhone">
                   <svg
                     xmlns="https://www.w3.org/2000/svg"
@@ -137,6 +159,13 @@ function HomePage() {
               <a
                 className="phoneWhatsapp"
                 href={`https://wa.me/${whatsappCode}`}
+                onClick={() =>
+                  AnalyticService.event(
+                    "Interacciones",
+                    "clic_Whatsapp",
+                    "Whatsapp"
+                  )
+                }
               >
                 <div className="callWhatsapp">
                   <svg
@@ -467,6 +496,13 @@ function HomePage() {
                   data-bs-target="#collapseOne"
                   aria-expanded="true"
                   aria-controls="collapseOne"
+                  onClick={() =>
+                    AnalyticService.event(
+                      "Interacciones",
+                      "clic_preguntasFrecuentes",
+                      "faqs_muerteFamiliar"
+                    )
+                  }
                 >
                   ¿Que hacer cuando la muerte ocurre?
                 </button>
@@ -528,6 +564,13 @@ function HomePage() {
                   data-bs-target="#collapseTwo"
                   aria-expanded="false"
                   aria-controls="collapseTwo"
+                  onClick={() =>
+                    AnalyticService.event(
+                      "Interacciones",
+                      "clic_preguntasFrecuentes",
+                      "faqs_cuotasMortuorias"
+                    )
+                  }
                 >
                   Seguro social y cuotas mortuorias
                 </button>
@@ -587,6 +630,13 @@ function HomePage() {
                   data-bs-target="#collapseThree"
                   aria-expanded="false"
                   aria-controls="collapseThree"
+                  onClick={() =>
+                    AnalyticService.event(
+                      "Interacciones",
+                      "clic_preguntasFrecuentes",
+                      "faqs_sepulturaFallecida"
+                    )
+                  }
                 >
                   Si existe una sepultura a nombre de la persona fallecida
                 </button>
@@ -629,6 +679,13 @@ function HomePage() {
                   data-bs-target="#collapseFour"
                   aria-expanded="false"
                   aria-controls="collapseFour"
+                  onClick={() =>
+                    AnalyticService.event(
+                      "Interacciones",
+                      "clic_preguntasFrecuentes",
+                      "faqs_fallecidaNoSepultura"
+                    )
+                  }
                 >
                   Si la persona fallecida no tiene una sepultura
                 </button>
@@ -668,6 +725,13 @@ function HomePage() {
                   data-bs-target="#collapseFive"
                   aria-expanded="false"
                   aria-controls="collapseFive"
+                  onClick={() =>
+                    AnalyticService.event(
+                      "Interacciones",
+                      "clic_preguntasFrecuentes",
+                      "faqs_fallecidaCremacion"
+                    )
+                  }
                 >
                   Si la persona fallecida pidió ser cremada
                 </button>
@@ -754,6 +818,13 @@ function HomePage() {
                   data-bs-target="#collapseSix"
                   aria-expanded="false"
                   aria-controls="collapseSix"
+                  onClick={() =>
+                    AnalyticService.event(
+                      "Interacciones",
+                      "clic_preguntasFrecuentes",
+                      "faqs_reembolsoGastos"
+                    )
+                  }
                 >
                   Reembolso de gastos funerarios
                 </button>
@@ -891,6 +962,13 @@ function HomePage() {
                   data-bs-target="#collapseSeven"
                   aria-expanded="false"
                   aria-controls="collapseSeven"
+                  onClick={() =>
+                    AnalyticService.event(
+                      "Interacciones",
+                      "clic_preguntasFrecuentes",
+                      "faqs_trasladoPersona"
+                    )
+                  }
                 >
                   Traslado de una persona fallecida
                 </button>

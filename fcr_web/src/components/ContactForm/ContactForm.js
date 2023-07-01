@@ -1,4 +1,5 @@
 import React from "react";
+import { AnalyticService } from "../../Services/AnalyticService";
 import "./ContactForm.css";
 
 const mailContacto = "contacto@cristoreyangol.cl";
@@ -12,6 +13,13 @@ function ContactForm() {
         <a
           href={`mailto:${mailContacto}?subject=Quiero dejar un mensaje`}
           className="btnSubmitForm"
+          onClick={() =>
+            AnalyticService.event(
+              "Interacciones",
+              "enviar_Correo",
+              "MailtoHome"
+            )
+          }
         >
           <p>Escríbenos</p>
           <svg
