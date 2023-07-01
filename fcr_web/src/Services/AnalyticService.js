@@ -1,17 +1,15 @@
 import ReactGA from "react-ga4";
 
 const initialize = async () => {
-  console.log("init");
-  // ReactGA.initialize("G-80E5Y9MEL8");
+  ReactGA.initialize(process.env.REACT_APP_GTM_ID);
 };
 
 const pageView = async (locationURL, title) => {
-  console.log("pageview");
-  // ReactGA.send({
-  //   hitType: "pageview",
-  //   page: `${locationURL}`,
-  //   title: `${title}`,
-  // });
+  ReactGA.send({
+    hitType: "pageview",
+    page: `${locationURL}`,
+    title: `${title}`,
+  });
 };
 
 const event = async (category, action, label) => {

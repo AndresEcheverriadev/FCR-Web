@@ -18,9 +18,9 @@ import imgHistoria from "../../images/homeFunerariaOficina.webp";
 import imgFloreria from "../../images/arreglosFlorales.webp";
 import imgFloreria2 from "../../images/arreglosFlorales2.webp";
 const HomeGallery = lazy(() => import("../HomeGallery/HomeGallery.js"));
-// const GoogleMapModule = lazy(() =>
-//   import("../GoogleMapModule/GoogleMapModule.js")
-// );
+const GoogleMapModule = lazy(() =>
+  import("../GoogleMapModule/GoogleMapModule.js")
+);
 const ContactForm = lazy(() => import("../ContactForm/ContactForm"));
 const Footer = lazy(() => import("../Footer/Footer"));
 
@@ -37,14 +37,14 @@ function HomePage() {
     AnalyticService.pageView("/", "Home");
   }, []);
 
-  // const refMapContainer = useRef(null);
-  // const [widthMapContainer, setWidthMapContainer] = useState(0);
-  // const [heightMapContainer, setHeightMapContainer] = useState(0);
+  const refMapContainer = useRef(null);
+  const [widthMapContainer, setWidthMapContainer] = useState(0);
+  const [heightMapContainer, setHeightMapContainer] = useState(0);
 
-  // useLayoutEffect(() => {
-  //   setWidthMapContainer(refMapContainer.current.offsetWidth);
-  //   setHeightMapContainer(refMapContainer.current.offsetHeight);
-  // }, []);
+  useLayoutEffect(() => {
+    setWidthMapContainer(refMapContainer.current.offsetWidth);
+    setHeightMapContainer(refMapContainer.current.offsetHeight);
+  }, []);
 
   const sendClickCollapse = (event, category, action, label) => {
     if (event.target.classList.contains("collapsed") === false) {
@@ -414,7 +414,7 @@ function HomePage() {
         <Suspense fallback={Loading}>
           <HomeGallery />
         </Suspense>
-        {/* <div className="addressWrapper" id="map">
+        <div className="addressWrapper" id="map">
           <div className="googleMapContainer" ref={refMapContainer}>
             <Suspense fallback={Loading}>
               <GoogleMapModule
@@ -423,7 +423,7 @@ function HomePage() {
               />
             </Suspense>
           </div>
-        </div> */}
+        </div>
       </div>
 
       <div className="nosotrosContainer" id="nosotros">
