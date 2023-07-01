@@ -17,7 +17,7 @@ function ObituarioPage() {
         <Helmet>
           <meta
             property="og:title"
-            content={`Sitio web servicios funerarios Cristo Rey Angol`}
+            content={`Servicios Funerarios Cristo Rey Angol - Obituario`}
           />
           <meta property="og:url" content={`https://www.cristoreyangol.cl/`} />
           <meta
@@ -32,7 +32,7 @@ function ObituarioPage() {
           <meta property="og:type" content="article" />
           <meta property="og:image:width" content="300" />
           <meta property="og:image:height" content="200" />
-          <title>Servicios Funerarios Cristo Rey Angol</title>
+          <title>Servicios Funerarios Cristo Rey Angol - Obituario</title>
           <meta
             name="description"
             content="Sitio web servicios funerarios Cristo Rey Angol"

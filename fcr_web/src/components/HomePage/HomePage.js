@@ -46,11 +46,17 @@ function HomePage() {
   //   setHeightMapContainer(refMapContainer.current.offsetHeight);
   // }, []);
 
+  const sendClickCollapse = (event, category, action, label) => {
+    if (event.target.classList.contains("collapsed") === false) {
+      AnalyticService.event(category, action, label);
+    }
+  };
+
   return (
     <>
       <HelmetProvider>
         <Helmet prioritizeSeoTags>
-          <title>Servicios Funerarios Cristo Rey Angol</title>
+          <title>Servicios Funerarios Cristo Rey Angol - Home</title>
           <link rel="canonical" href="https://www.cristoreyangol.cl/" />
           <meta
             property="og:title"
@@ -490,14 +496,16 @@ function HomePage() {
             <div className="accordion-item">
               <h2 className="accordion-header" id="headingOne">
                 <button
+                  id="faqs_muerteFamiliar"
                   className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseOne"
                   aria-expanded="true"
                   aria-controls="collapseOne"
-                  onClick={() =>
-                    AnalyticService.event(
+                  onClick={(e) =>
+                    sendClickCollapse(
+                      e,
                       "Interacciones",
                       "clic_preguntasFrecuentes",
                       "faqs_muerteFamiliar"
@@ -564,8 +572,9 @@ function HomePage() {
                   data-bs-target="#collapseTwo"
                   aria-expanded="false"
                   aria-controls="collapseTwo"
-                  onClick={() =>
-                    AnalyticService.event(
+                  onClick={(e) =>
+                    sendClickCollapse(
+                      e,
                       "Interacciones",
                       "clic_preguntasFrecuentes",
                       "faqs_cuotasMortuorias"
@@ -630,8 +639,9 @@ function HomePage() {
                   data-bs-target="#collapseThree"
                   aria-expanded="false"
                   aria-controls="collapseThree"
-                  onClick={() =>
-                    AnalyticService.event(
+                  onClick={(e) =>
+                    sendClickCollapse(
+                      e,
                       "Interacciones",
                       "clic_preguntasFrecuentes",
                       "faqs_sepulturaFallecida"
@@ -679,8 +689,9 @@ function HomePage() {
                   data-bs-target="#collapseFour"
                   aria-expanded="false"
                   aria-controls="collapseFour"
-                  onClick={() =>
-                    AnalyticService.event(
+                  onClick={(e) =>
+                    sendClickCollapse(
+                      e,
                       "Interacciones",
                       "clic_preguntasFrecuentes",
                       "faqs_fallecidaNoSepultura"
@@ -725,8 +736,9 @@ function HomePage() {
                   data-bs-target="#collapseFive"
                   aria-expanded="false"
                   aria-controls="collapseFive"
-                  onClick={() =>
-                    AnalyticService.event(
+                  onClick={(e) =>
+                    sendClickCollapse(
+                      e,
                       "Interacciones",
                       "clic_preguntasFrecuentes",
                       "faqs_fallecidaCremacion"
@@ -818,8 +830,9 @@ function HomePage() {
                   data-bs-target="#collapseSix"
                   aria-expanded="false"
                   aria-controls="collapseSix"
-                  onClick={() =>
-                    AnalyticService.event(
+                  onClick={(e) =>
+                    sendClickCollapse(
+                      e,
                       "Interacciones",
                       "clic_preguntasFrecuentes",
                       "faqs_reembolsoGastos"
@@ -962,8 +975,9 @@ function HomePage() {
                   data-bs-target="#collapseSeven"
                   aria-expanded="false"
                   aria-controls="collapseSeven"
-                  onClick={() =>
-                    AnalyticService.event(
+                  onClick={(e) =>
+                    sendClickCollapse(
+                      e,
                       "Interacciones",
                       "clic_preguntasFrecuentes",
                       "faqs_trasladoPersona"
