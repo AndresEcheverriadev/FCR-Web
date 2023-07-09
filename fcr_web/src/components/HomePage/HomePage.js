@@ -17,10 +17,9 @@ import { AnalyticService } from "../../Services/AnalyticService";
 import imgHistoria from "../../images/homeFunerariaOficina.webp";
 import imgFloreria from "../../images/arreglosFlorales.webp";
 import imgFloreria2 from "../../images/arreglosFlorales2.webp";
+import mapBig from "../../images/mapBig.webp";
+import mapSmall from "../../images/mapSmall.webp";
 const HomeGallery = lazy(() => import("../HomeGallery/HomeGallery.js"));
-const GoogleMapModule = lazy(() =>
-  import("../GoogleMapModule/GoogleMapModule.js")
-);
 const ContactForm = lazy(() => import("../ContactForm/ContactForm"));
 const Footer = lazy(() => import("../Footer/Footer"));
 
@@ -417,10 +416,27 @@ function HomePage() {
         <div className="addressWrapper" id="map">
           <div className="googleMapContainer" ref={refMapContainer}>
             <Suspense fallback={Loading}>
-              <GoogleMapModule
-                mapWidth={widthMapContainer}
-                mapHeight={heightMapContainer}
-              />
+              <a
+                href="https://goo.gl/maps/2rbfaDBvpZtUSR9J9"
+                rel="noreferrer noopener"
+                aria-label="link a Google Map"
+                target="_blank"
+              >
+                <LazyLoadImage
+                  src={mapBig}
+                  width={750}
+                  height={400}
+                  alt="mapa de ubicación de oficina de ventas"
+                  id="mapBig"
+                />
+                <LazyLoadImage
+                  src={mapSmall}
+                  width={321}
+                  height={322}
+                  alt="mapa de ubicación de oficina de ventas"
+                  id="mapSmall"
+                />
+              </a>
             </Suspense>
           </div>
         </div>

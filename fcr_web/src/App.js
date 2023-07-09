@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginContextProvider from "../src/components/context/loginContext.js";
 import Loading from "./components/Loading/Loading.js";
