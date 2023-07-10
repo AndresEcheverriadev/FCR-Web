@@ -1,9 +1,3 @@
-@media (max-width: 480px) {
-  .container-fluid button {
-    display: none !important;
-  }
-}
-
 @media (max-width: 992px) {
   .navbarMainContainer {
     justify-content: center;

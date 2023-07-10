@@ -8,7 +8,7 @@ import "./ManagerPage.css";
 function ManagerPage() {
   const { logOut } = useContext(LoginContext);
   const [records, setRecords] = useState([]);
-  const [status, setStatus] = useState("");
+  // const [status, setStatus] = useState("");
   const [image, setImage] = useState({ data: "" });
   const [form, setForm] = useState({
     date: "",
@@ -109,7 +109,7 @@ function ManagerPage() {
       return;
     });
     if (response) {
-      setStatus(response.statusText);
+      // setStatus(response.statusText);
       setImage({ data: "" });
       window.location.reload(false);
     }

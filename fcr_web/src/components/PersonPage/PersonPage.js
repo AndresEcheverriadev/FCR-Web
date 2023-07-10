@@ -29,7 +29,7 @@ function PersonPage() {
       setRecord(record.data);
     }
     getPerson();
-  }, []);
+  });
 
   const sendMesagge = async (id) => {
     AnalyticService.event(
@@ -79,7 +79,7 @@ function PersonPage() {
 
   useEffect(() => {
     AnalyticService.pageView(`/obituario/${personId}`, "Obituario_persona");
-  }, []);
+  });
 
   return (
     <>
