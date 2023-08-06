@@ -1,4 +1,25 @@
-html {
+@font-face {
+  font-family: "Poppins-Medium";
+  src: local("Poppins-Medium"),
+    url("./fonts/Poppins-Medium.woff2") format("woff2"),
+    url("./fonts/Poppins-Medium.woff") format("woff"),
+    url("./fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins-SemiBold.woff2") format("woff2"),
+    url("./fonts/Poppins-SemiBold.woff") format("woff"),
+    url("./fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
   --blanco: rgba(255, 255, 255, 1);
   --negro: rgba(0, 0, 0, 1);
   --cafeBase: rgba(123, 90, 19, 1);
@@ -23,9 +44,8 @@ html {
   --h5: 1.2rem;
   --h6: 0.7rem;
   --notification: 0.833rem;
-  --p: 14px;
   --bold: 700;
-  --italic: italic;
+  --p: 14px;
 }
 
 body {
@@ -34,9 +54,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--gris);
-  font-family: "Poppins", sans-serif, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: var(--cremaMedio);
 }
 
@@ -77,40 +94,50 @@ a:hover {
 }
 
 h1 {
+  font-family: "Poppins", sans-serif;
   font-size: var(--h1);
   font-weight: var(--Title);
 }
 
 h2 {
+  font-family: "Poppins", sans-serif;
   font-size: var(--h2);
   font-weight: var(--Title);
 }
 
 h3 {
+  font-family: "Poppins", sans-serif;
   font-size: var(--h3);
   font-weight: var(--Title);
 }
 
 h4 {
+  font-family: "Poppins", sans-serif;
   font-size: var(--h4);
   font-weight: var(--Title);
 }
 
 h5 {
+  font-family: "Poppins", sans-serif;
   font-size: var(--h5);
   font-weight: var(--Title);
 }
 
 h6 {
+  font-family: "Poppins-Medium", sans-serif;
   font-size: var(--h6);
   font-weight: var(--Title);
 }
 
 p {
+  font-family: "Poppins-Medium", sans-serif;
   font-size: var(--p);
   font-weight: var(--Cuerpo);
+  color: var(--gris);
 }
 
 li {
+  font-family: "Poppins-Medium", sans-serif;
   font-size: var(--p);
+  color: var(--gris);
 }

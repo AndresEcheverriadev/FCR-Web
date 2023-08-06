@@ -1,3 +1,22 @@
+.ilustracionFooter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footerTitles {
+  width: 80%;
+  text-align: left;
+}
+
+.ilustracionFooter img {
+  width: 400px;
+  height: auto;
+}
+
 footer {
   display: flex;
   flex-direction: column;
@@ -76,4 +95,5 @@ footer {
 
 .footerCopyright p {
   font-size: var(--notification);
+  color: var(--cafeClaro);
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import { AnalyticService } from "../../Services/AnalyticService";
+import "./FaqsAccordion.css";
 
 function faqsAccordion() {
   const sendClickCollapse = (event, category, action, label) => {

@@ -253,7 +253,7 @@ function PersonPage() {
         <div className="newMesaggeContainer">
           <div className="form-floating">
             <textarea
-              className="form-control"
+              className="form-control textName"
               id="inputAuthor"
               placeholder="Su nombre"
               onChange={(e) =>
@@ -263,7 +263,9 @@ function PersonPage() {
                 }))
               }
             ></textarea>
-            <label htmlFor="floatingTextarea">Su nombre</label>
+            <label htmlFor="floatingTextarea" className="textareaLabel">
+              Su nombre
+            </label>
           </div>
 
           <div className="form-floating">
@@ -278,7 +280,9 @@ function PersonPage() {
                 }))
               }
             ></textarea>
-            <label htmlFor="floatingTextarea2">Escriba su mensaje</label>
+            <label htmlFor="floatingTextarea2" className="textareaLabel">
+              Escriba su mensaje
+            </label>
           </div>
 
           <button

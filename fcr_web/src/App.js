@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginContextProvider from "../src/components/context/loginContext.js";
-import Loading from "./components/Loading/Loading.js";
 import HomePage from "./components/HomePage/HomePage.js";
 import "./App.css";
 const ObituarioPage = lazy(() =>
@@ -15,6 +14,9 @@ const ManagerPage = lazy(() =>
 const Protected = lazy(() => import("./components/Protected/protected.js"));
 
 function App() {
+  function Loading() {
+    return <div className="loader" role="status"></div>;
+  }
   return (
     <Suspense fallback={<Loading />}>
       <BrowserRouter>

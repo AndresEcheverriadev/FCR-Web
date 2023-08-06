@@ -1,0 +1,5 @@
+.accordion-header,
+.accordion-button {
+  font-family: "Poppins-Medium", sans-serif;
+  color: var(--gris);
+}

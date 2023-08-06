@@ -21,7 +21,7 @@ function ContactForm() {
             )
           }
         >
-          <p>Escríbenos</p>
+          <p className="formContactBtn">Escríbenos</p>
           <svg
             xmlns="https://www.w3.org/2000/svg"
             width="16"

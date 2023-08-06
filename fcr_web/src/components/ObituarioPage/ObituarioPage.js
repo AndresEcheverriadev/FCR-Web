@@ -1,12 +1,15 @@
 import React, { Suspense, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import Loading from "../Loading/Loading.js";
 import Footer from "../Footer/Footer";
 import { AnalyticService } from "../../Services/AnalyticService";
 import "./ObituarioPage.css";
 
 function ObituarioPage() {
+  function Loading() {
+    return <div className="loader" role="status"></div>;
+  }
+
   const ObituarioLoader = React.lazy(() => import("./RecordLoader"));
   useEffect(() => {
     AnalyticService.pageView("/obituario", "Obituario general");

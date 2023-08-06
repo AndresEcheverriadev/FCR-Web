@@ -188,6 +188,7 @@
   align-items: center;
   padding: 10px;
   gap: 10px;
+  font-family: var(--Cuerpo);
 }
 
 .form-floating {
@@ -202,6 +203,11 @@
 .textArea {
   height: 100px !important;
   width: auto;
+}
+
+.textareaLabel {
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: var(--p);
 }
 
 .btnSubmitMesagge {
@@ -224,6 +230,7 @@
   margin: 0;
   padding: 0;
   font-weight: var(--Link);
+  color: var(--blanco);
 }
 
 .btnSubmitMesagge:hover {
