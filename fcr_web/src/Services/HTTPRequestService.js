@@ -3,10 +3,10 @@ import { AuthService } from "./AuthService.js";
 import { LocalStorageService } from "./LocalStorageService.js";
 
 const get = async (url) => {
+  const token = LocalStorageService.getItem("token");
   try {
-    const token = LocalStorageService.getItem("token");
     const response = await axios.get(url, {
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      headers: { Authorization: token },
     });
     return response;
   } catch (error) {
@@ -23,11 +23,10 @@ const get = async (url) => {
 };
 
 const post = async (url, data) => {
+  const token = LocalStorageService.getItem("token");
   try {
-    const token = LocalStorageService.getItem("token");
     const response = await axios.post(url, data, {
-      // headers: { Authorization: `Bearer ${token}` },
-      headers: { Authorization: `${token}` },
+      headers: { Authorization: token },
     });
     return response;
   } catch (error) {
@@ -39,24 +38,15 @@ const post = async (url, data) => {
       window.location.replace("/");
       return;
     }
-    console.error(error);
-  }
-};
-
-const postBooking = async (url, data) => {
-  try {
-    const response = await axios.post(url, data);
-    return response;
-  } catch (error) {
     console.error(error);
   }
 };
 
 const put = async (url, data) => {
+  const token = LocalStorageService.getItem("token");
   try {
-    const token = LocalStorageService.getItem("token");
     const response = await axios.put(url, data, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: token },
     });
     return response;
   } catch (error) {
@@ -72,12 +62,11 @@ const put = async (url, data) => {
   }
 };
 
-const remove = async (url, params) => {
+const remove = async (url) => {
+  const token = LocalStorageService.getItem("token");
   try {
-    const token = LocalStorageService.getItem("token");
     const response = await axios.delete(url, {
-      headers: { Authorization: `Bearer ${token}` },
-      params,
+      headers: { Authorization: token },
     });
     return response;
   } catch (error) {
@@ -93,4 +82,4 @@ const remove = async (url, params) => {
   }
 };
 
-export const HTTPRequestService = { get, post, postBooking, put, remove };
+export const HTTPRequestService = { get, post, put, remove };

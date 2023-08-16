@@ -3,15 +3,11 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Navbar from "../Navbar/Navbar";
 import imgHome from "../../homeFuneraria.webp";
-import "./HomePage2.css";
-import "./HomePageResponsive2.css";
-// import "./HomePage.css";
-// import "./HomePageResponsive.css";
+import "./HomePage.css";
+import "./HomePageResponsive.css";
 import imgHistoria from "../../images/homeFunerariaOficina.webp";
 import imgFloreria from "../../images/arreglosFlorales.webp";
 import imgFloreria2 from "../../images/arreglosFlorales2.webp";
-import mapBig from "../../images/mapBig.webp";
-import mapSmall from "../../images/mapSmall.webp";
 import { AnalyticService } from "../../Services/AnalyticService.js";
 const HomeGallery = lazy(() => import("../HomeGallery/HomeGallery.js"));
 const FaqsAccordion = lazy(() => import("../FaqsAccordion/FaqsAccordion.js"));
@@ -70,6 +66,9 @@ function HomePage() {
             <Navbar />
           </header>
           <div className="homeTitlesContainer">
+            <h1 className="homeTitle1Desktop">
+              Servicios Funerarios Cristo Rey Angol
+            </h1>
             <h1 className="homeTitle1">Servicios Funerarios</h1>
             <h1 className="homeTitle1">Cristo Rey Angol</h1>
             <h2 className="homeTitle2">
@@ -332,7 +331,6 @@ function HomePage() {
                     <li className="list-group-item">Climatización.</li>
                   </ul>
                 </div>
-                {/* <div className="spacerCard2"></div> */}
               </div>
             </div>
 
@@ -383,7 +381,6 @@ function HomePage() {
                     />
                   </div>
                 </div>
-                {/* <div className="spacerCard2"></div> */}
               </div>
             </div>
           </div>
@@ -408,21 +405,16 @@ function HomePage() {
                   AnalyticService.event("Interacciones", "clic_Mapa", "Mapa")
                 }
               >
-                <LazyLoadImage
-                  src={mapBig}
-                  width={750}
-                  height={400}
-                  alt="mapa de ubicación de oficina de ventas"
-                  id="mapBig"
-                />
-
-                <LazyLoadImage
-                  src={mapSmall}
-                  width={321}
-                  height={322}
-                  alt="mapa de ubicación de oficina de ventas"
-                  id="mapSmall"
-                />
+                <iframe
+                  className="googleMap"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.371348005154!2d-72.69711052428381!3d-37.80477003352376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966bb3397fe73e75%3A0xd3dd93afbeb70e62!2sFuneraria%20Cristo%20Rey!5e0!3m2!1ses!2scl!4v1691863065619!5m2!1ses!2scl"
+                  width="300"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
               </a>
             </Suspense>
           </div>
@@ -432,14 +424,19 @@ function HomePage() {
       <div className="nosotrosContainer" id="nosotros">
         <h3>Nuestra Historia</h3>
         <div className="historiaContainer">
-          <p className="historiaText">
-            Somos responsables de un legado familiar y funerario de mas de 40
-            años, sirviendo a la comunidad y a quienes confían sus seres
-            queridos a nuestro cuidado. <br />
-            Nuestro motivación siempre ha sido brindar a cada familia la mayor
-            atención, calidad y profesionalismo procurando honrar de la mejor
-            manera la memoria de sus seres queridos.
-          </p>
+          <div className="historiaTextContainer">
+            <p className="historiaText">
+              Somos responsables de un legado familiar y funerario de mas de 40
+              años, sirviendo a la comunidad y a quienes confían sus seres
+              queridos a nuestro cuidado. <br />
+              Nuestro motivación siempre ha sido brindar a cada familia la mayor
+              atención, calidad y profesionalismo procurando honrar de la mejor
+              manera la memoria de sus seres queridos.
+            </p>
+            <p className="historiaValores">
+              Nuestros Valores: Prestigio,Calidad y Elegancia.
+            </p>
+          </div>
 
           <div className="historiaImg">
             <LazyLoadImage
@@ -456,7 +453,7 @@ function HomePage() {
           <div className="argumentsContainer">
             <div className="argumentCard">
               <p className="argumentTitle">Servicio de calidad</p>
-              <p>
+              <p className="argumentText">
                 Las familias nos han confiado a sus seres queridos debido a
                 nuestro profesionalismo y calidad en servicios, más de 35 años
                 de experiencia avalan nuestro trabajo, forjando nuestros
@@ -465,7 +462,7 @@ function HomePage() {
             </div>
             <div className="argumentCard">
               <p className="argumentTitle">Respuesta inmediata</p>
-              <p>
+              <p className="argumentText">
                 Trabajamos para ti los 365 días del año, las 24 horas del día,
                 con personal experimentado y esperando brindar orientación en
                 cada paso del camino.
@@ -473,14 +470,14 @@ function HomePage() {
             </div>
             <div className="argumentCard">
               <p className="argumentTitle">Transporte seguro</p>
-              <p>
+              <p className="argumentText">
                 Nuestro personal profesional recogerá a su ser querido en su
                 residencia, hospital y lo transportará con cuidado.
               </p>
             </div>
             <div className="argumentCard">
               <p className="argumentTitle">Memoria y tranquilidad</p>
-              <p>
+              <p className="argumentText">
                 Tenemos una larga historia de testimonios positivos y reseñas de
                 familias satisfechas que avalan nuestro trabajo.
               </p>

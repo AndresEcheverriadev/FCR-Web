@@ -6,24 +6,25 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Accordion from "react-bootstrap/Accordion";
 import "./ManagerPage.css";
 import ModalObituario from "../Modal/ModalObituario.js";
-import ModalObituarioPersonales from "../Modal/ModalObituarioPersonales";
+import ModalObituarioPersonales from "../Modal/ModalObituarioPersonales.js";
+import ModalObituarioFuneral from "../Modal/ModalObituarioFuneral.js";
+import { RecordsService } from "../../Services/RecordsService";
 
 function ManagerPage() {
-  const { logOut } = useContext(LoginContext);
   const [records, setRecords] = useState([]);
-  const [image, setImage] = useState({ data: "" });
-  // const [form, setForm] = useState({
-  //   date: "",
-  //   nombre: "",
-  //   segundoNombre: "",
-  //   paterno: "",
-  //   materno: "",
-  //   mesaggesWall: [],
-  //   lugarVelatorio: "",
-  //   lugarResponso: "",
-  //   fechaResponso: "",
-  //   lugarCementerio: "",
-  // });
+
+  useEffect(() => {
+    async function getRecords() {
+      const response = await RecordsService.getAllRecords();
+      setRecords(response.data);
+    }
+    getRecords();
+    return;
+  }, [records.length]);
+
+  const [modalShow, setModalShow] = useState(false);
+  const [modalPersonalesShow, setModalPersonalesShow] = useState(false);
+  const [modalFuneralShow, setModalFuneralShow] = useState(false);
 
   const [updateData, setUpdateData] = useState({
     id: "",
@@ -34,6 +35,28 @@ function ManagerPage() {
     materno: "",
   });
 
+  function dataPersonUpdate(
+    e,
+    idPerson,
+    datePerson,
+    namePerson,
+    segundoPerson,
+    paternoPerson,
+    maternoPerson
+  ) {
+    e.preventDefault();
+    const newData = {
+      id: idPerson,
+      date: datePerson,
+      nombre: namePerson,
+      segundoNombre: segundoPerson,
+      paterno: paternoPerson,
+      materno: maternoPerson,
+    };
+    setUpdateData(newData);
+    setModalPersonalesShow(true);
+  }
+
   const [updateFuneral, setUpdateFuneral] = useState({
     id: "",
     lugarVelatorio: "",
@@ -42,61 +65,27 @@ function ManagerPage() {
     lugarCementerio: "",
   });
 
-  useEffect(() => {
-    async function getRecords() {
-      const response = await fetch(
-        `${process.env.REACT_APP_SERVER_URL_RECORD}`
-      );
+  async function dataFuneralUpdate(
+    e,
+    id,
+    lugarVelatorio,
+    lugarResponso,
+    fechaResponso,
+    lugarCementerio
+  ) {
+    e.preventDefault();
+    const newData = {
+      id: id,
+      lugarVelatorio: lugarVelatorio,
+      lugarResponso: lugarResponso,
+      fechaResponso: fechaResponso,
+      lugarCementerio: lugarCementerio,
+    };
+    setUpdateFuneral(newData);
+    setModalFuneralShow(true);
+  }
 
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-
-      const records = await response.json();
-      setRecords(records.data);
-    }
-
-    getRecords();
-
-    return;
-  }, [records.length]);
-
-  // function updateForm(value) {
-  //   return setForm((prev) => {
-  //     return { ...prev, ...value };
-  //   });
-  // }
-
-  // async function addObituario(e) {
-  //   e.preventDefault();
-  //   const token = sessionStorage.getItem("token");
-  //   const newPerson = { ...form };
-  //   await fetch(`${process.env.REACT_APP_SERVER_URL_ADD}`, {
-  //     method: "POST",
-  //     headers: {
-  //       authorization: `${token}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(newPerson),
-  //   }).catch((error) => {
-  //     window.alert(`${error.response.status} ${error.response.statusText}`);
-  //     return;
-  //   });
-  //   setForm({
-  //     date: "",
-  //     nombre: "",
-  //     segundoNombre: "",
-  //     paterno: "",
-  //     materno: "",
-  //     lugarVelatorio: "",
-  //     lugarResponso: "",
-  //     fechaResponso: "",
-  //     lugarCementerio: "",
-  //   });
-  //   window.location.reload(false);
-  // }
+  const [image, setImage] = useState({ data: "" });
 
   async function addImage(id, e) {
     e.preventDefault();
@@ -121,6 +110,7 @@ function ManagerPage() {
       window.location.reload(false);
     }
   }
+
   const handleFileChange = (e) => {
     const updateImg = {
       data: e.target.files[0],
@@ -128,110 +118,8 @@ function ManagerPage() {
     setImage(updateImg);
   };
 
-  function dataPersonUpdate(
-    e,
-    idPerson,
-    datePerson,
-    namePerson,
-    segundoPerson,
-    paternoPerson,
-    maternoPerson
-  ) {
-    e.preventDefault();
-    const newData = {
-      id: idPerson,
-      date: datePerson,
-      nombre: namePerson,
-      segundoNombre: segundoPerson,
-      paterno: paternoPerson,
-      materno: maternoPerson,
-    };
-    setUpdateData(newData);
-    setModalPersonalesShow(true);
-  }
-
-  // async function updatePersonales(e) {
-  //   e.preventDefault();
-  //   const token = sessionStorage.getItem("token");
-  //   const id = updateData.id;
-  //   const editedPerson = {
-  //     id: updateData.id,
-  //     date: updateData.date,
-  //     nombre: updateData.nombre,
-  //     segundoNombre: updateData.segundoNombre,
-  //     paterno: updateData.paterno,
-  //     materno: updateData.materno,
-  //   };
-  //   await fetch(`${process.env.REACT_APP_SERVER_URL_UPDATEPERSONALES}/${id}`, {
-  //     method: "POST",
-  //     headers: {
-  //       authorization: `${token}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(editedPerson),
-  //   }).catch((error) => {
-  //     window.alert(error);
-  //     return;
-  //   });
-  //   window.location.reload(false);
-  // }
-
-  async function dataFuneralUpdate(
-    e,
-    id,
-    lugarVelatorio,
-    lugarResponso,
-    fechaResponso,
-    lugarCementerio
-  ) {
-    e.preventDefault();
-    const newData = {
-      id: id,
-      lugarVelatorio: lugarVelatorio,
-      lugarResponso: lugarResponso,
-      fechaResponso: fechaResponso,
-      lugarCementerio: lugarCementerio,
-    };
-
-    setUpdateFuneral(newData);
-  }
-
-  // async function updateFuneralData(e) {
-  //   e.preventDefault();
-  //   const token = sessionStorage.getItem("token");
-  //   const id = updateFuneral.id;
-  //   const editedFuneral = {
-  //     lugarVelatorio: updateFuneral.lugarVelatorio,
-  //     lugarResponso: updateFuneral.lugarResponso,
-  //     fechaResponso: updateFuneral.fechaResponso,
-  //     lugarCementerio: updateFuneral.lugarCementerio,
-  //   };
-  //   await fetch(`${process.env.REACT_APP_SERVER_URL_UPDATEFUNERAL}/${id}`, {
-  //     method: "POST",
-  //     headers: {
-  //       authorization: `${token}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(editedFuneral),
-  //   }).catch((error) => {
-  //     window.alert(error);
-  //     return;
-  //   });
-  //   window.location.reload(false);
-  // }
-
   async function deleteRecord(id) {
-    const token = sessionStorage.getItem("token");
-    await fetch(`${process.env.REACT_APP_SERVER_URL_DELETE}/${id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `${token}`,
-        "Content-Type": "application/json",
-      },
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    });
+    RecordsService.removeRecord(id);
     window.location.reload(false);
   }
   const iconCross = (
@@ -250,8 +138,7 @@ function ManagerPage() {
     </svg>
   );
 
-  const [modalShow, setModalShow] = useState(false);
-  const [modalPersonalesShow, setModalPersonalesShow] = useState(false);
+  const { logOut } = useContext(LoginContext);
 
   return (
     <>
@@ -265,12 +152,16 @@ function ManagerPage() {
         <header className="managerHeaderContainer">
           <Navbar />
         </header>
-
         <ModalObituario show={modalShow} onHide={() => setModalShow(false)} />
         <ModalObituarioPersonales
           show={modalPersonalesShow}
           onHide={() => setModalPersonalesShow(false)}
           data={updateData}
+        />
+        <ModalObituarioFuneral
+          show={modalFuneralShow}
+          onHide={() => setModalFuneralShow(false)}
+          data={updateFuneral}
         />
 
         <main className="managerPageMainContainer">
@@ -349,7 +240,7 @@ function ManagerPage() {
                       className="formImg"
                       id="formImg"
                       onSubmit={(e) => addImage(deceso._id, e)}
-                      enctype="multipart/form-data"
+                      encType="multipart/form-data"
                     >
                       <input
                         type="file"
@@ -359,21 +250,19 @@ function ManagerPage() {
                         filename={image.data}
                         onChange={handleFileChange}
                       ></input>
-                      <button type="submit" class="btnCtrlObituario">
+                      <button type="submit" className="btnCtrlObituario">
                         Agregar imagen
                       </button>
                     </form>
-
-                    <Accordion class="accordion" id="accordionExample">
-                      <Accordion.Item eventKey="0" class="accordion-item">
+                    <Accordion className="accordion" id="accordionExample">
+                      <Accordion.Item eventKey="0" className="accordion-item">
                         <Accordion.Header
-                          class="accordion-header"
+                          className="accordion-header"
                           id="headingOne"
                         >
                           Eliminar
                         </Accordion.Header>
-
-                        <Accordion.Body class="accordion-body">
+                        <Accordion.Body className="accordion-body">
                           <button
                             id={`btnDelete${deceso._id}`}
                             className="btnDeleteObituario"
@@ -384,7 +273,6 @@ function ManagerPage() {
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
-                    {/* Fin de collapse accordion */}
                   </div>
                 </div>
               );

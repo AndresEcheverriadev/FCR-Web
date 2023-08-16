@@ -1,26 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { RecordsService } from "../../Services/RecordsService";
 
 function RecordLoader() {
   const [records, setRecords] = useState([]);
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(
-        `${process.env.REACT_APP_SERVER_URL_RECORD}`,
-        {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-          },
-        }
-      );
-      const records = await response.json();
-      setRecords(records.data);
+      const response = await RecordsService.getAllRecords();
+      setRecords(response.data);
     }
-
     getRecords();
-
     return;
   }, [records.length]);
 

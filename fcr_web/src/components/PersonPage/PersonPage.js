@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Navbar from "../Navbar/Navbar";
+import { RecordsService } from "../../Services/RecordsService";
 import { AnalyticService } from "../../Services/AnalyticService";
 import "./PersonPage.css";
 
 function PersonPage() {
   const [record, setRecord] = useState({});
-  const { personId } = useParams();
+  const personId = useParams();
   const [msgText, setMsgText] = useState({
     mesagge: "",
     author: "",
@@ -16,20 +17,13 @@ function PersonPage() {
   const inputAuthor = document.getElementById("inputAuthor");
   useEffect(() => {
     async function getPerson() {
-      const response = await fetch(
-        `${process.env.REACT_APP_SERVER_URL_RECORD}/${personId}`,
-        {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-          },
-        }
+      const response = await RecordsService.getFilteredRecord(
+        personId.personId
       );
-      const record = await response.json();
-      setRecord(record.data);
+      setRecord(response.data);
     }
     getPerson();
-  });
+  }, [personId]);
 
   const sendMesagge = async (id) => {
     AnalyticService.event(
@@ -42,16 +36,7 @@ function PersonPage() {
       mesagge: msgText.mesagge,
     };
     if (newMesagge.author && newMesagge.mesagge) {
-      await fetch(`${process.env.REACT_APP_SERVER_URL_MESAGGES}/${id}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newMesagge),
-      }).catch((error) => {
-        window.alert(error);
-        return;
-      });
+      const response = await RecordsService.addMesagge(id, newMesagge);
       msgText.author = "";
       msgText.mesagge = "";
       inputAuthor.value = "";

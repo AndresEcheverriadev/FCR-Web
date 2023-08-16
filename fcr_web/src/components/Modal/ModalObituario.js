@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { RecordsService } from "../../Services/RecordsService";
 
 function ModalObituario(props) {
   const [form, setForm] = useState({
@@ -25,17 +26,17 @@ function ModalObituario(props) {
     e.preventDefault();
     const token = sessionStorage.getItem("token");
     const newPerson = { ...form };
-    await fetch(`${process.env.REACT_APP_SERVER_URL_ADD}`, {
-      method: "POST",
-      headers: {
-        authorization: `${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPerson),
-    }).catch((error) => {
-      window.alert(`${error.response.status} ${error.response.statusText}`);
-      return;
-    });
+    RecordsService.addObituario(
+      newPerson.date,
+      newPerson.nombre,
+      newPerson.segundoNombre,
+      newPerson.paterno,
+      newPerson.materno,
+      newPerson.lugarVelatorio,
+      newPerson.lugarResponso,
+      newPerson.fechaResponso,
+      newPerson.lugarCementerio
+    );
     setForm({
       date: "",
       nombre: "",
@@ -49,6 +50,7 @@ function ModalObituario(props) {
     });
     window.location.reload(false);
   }
+
   return (
     <Modal
       {...props}
@@ -68,7 +70,6 @@ function ModalObituario(props) {
             <label htmlFor="date">Fecha del fallecimiento:</label>
             <input
               type="date"
-              name="date"
               id="date"
               value={form.date}
               onChange={(e) =>
@@ -82,7 +83,6 @@ function ModalObituario(props) {
             <label htmlFor="nombreDeceso">Nombre del fallecido:</label>
             <input
               type="text"
-              name="nombreDeceso"
               id="nombreDeceso"
               value={form.nombre}
               onChange={(e) => updateForm({ nombre: e.target.value })}
@@ -94,7 +94,6 @@ function ModalObituario(props) {
             </label>
             <input
               type="text"
-              name="segundoNombreDeceso"
               id="segundoNombreDeceso"
               value={form.segundoNombre}
               onChange={(e) => updateForm({ segundoNombre: e.target.value })}
@@ -104,7 +103,6 @@ function ModalObituario(props) {
             <label htmlFor="paternoDeceso">Apellido paterno:</label>
             <input
               type="text"
-              name="paternoDeceso"
               id="paternoDeceso"
               value={form.paterno}
               onChange={(e) => updateForm({ paterno: e.target.value })}
@@ -114,7 +112,6 @@ function ModalObituario(props) {
             <label htmlFor="maternoDeceso">Apellido materno:</label>
             <input
               type="text"
-              name="maternoDeceso"
               id="maternoDeceso"
               value={form.materno}
               onChange={(e) => updateForm({ materno: e.target.value })}
@@ -126,7 +123,6 @@ function ModalObituario(props) {
             <label htmlFor="lugarVelatorio">lugar velatorio:</label>
             <input
               type="text"
-              name="lugarVelatorio"
               id="lugarVelatorio"
               value={form.lugarVelatorio}
               onChange={(e) => updateForm({ lugarVelatorio: e.target.value })}
@@ -136,7 +132,6 @@ function ModalObituario(props) {
             <label htmlFor="lugarResponso">lugar responso:</label>
             <input
               type="text"
-              name="lugarResponso"
               id="lugarResponso"
               value={form.lugarResponso}
               onChange={(e) => updateForm({ lugarResponso: e.target.value })}
@@ -146,7 +141,6 @@ function ModalObituario(props) {
             <label htmlFor="fechaResponso">fecha responso:</label>
             <input
               type="date"
-              name="fechaResponso"
               id="fechaResponso"
               value={form.fechaResponso}
               onChange={(e) => updateForm({ fechaResponso: e.target.value })}
@@ -157,7 +151,6 @@ function ModalObituario(props) {
             <input
               list="cementerios"
               type="text"
-              name="lugarCementerio"
               id="lugarCementerio"
               value={form.lugarCementerio}
               onChange={(e) => updateForm({ lugarCementerio: e.target.value })}

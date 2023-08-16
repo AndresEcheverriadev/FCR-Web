@@ -11,11 +11,10 @@ const getAllRecords = async () => {
   }
 };
 
-const getFilteredRecord = async (date) => {
+const getFilteredRecord = async (id) => {
   try {
-    const { data } = await HTTPRequestService.post(
-      process.env.REACT_APP_FILTERED_BOOKINGS_URL,
-      { date }
+    const { data } = await HTTPRequestService.get(
+      `${process.env.REACT_APP_SERVER_URL_RECORD}/${id}`
     );
     return { success: true, data: data.data };
   } catch (error) {
@@ -23,28 +22,42 @@ const getFilteredRecord = async (date) => {
   }
 };
 
-const addRecord = async (
-  nombreReserva,
-  emailReserva,
-  telefonoReserva,
-  diaReserva,
-  horaReserva,
-  cantidadReserva,
-  zonaReserva,
-  comentarioReserva
+const addMesagge = async (id, msg) => {
+  try {
+    const { data } = await HTTPRequestService.post(
+      `${process.env.REACT_APP_SERVER_URL_MESAGGES}/${id}`,
+      msg
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
+const addObituario = async (
+  date,
+  nombre,
+  segundoNombre,
+  paterno,
+  materno,
+  lugarVelatorio,
+  lugarResponso,
+  fechaResponso,
+  lugarCementerio
 ) => {
   try {
-    const { data } = await HTTPRequestService.postBooking(
-      process.env.REACT_APP_CREATE_BOOKING_URL,
+    const { data } = await HTTPRequestService.post(
+      process.env.REACT_APP_SERVER_URL_ADD,
       {
-        nombreReserva,
-        emailReserva,
-        telefonoReserva,
-        diaReserva,
-        horaReserva,
-        cantidadReserva,
-        zonaReserva,
-        comentarioReserva,
+        date,
+        nombre,
+        segundoNombre,
+        paterno,
+        materno,
+        lugarVelatorio,
+        lugarResponso,
+        fechaResponso,
+        lugarCementerio,
       }
     );
     return { success: true, data: data.data };
@@ -53,11 +66,38 @@ const addRecord = async (
   }
 };
 
-const removeRecord = async (_id) => {
+const updateData = async (id, update) => {
+  try {
+    const { data } = await HTTPRequestService.post(
+      `${process.env.REACT_APP_SERVER_URL_UPDATE_PERSONALES}/${id}`,
+      {
+        update,
+      }
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
+const updateFuneral = async (id, update) => {
+  try {
+    const { data } = await HTTPRequestService.post(
+      `${process.env.REACT_APP_SERVER_URL_UPDATE_FUNERAL}/${id}`,
+      {
+        update,
+      }
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
+const removeRecord = async (id) => {
   try {
     const { data } = await HTTPRequestService.remove(
-      process.env.REACT_APP_DELETE_BOOKING_URL,
-      _id
+      `${process.env.REACT_APP_SERVER_URL_DELETE}/${id}`
     );
     return { success: true, data: data.data };
   } catch (error) {
@@ -68,6 +108,9 @@ const removeRecord = async (_id) => {
 export const RecordsService = {
   getAllRecords,
   getFilteredRecord,
-  addRecord,
+  addMesagge,
+  addObituario,
+  updateData,
+  updateFuneral,
   removeRecord,
 };

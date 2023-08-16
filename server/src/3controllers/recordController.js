@@ -44,31 +44,37 @@ const oneRecord = async (req, res) => {
 };
 
 const addRecord = async (req, res) => {
-  let newRecord = {
-    date: req.body.date,
-    nombre: req.body.nombre,
-    segundoNombre: req.body.segundoNombre,
-    paterno: req.body.paterno,
-    materno: req.body.materno,
-    mesaggesWall: [],
-    lugarVelatorio: req.body.lugarVelatorio,
-    lugarResponso: req.body.lugarResponso,
-    fechaResponso: req.body.fechaResponso,
-    lugarCementerio: req.body.lugarCementerio,
-    createdAt: timestamp,
-  };
-  if (
-    !newRecord.date ||
-    !newRecord.nombre ||
-    !newRecord.paterno ||
-    !newRecord.materno
-  ) {
+  let {
+    date,
+    nombre,
+    segundoNombre,
+    paterno,
+    materno,
+    lugarVelatorio,
+    lugarResponso,
+    fechaResponso,
+    lugarCementerio,
+  } = req.body;
+  if (!date || !nombre || !paterno || !materno) {
     return ServerResponse.badRequest({
       res,
       error: "faltan datos para crear record",
     });
   }
   try {
+    let newRecord = {
+      date: req.body.date,
+      nombre: req.body.nombre,
+      segundoNombre: req.body.segundoNombre,
+      paterno: req.body.paterno,
+      materno: req.body.materno,
+      mesaggesWall: [],
+      lugarVelatorio: req.body.lugarVelatorio,
+      lugarResponso: req.body.lugarResponso,
+      fechaResponso: req.body.fechaResponso,
+      lugarCementerio: req.body.lugarCementerio,
+      createdAt: timestamp,
+    };
     let createdRecord = await recordService.save(newRecord);
     ServerResponse.success({
       res,
@@ -137,11 +143,11 @@ const updatePersonales = async (req, res) => {
   let record = req.params.id;
   let newvalues = {
     $set: {
-      date: req.body.date,
-      nombre: req.body.nombre,
-      segundoNombre: req.body.segundoNombre,
-      paterno: req.body.paterno,
-      materno: req.body.materno,
+      date: req.body.update.date,
+      nombre: req.body.update.nombre,
+      segundoNombre: req.body.update.segundoNombre,
+      paterno: req.body.update.paterno,
+      materno: req.body.update.materno,
     },
   };
   try {
@@ -166,10 +172,10 @@ const updateFuneral = async (req, res) => {
   let record = req.params.id;
   let newvalues = {
     $set: {
-      lugarVelatorio: req.body.lugarVelatorio,
-      lugarResponso: req.body.lugarResponso,
-      fechaResponso: req.body.fechaResponso,
-      lugarCementerio: req.body.lugarCementerio,
+      lugarVelatorio: req.body.update.lugarVelatorio,
+      lugarResponso: req.body.update.lugarResponso,
+      fechaResponso: req.body.update.fechaResponso,
+      lugarCementerio: req.body.update.lugarCementerio,
     },
   };
   try {

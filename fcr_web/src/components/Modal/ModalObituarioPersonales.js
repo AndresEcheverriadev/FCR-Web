@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { RecordsService } from "../../Services/RecordsService";
 
 function ModalObituarioPersonales(props) {
   useEffect(() => {
@@ -16,29 +17,33 @@ function ModalObituarioPersonales(props) {
     materno: "",
   });
 
+  const closeModal = () => {
+    setPersonData({
+      id: "",
+      date: "",
+      nombre: "",
+      segundoNombre: "",
+      paterno: "",
+      materno: "",
+    });
+    props.onHide();
+  };
+
+  useEffect(() => {
+    console.log(personData);
+  }, [personData]);
+
   async function updatePersonales(e) {
     e.preventDefault();
-    const token = sessionStorage.getItem("token");
     const id = personData.id;
     const editedPerson = {
-      id: personData.id,
       date: personData.date,
       nombre: personData.nombre,
       segundoNombre: personData.segundoNombre,
       paterno: personData.paterno,
       materno: personData.materno,
     };
-    await fetch(`${process.env.REACT_APP_SERVER_URL_UPDATEPERSONALES}/${id}`, {
-      method: "POST",
-      headers: {
-        authorization: `${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(editedPerson),
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    });
+    RecordsService.updateData(id, editedPerson);
     window.location.reload(false);
   }
   return (
@@ -47,8 +52,10 @@ function ModalObituarioPersonales(props) {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      backdrop="static"
+      keyboard={false}
     >
-      <Modal.Header closeButton>
+      <Modal.Header closeButton onClick={() => closeModal()}>
         <Modal.Title id="contained-modal-title-vcenter">
           Editar datos personales
         </Modal.Title>
@@ -129,7 +136,7 @@ function ModalObituarioPersonales(props) {
         </form>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Cerrar</Button>
+        <Button onClick={() => closeModal()}>Cerrar</Button>
         <Button
           type="submit"
           form="formActualizarPersonales"

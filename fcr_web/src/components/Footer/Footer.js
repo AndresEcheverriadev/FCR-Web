@@ -29,6 +29,7 @@ function Footer() {
           </p>
         </div>
         <img
+          className="ilustracionFooterImg"
           src={arregloFooter}
           alt="jarron con flores blancas"
           width={400}

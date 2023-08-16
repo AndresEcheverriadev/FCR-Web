@@ -1,14 +1,14 @@
 const getItem = (key) => {
-  const data = localStorage.getItem(key);
+  const data = sessionStorage.getItem(key);
   return JSON.parse(data);
 };
 
 const setItem = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+  sessionStorage.setItem(key, JSON.stringify(value));
 };
 
-const removeItem = (key) => localStorage.removeItem(key);
+const removeItem = (key) => sessionStorage.removeItem(key);
 
-const clearAll = () => localStorage.clear();
+const clearAll = () => sessionStorage.clear();
 
 export const LocalStorageService = { getItem, setItem, removeItem, clearAll };

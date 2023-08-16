@@ -1,236 +1,178 @@
-@media (max-width: 320px) {
-  #contactPhonesTitle--mobile {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .phoneButton,
-  .phoneWhatsapp {
-    width: 70%;
-  }
-
-  .contactPhonesContainer h3 {
-    font-size: var(--h5) !important;
-    margin-bottom: 20px;
-  }
-
-  .servicioIncludesGallery {
-    flex-direction: column;
-  }
-
-  #imagenFloreria2 {
-    display: none;
-  }
-}
-
-@media (max-width: 400px) {
-  .homeTitlesContainer h1 {
-    font-size: var(--h4);
-    width: 130%;
-  }
-}
-
-@media (min-width: 401px) and (max-width: 759px) {
-  .homeTitlesContainer h1 {
-    font-size: var(--h4);
-    width: 120%;
-  }
-}
-
-@media (min-width: 321px) and (max-width: 760px) {
-  .viewHomeContainer {
-    justify-content: center;
-  }
-
-  #contactPhonesTitle--mobile {
-    font-size: var(--h5);
-    display: initial;
+@media (min-width: 768px) {
+  .homeTitlesContainer {
     width: 100%;
-  }
-}
-
-@media (max-width: 760px) {
-  #mapBig {
-    display: none;
-  }
-
-  #mapSmall {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 760px) {
-  .homeTitlesContainer h2 {
-    display: none;
   }
 
   .carruselContainer {
-    display: none;
+    display: flex;
   }
 
-  .contactPhonesContainer {
-    width: 95%;
-    margin-top: 20px;
+  .homeTitle2 {
+    width: 100%;
+    height: auto;
+    font-family: "Poppins-Light";
+    font-weight: 300;
+    font-size: var(--h3);
+  }
+
+  .homeTitle1 {
+    font-size: var(--h1);
+  }
+
+  #contactPhonesTitle--mobile {
+    display: none;
   }
 
   #contactPhonesTitle--desktop {
-    display: none;
+    display: flex;
+    font-size: var(--h3);
   }
 
-  .contactPhonesContainer h4 {
-    display: none;
-  }
-
-  .contactPhonesContainer h3 {
-    font-size: var(--h4);
-    margin-bottom: 20px;
-  }
-
-  .phoneButton .callPhone h5 {
-    font-size: var(--p);
-  }
-
-  .phoneButton h5 {
-    font-size: 10pt;
-  }
-
-  .phoneWhatsapp h5 {
-    font-size: var(--p);
-    margin-top: 5px;
-  }
-
-  .serviciosCardsContainer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .servicioCard {
-    width: 100%;
-  }
-
-  .historiaContainer {
-    flex-direction: column;
-  }
-
-  .historiaTextBox {
-    width: 100%;
-    height: auto;
-  }
-
-  .historiaImg {
-    width: 100%;
-  }
-
-  .argumentsWrapper {
-    width: 120%;
-  }
-
-  .argumentsContainer {
-    flex-direction: column;
-  }
-
-  .argumentCard {
-    width: 100%;
-    height: auto;
-  }
-
-  .faqsWrapper h3 {
-    width: 80%;
-  }
-
-  .faqsContainer {
-    width: 90%;
-  }
-
-  .ilustracionFooter {
-    width: 90%;
-  }
-
-  .ilustracionFooter img {
-    width: 50%;
-    margin-right: -50px;
-  }
-}
-
-@media (max-width: 1279px) {
   .phonesWrapper {
-    flex-direction: column;
-  }
-
-  .carruselContainer {
-    width: 100%;
-  }
-
-  .contactPhonesContainer {
-    width: 90%;
+    width: 70%;
   }
 
   .serviciosCardsContainer {
-    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .servicioCard {
-    width: 100%;
+    width: 70%;
   }
 
-  .historiaContainer {
-    flex-direction: column;
-  }
-
-  .historiaTextBox {
-    width: 100%;
-    height: auto;
-  }
-
-  .historiaImg {
-    width: 100%;
-  }
-
-  .argumentsWrapper {
-    width: 120%;
-  }
-
-  .argumentsContainer {
-    flex-direction: column;
-  }
-
-  .argumentCard {
-    width: 100%;
-    height: auto;
-  }
-
-  .faqsWrapper h3 {
+  .mapGalleryContainer {
     width: 80%;
   }
 
-  .faqsContainer {
-    width: 90%;
+  .googleMap {
+    width: 750px;
+    height: 400px;
   }
 
-  .ilustracionFooter {
-    width: 90%;
+  .historiaContainer {
+    width: 80%;
   }
 
-  .ilustracionFooter img {
-    width: 50%;
-    margin-right: -50px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .contactPhonesContainer {
-    width: 50%;
+  .argumentCard {
+    width: 80%;
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 992px) {
+  .homeTitlesContainer {
+    width: 100%;
+  }
+
+  .carruselContainer img {
+    width: 30%;
+  }
+
+  .homeTitle1 {
+    display: none;
+  }
+
+  .homeTitle1Desktop {
+    display: unset;
+  }
+
   .contactPhonesContainer {
+    margin: 0;
+  }
+
+  #contactPhonesTitle--mobile {
+    display: none;
+  }
+
+  #contactPhonesTitle--desktop {
+    display: unset;
+    font-size: var(--h4);
+  }
+
+  .phonesWrapper {
+    flex-direction: row;
+    width: 60%;
+  }
+
+  .phoneButton {
+    width: 60%;
+  }
+
+  .phoneWhatsapp {
+    width: 60%;
+  }
+
+  .serviciosCardsContainer {
+    flex-direction: row;
+  }
+
+  .servicioCard {
     width: 40%;
+    min-height: 460px;
+  }
+
+  .servicioIncludesGallery {
+    flex-direction: row;
+  }
+
+  #imagenFloreria {
+    width: 200px;
+    height: 200px;
+  }
+
+  #imagenFloreria2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .googleMap {
+    width: 750px;
+    height: 400px;
+  }
+
+  .nosotrosContainer {
+    width: 60%;
+  }
+
+  .historiaContainer {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .historiaTextContainer {
+    flex-direction: column;
+    width: 40%;
+    height: 300px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .historiaText {
+    width: 100%;
+  }
+
+  .historiaValores {
+    width: 100%;
+  }
+
+  .historiaImg {
+    width: 50%;
+  }
+
+  .argumentsContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .argumentCard {
+    height: 200px;
+    width: 40%;
+  }
+
+  .faqsContainer {
+    width: 50%;
   }
 }

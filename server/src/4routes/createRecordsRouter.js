@@ -15,6 +15,6 @@ createRecordsRouter.post(
   recordController.updatePersonales
 );
 createRecordsRouter.post("/updateFuneral/:id", recordController.updateFuneral);
-createRecordsRouter.delete("/:id", recordController.deleteRecord);
+createRecordsRouter.delete("/delete/:id", recordController.deleteRecord);
 
 export default createRecordsRouter;
