@@ -25,7 +25,7 @@ function ModalObituario(props) {
   async function addObituario(e) {
     e.preventDefault();
     const newPerson = { ...form };
-    RecordsService.addObituario(
+    const response = await RecordsService.addObituario(
       newPerson.date,
       newPerson.nombre,
       newPerson.segundoNombre,

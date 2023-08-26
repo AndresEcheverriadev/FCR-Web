@@ -107,7 +107,7 @@ function ManagerPage() {
   };
 
   async function deleteRecord(id) {
-    RecordsService.removeRecord(id);
+    const response = await RecordsService.removeRecord(id);
     window.location.reload(false);
   }
   const iconCross = (

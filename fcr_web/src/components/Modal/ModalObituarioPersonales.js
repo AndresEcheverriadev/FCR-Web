@@ -39,7 +39,7 @@ function ModalObituarioPersonales(props) {
       paterno: personData.paterno,
       materno: personData.materno,
     };
-    RecordsService.updateData(id, editedPerson);
+    const response = await RecordsService.updateData(id, editedPerson);
     window.location.reload(false);
   }
   return (

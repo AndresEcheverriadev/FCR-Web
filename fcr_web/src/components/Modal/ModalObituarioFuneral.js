@@ -36,7 +36,7 @@ function ModalObituarioFuneral(props) {
       fechaResponso: funeralData.fechaResponso,
       lugarCementerio: funeralData.lugarCementerio,
     };
-    RecordsService.updateFuneral(id, editedFuneral);
+    const response = await RecordsService.updateFuneral(id, editedFuneral);
     window.location.reload(false);
   }
   return (
