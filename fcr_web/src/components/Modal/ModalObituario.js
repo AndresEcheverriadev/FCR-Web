@@ -24,7 +24,6 @@ function ModalObituario(props) {
   }
   async function addObituario(e) {
     e.preventDefault();
-    const token = sessionStorage.getItem("token");
     const newPerson = { ...form };
     RecordsService.addObituario(
       newPerson.date,

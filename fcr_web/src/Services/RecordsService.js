@@ -66,6 +66,18 @@ const addObituario = async (
   }
 };
 
+const addImage = async (id, image) => {
+  try {
+    const { data } = await HTTPRequestService.postImage(
+      `${process.env.REACT_APP_SERVER_URL_ADDIMAGE}/${id}`,
+      image
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
 const updateData = async (id, update) => {
   try {
     const { data } = await HTTPRequestService.post(
@@ -110,6 +122,7 @@ export const RecordsService = {
   getFilteredRecord,
   addMesagge,
   addObituario,
+  addImage,
   updateData,
   updateFuneral,
   removeRecord,

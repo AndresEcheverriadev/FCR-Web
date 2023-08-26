@@ -29,10 +29,6 @@ function ModalObituarioPersonales(props) {
     props.onHide();
   };
 
-  useEffect(() => {
-    console.log(personData);
-  }, [personData]);
-
   async function updatePersonales(e) {
     e.preventDefault();
     const id = personData.id;

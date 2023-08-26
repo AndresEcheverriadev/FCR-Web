@@ -27,10 +27,6 @@ function ModalObituarioFuneral(props) {
     props.onHide();
   };
 
-  useEffect(() => {
-    console.log(funeralData);
-  }, [funeralData]);
-
   async function updateFuneral(e) {
     e.preventDefault();
     const id = funeralData.id;

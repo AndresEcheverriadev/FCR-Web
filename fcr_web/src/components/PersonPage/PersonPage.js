@@ -36,7 +36,7 @@ function PersonPage() {
       mesagge: msgText.mesagge,
     };
     if (newMesagge.author && newMesagge.mesagge) {
-      const response = await RecordsService.addMesagge(id, newMesagge);
+      await RecordsService.addMesagge(id, newMesagge);
       msgText.author = "";
       msgText.mesagge = "";
       inputAuthor.value = "";

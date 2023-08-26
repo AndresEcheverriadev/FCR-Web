@@ -42,11 +42,14 @@ const post = async (url, data) => {
   }
 };
 
-const put = async (url, data) => {
+const postImage = async (url, data) => {
   const token = LocalStorageService.getItem("token");
   try {
-    const response = await axios.put(url, data, {
-      headers: { Authorization: token },
+    const response = await axios.post(url, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: token,
+      },
     });
     return response;
   } catch (error) {
@@ -82,4 +85,4 @@ const remove = async (url) => {
   }
 };
 
-export const HTTPRequestService = { get, post, put, remove };
+export const HTTPRequestService = { get, post, postImage, remove };

@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     cb(null, path.join(__dirname, "../", process.env.PATH_STORAGE_LOCAL));
   },
   filename: (req, file, cb) => {
-    cb(null, `${timestamp}.${file.mimetype.split("/")[1]}`);
+    cb(null, `${req.params.id}.${file.mimetype.split("/")[1]}`);
   },
 });
 

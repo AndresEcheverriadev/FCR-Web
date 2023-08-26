@@ -1,0 +1,32 @@
+.qrModuleContainer {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 30px;
+}
+
+.qrContainer {
+  height: auto;
+  width: auto;
+}
+
+.qrCanva {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.qrDownload {
+  width: 150px;
+  height: 50px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+}
+
+.qrDownload:hover {
+  background-color: var(--cafeOscuro);
+  color: var(--blanco);
+}

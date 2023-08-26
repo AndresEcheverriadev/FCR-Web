@@ -9,6 +9,7 @@ import ModalObituario from "../Modal/ModalObituario.js";
 import ModalObituarioPersonales from "../Modal/ModalObituarioPersonales.js";
 import ModalObituarioFuneral from "../Modal/ModalObituarioFuneral.js";
 import { RecordsService } from "../../Services/RecordsService";
+import QrCodeModule from "../QrCodeModule/QrCodeModule";
 
 function ManagerPage() {
   const [records, setRecords] = useState([]);
@@ -89,22 +90,9 @@ function ManagerPage() {
 
   async function addImage(id, e) {
     e.preventDefault();
-    const token = sessionStorage.getItem("token");
     let formData = new FormData();
     formData.append("imgDeceso", image.data);
-    const response = await fetch(
-      `${process.env.REACT_APP_SERVER_URL_ADDIMAGE}/${id}`,
-      {
-        method: "POST",
-        headers: {
-          authorization: `${token}`,
-        },
-        body: formData,
-      }
-    ).catch((error) => {
-      window.alert(error);
-      return;
-    });
+    const response = await RecordsService.addImage(id, formData);
     if (response) {
       setImage({ data: "" });
       window.location.reload(false);
@@ -217,7 +205,6 @@ function ManagerPage() {
                       >
                         Editar datos personales
                       </button>
-
                       <button
                         className="btnCtrlObituario"
                         data-bs-toggle="modal"
@@ -273,6 +260,10 @@ function ManagerPage() {
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
+                    <QrCodeModule
+                      url={`https://www.cristoreyangol.cl/obituario/${deceso._id}`}
+                      id={deceso._id}
+                    />
                   </div>
                 </div>
               );

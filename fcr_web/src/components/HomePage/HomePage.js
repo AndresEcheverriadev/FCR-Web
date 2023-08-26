@@ -407,6 +407,7 @@ function HomePage() {
               >
                 <iframe
                   className="googleMap"
+                  title="googleMap"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.371348005154!2d-72.69711052428381!3d-37.80477003352376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966bb3397fe73e75%3A0xd3dd93afbeb70e62!2sFuneraria%20Cristo%20Rey!5e0!3m2!1ses!2scl!4v1691863065619!5m2!1ses!2scl"
                   width="300"
                   height="300"
