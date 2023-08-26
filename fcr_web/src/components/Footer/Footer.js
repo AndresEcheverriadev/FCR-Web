@@ -23,16 +23,18 @@ function Footer() {
       <div className="ilustracionFooter">
         <div className="footerTitles">
           <p>
-            Entonces Jesús le dijo: —Yo soy la resurrección y la vida. El que
-            cree en mí vivirá, aunque muera; y todo el que vive y cree en mí no
-            morirá jamás.
+            Entonces Jesús le dijo:
+            <br />
+            Yo soy la resurrección y la vida. El que cree en mí vivirá, aunque
+            muera; y todo el que vive y cree en mí no morirá jamás. <br />
+            (Juan 11:25)
           </p>
         </div>
         <img
           className="ilustracionFooterImg"
           src={arregloFooter}
           alt="jarron con flores blancas"
-          width={400}
+          width={380}
           height={354}
           loading="lazy"
         />

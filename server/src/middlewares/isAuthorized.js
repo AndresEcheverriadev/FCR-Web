@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 
 const isAuthorized = (req, res, next) => {
   const token = req.headers["authorization"];
-  console.log(token);
   // jwt.verify(token, process.env.JWT_SECRET_KEY, (error, user) => {
   //   if (error) {
   //     console.log(token);
@@ -22,7 +21,6 @@ const isAuthorized = (req, res, next) => {
       error: "No Autorizado",
     });
   } else {
-    console.log("autorized");
     next();
   }
 };

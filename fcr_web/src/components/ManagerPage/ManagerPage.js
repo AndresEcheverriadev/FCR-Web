@@ -182,10 +182,25 @@ function ManagerPage() {
                     <div className="managerDecesoImagen">
                       <img src={deceso.img} alt="" />
                     </div>
-                    <h5 className="managerDecesoNombre">
-                      {deceso.nombre} {deceso.paterno}
+                    <h5 className="managerDecesoNombres">
+                      {deceso.nombre} {deceso.segundoNombre} {deceso.paterno}{" "}
+                      {deceso.materno}
                     </h5>
                     <p className="managerDecesoFecha">{deceso.date}</p>
+                    <div className="decesoDataWrapper">
+                      <p className="managerDecesoFechaResponso">
+                        fecha responso:{deceso.fechaResponso}
+                      </p>
+                      <p className="managerDecesoLugarCementerio">
+                        lugar cementerio:{deceso.lugarCementerio}
+                      </p>
+                      <p className="managerDecesoLugarResponso">
+                        lugar responso:{deceso.lugarResponso}
+                      </p>
+                      <p className="managerLugarVelatorio">
+                        lugar velatorio:{deceso.lugarVelatorio}
+                      </p>
+                    </div>
                   </NavLink>
                   <div className="controlsWrapper">
                     <div className="managerDecesoControls">

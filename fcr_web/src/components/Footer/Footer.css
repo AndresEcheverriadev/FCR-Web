@@ -8,12 +8,16 @@
 }
 
 .footerTitles {
-  width: 80%;
+  width: 65%;
   text-align: left;
 }
 
+.footerTitles p {
+  line-height: 1.2;
+}
+
 .ilustracionFooterImg {
-  width: 400px;
+  width: 380px;
   height: auto;
 }
 
