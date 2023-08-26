@@ -10,7 +10,6 @@ function ModalObituario(props) {
     segundoNombre: "",
     paterno: "",
     materno: "",
-    mesaggesWall: [],
     lugarVelatorio: "",
     lugarResponso: "",
     fechaResponso: "",

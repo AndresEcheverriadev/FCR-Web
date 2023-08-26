@@ -9,7 +9,6 @@ function ObituarioPage() {
   function Loading() {
     return <div className="loader" role="status"></div>;
   }
-
   const ObituarioLoader = React.lazy(() => import("./RecordLoader"));
   useEffect(() => {
     AnalyticService.pageView("/obituario", "Obituario general");

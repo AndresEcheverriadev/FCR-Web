@@ -12,7 +12,7 @@ function RecordLoader() {
     }
     getRecords();
     return;
-  }, [records.length]);
+  }, [records]);
 
   const iconCross = (
     <svg
@@ -31,7 +31,7 @@ function RecordLoader() {
   );
   return (
     <>
-      {records.map((deceso) => {
+      {records?.map((deceso) => {
         return (
           <div className="decesoCard" key={deceso._id}>
             <NavLink to={`/obituario/${deceso._id}`} className="decesoPersona">

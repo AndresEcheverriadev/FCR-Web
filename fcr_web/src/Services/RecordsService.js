@@ -109,7 +109,7 @@ const updateFuneral = async (id, update) => {
 const removeRecord = async (id) => {
   try {
     const { data } = await HTTPRequestService.remove(
-      `${process.env.REACT_APP_SERVER_URL_DELETE}/${id}`
+      `${process.env.REACT_APP_SERVER_URL_DELETE}/delete/${id}`
     );
     return { success: true, data: data.data };
   } catch (error) {
