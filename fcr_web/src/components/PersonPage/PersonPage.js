@@ -71,69 +71,48 @@ function PersonPage() {
       <HelmetProvider>
         <Helmet>
           <meta name="robots" content="noindex, nofollow" />
-          <meta charset="utf-8"></meta>
-          <meta http-equiv="Content-Type" content="text/html;"></meta>
           <title>
-            Obituario {`${record?.nombre}`}{" "}
-            {`${record?.paterno}-Funeraria Cristo Rey Angol`}
+            {`Obituario: ${record?.nombre} ${record?.paterno} - Funeraria Cristo Rey Angol`}
           </title>
-          <meta
-            http-equiv="title"
-            content={`Obituario de ${record?.nombre} ${record?.paterno}-Funeraria Cristo Rey Angol`}
-          ></meta>
-          <meta
-            name="title"
-            content={`Obituario de ${record?.nombre} ${record?.paterno}-Funeraria Cristo Rey Angol`}
-          />
           <meta
             name="description"
             content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.paterno}`}
           ></meta>
           <meta
-            name="author"
-            content={`Funeraria Cristo Rey Angol - ${new Date().getFullYear()}`}
-          ></meta>
-          <meta
-            name="copyright"
-            content={`Funeraria Cristo Rey Angol - ${new Date().getFullYear()}`}
-          ></meta>
+            property="og:url"
+            content={`https://www.cristoreyangol.cl/obituario/${record?._id}`}
+          />
+          <meta property="og:type" content="website" />
           <meta
             property="og:title"
-            content={`Obituario de ${record?.nombre} ${record?.paterno}`}
-          />
-          <meta property="og:type" content="article" />
-          <meta
-            property="og:url"
-            content={`https://www.cristoreyangol.cl/${personId}`}
-          />
-          <meta
-            property="og:site_name"
-            content="Funeraria_Cristo_Rey_Angol"
-          ></meta>
-          <meta
-            property="og:image"
-            content={`https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png`}
-          />
-          <meta
-            property="og:image:secure_url"
-            content="https://www.cristoreyangol.cl/assets/obituarioImages/urlPreview.png"
-          />
-          <meta property="og:image:type" content="image/jpeg" />
-          <meta property="og:image:width" content="600" />
-          <meta property="og:image:height" content="400" />
-          <meta
-            property="og:image:alt"
-            content="Obituario servicios funerarios Cristo Rey"
+            content={`Obituario: ${record?.nombre} ${record?.paterno} - Funeraria Cristo Rey Angol`}
           />
           <meta
             property="og:description"
             content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.paterno}`}
           />
-          <meta property="og:locale" content="es_LA"></meta>
-          <link rel="canonical" href="https://www.cristoreyangol.cl" />
+          <meta property="og:image" content="./obituario.webp" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="cristoreyangol.cl" />
+          <meta
+            property="twitter:url"
+            content={`https://www.cristoreyangol.cl/obituario/${record?._id}`}
+          />
+          <meta
+            name="twitter:title"
+            content={`Obituario: ${record?.nombre} ${record?.paterno} - Funeraria Cristo Rey Angol`}
+          />
+          <meta
+            name="twitter:description"
+            content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.paterno}`}
+          />
+          <meta name="twitter:image" content="./obituario.webp" />
+          <link
+            rel="canonical"
+            href="https://www.cristoreyangol.cl/obituario"
+          />
         </Helmet>
       </HelmetProvider>
-
       <div className="personPageMainWrapper">
         <header className="headerContainer">
           <Navbar />
