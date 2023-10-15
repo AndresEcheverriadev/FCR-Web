@@ -14,6 +14,8 @@ function ContactForm() {
           className="contactFormAdress"
           src={contact}
           alt="dirección para contacto"
+          width={275}
+          height={25}
         />
         <a
           href={`mailto:${mailContacto}?subject=Quiero dejar un mensaje`}

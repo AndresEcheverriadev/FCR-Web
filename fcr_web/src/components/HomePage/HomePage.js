@@ -2,7 +2,7 @@ import React, { useEffect, lazy, Suspense } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Navbar from "../Navbar/Navbar";
-import imgHome from "../../homeFuneraria.webp";
+// import imgHome from "../../homeFuneraria.webp";
 import imgHistoria from "../../images/homeFunerariaOficina.webp";
 import imgFloreria from "../../images/arreglosFlorales.webp";
 import imgFloreria2 from "../../images/arreglosFlorales2.webp";
@@ -38,33 +38,6 @@ function HomePage() {
         <Helmet prioritizeSeoTags>
           <title>Servicios Funerarios Cristo Rey Angol-Home</title>
           <link rel="canonical" href="https://www.cristoreyangol.cl/" />
-          <meta
-            property="og:title"
-            content={`Sitio web servicios funerarios Cristo Rey Angol`}
-          />
-          <meta property="og:url" content={`https://www.cristoreyangol.cl/`} />
-          <meta
-            property="og:description"
-            content="Sitio web servicios funerarios Cristo Rey Angol"
-          />
-          <meta
-            property="og:image"
-            itemProp="image"
-            content="https://i.postimg.cc/HLhPLqBs/url-Preview.png"
-          />
-          <meta property="og:type" content="article" />
-          <meta property="og:image:width" content="300" />
-          <meta property="og:image:height" content="200" />
-          <meta
-            name="title"
-            content="Servicios Funerarios Cristo Rey Angol-Home"
-            data-react-helmet="true"
-          ></meta>
-          <meta
-            name="description"
-            content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol. "
-            data-react-helmet="true"
-          ></meta>
         </Helmet>
       </HelmetProvider>
       <div className="homePageMainContainer">
@@ -84,7 +57,7 @@ function HomePage() {
           </div>
           <div className="carruselContainer">
             <img
-              src={imgHome}
+              src="./homeFuneraria.webp"
               alt="persona con flores tocando urna"
               height={291}
               width={425}
