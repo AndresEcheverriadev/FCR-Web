@@ -1,26 +1,24 @@
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/logo.svg";
-import { LoginContext } from "../context/loginContext.js";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./LoginPage.css";
+import { AuthService } from "../../Services/AuthService";
 
 function LoginPage() {
-  const password = `${process.env.REACT_APP_PASSOBITUARIO}`;
   const navigate = useNavigate();
-  const input = document.getElementById("inputPassManager");
-  const [passer, setPasser] = useState({ pass: "" });
-  const { logIn } = useContext(LoginContext);
-  function login() {
-    if (passer.pass === password) {
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleLogin() {
+    const auth = await AuthService.login(mail, password);
+    if (auth.success === true) {
       navigate("/manager");
-      logIn();
-      input.value = "";
     } else {
-      navigate("/manager");
-      input.value = "";
       alert("Password incorrecto");
+      setMail("");
+      setPassword("");
+      window.location.reload(false);
     }
   }
 
@@ -38,13 +36,20 @@ function LoginPage() {
         </NavLink>
         <div className="loginInputContainer">
           <h4>Login Obituario</h4>
-          <h5>Introduzca su contraseña</h5>
+          <h5>Introduzca sus credenciales</h5>
+          <label htmlFor="email">email</label>
+          <input
+            type="text"
+            name="email"
+            onChange={(e) => setMail(e.target.value)}
+          />
+          <label htmlFor="password">password</label>
           <input
             type="password"
-            id="inputPassManager"
-            onChange={(e) => setPasser({ pass: e.target.value })}
+            onChange={(e) => setPassword(e.target.value)}
+            name="password"
           />
-          <button onClick={login}>Entrar</button>
+          <button onClick={handleLogin}>Entrar</button>
         </div>
       </div>
     </>

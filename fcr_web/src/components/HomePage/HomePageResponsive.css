@@ -1,3 +1,25 @@
+@media (min-width: 321px) {
+  .phoneButton2 {
+    display: unset;
+  }
+
+  .homeTitle2 {
+    display: unset;
+    width: 100%;
+    height: auto;
+    font-size: var(--h5);
+  }
+
+  #contactPhonesTitle--mobile {
+    display: block;
+    font-size: var(--p);
+    width: 90%;
+    height: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
 @media (min-width: 768px) {
   .homeTitlesContainer {
     width: 100%;
@@ -45,9 +67,14 @@
     width: 80%;
   }
 
-  .googleMap {
-    width: 750px;
-    height: 400px;
+  .googleMapSmall {
+    display: none;
+  }
+
+  .googleMapBig {
+    display: block;
+    width: 500px;
+    height: auto;
   }
 
   .historiaContainer {
@@ -125,7 +152,8 @@
     height: 200px;
   }
 
-  .googleMap {
+  .googleMapBig {
+    display: block;
     width: 750px;
     height: 400px;
   }

@@ -39,7 +39,6 @@ function ObituarioPage() {
             name="description"
             content="Sitio web servicios funerarios Cristo Rey Angol"
           ></meta>
-
           <link rel="canonical" href="https://www.cristoreyangol.cl/" />
         </Helmet>
       </HelmetProvider>

@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { LoginContext } from "../context/loginContext";
 import Navbar from "../Navbar/Navbar";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Accordion from "react-bootstrap/Accordion";
-import "./ManagerPage.css";
 import ModalObituario from "../Modal/ModalObituario.js";
 import ModalObituarioPersonales from "../Modal/ModalObituarioPersonales.js";
 import ModalObituarioFuneral from "../Modal/ModalObituarioFuneral.js";
 import { RecordsService } from "../../Services/RecordsService";
 import QrCodeModule from "../QrCodeModule/QrCodeModule";
+import { AuthService } from "../../Services/AuthService";
+import "./ManagerPage.css";
 
 function ManagerPage() {
   const [records, setRecords] = useState([]);
-
+  
   useEffect(() => {
     async function getRecords() {
       const response = await RecordsService.getAllRecords();
@@ -126,7 +126,9 @@ function ManagerPage() {
     </svg>
   );
 
-  const { logOut } = useContext(LoginContext);
+  const handleLogout = () => {
+    AuthService.logout();
+  };
 
   return (
     <>
@@ -157,7 +159,7 @@ function ManagerPage() {
           <button
             type="submit"
             className="btnLogoutObituario"
-            onClick={() => logOut()}
+            onClick={() => handleLogout()}
           >
             Salir
           </button>

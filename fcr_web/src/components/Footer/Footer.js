@@ -44,7 +44,7 @@ function Footer() {
           <div className="footerLogo">
             <img
               src={logoBlanco}
-              alt=""
+              alt="logo Cristo Rey blanco"
               width={243.062}
               height={113.238}
               loading="lazy"

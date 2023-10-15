@@ -1,21 +1,21 @@
 import { LocalStorageService } from "./LocalStorageService.js";
 import { HTTPRequestService } from "./HTTPRequestService.js";
 
-const login = async (userName, password) => {
+const login = async (mail, password) => {
   try {
-    const checkToken = await loginToken();
-    if (checkToken) {
-      logout();
-    }
+    // const checkToken = await checkToken();
+    // if (checkToken) {
+    //   logout();
+    // }
     const { data } = await HTTPRequestService.post(
-      process.env.REACT_APP_LOGIN_USER_URL,
+      process.env.REACT_APP_SERVER_URL_LOGIN,
       {
-        userName,
+        mail,
         password,
       }
     );
-    if (data.status === 200 && data.data.token) {
-      LocalStorageService.setItem("token", data.data.token);
+    if (data.status === 200 && data.data) {
+      LocalStorageService.setItem("token", data.data);
       return { success: true, user: data.data.user };
     }
     return { success: false };
@@ -39,7 +39,7 @@ const register = async ({ userName, password }) => {
   }
 };
 
-const loginToken = async () => {
+const checkToken = async () => {
   try {
     const token = await LocalStorageService.getItem("token");
     if (!token) return { success: false };
@@ -50,6 +50,7 @@ const loginToken = async () => {
 };
 
 const logout = async () => {
+  alert("logout");
   try {
     const deleteToken = LocalStorageService.removeItem("token");
     if (!deleteToken) return { success: false };
@@ -59,4 +60,4 @@ const logout = async () => {
   }
 };
 
-export const AuthService = { login, register, loginToken, logout };
+export const AuthService = { login, register, checkToken, logout };

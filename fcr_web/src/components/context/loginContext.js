@@ -1,41 +1,23 @@
 import React from "react";
-import { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-export const LoginContext = createContext([]);
+export const LoginContext = React.createContext();
+
 function LoginContextProvider({ children }) {
-  const navigate = useNavigate();
-  const logIn = () => {
-    const data = sessionStorage.getItem("adminLogged");
-    if (data == null) {
-      sessionStorage.setItem(
-        "token",
-        JSON.stringify(`${process.env.REACT_APP_JWT_SECRET_KEY}`)
-      );
-    } else {
-      alert("Ya existe sesión");
-    }
-  };
-  const logOut = () => {
-    sessionStorage.clear();
-    return navigate("/");
-  };
+  const [isLoggedIn, setisLoggedIn] = useState(null);
 
-  const checkToken = () => {
-    const data = sessionStorage.getItem("token");
-    if (data) {
-      setisLoggedIn(true);
-    } else {
+  const checkTokenExist = () => {
+    alert("checking");
+    const token = sessionStorage.getItem("token");
+    if (!token) {
       setisLoggedIn(false);
+    } else {
+      setisLoggedIn(true);
     }
   };
-
-  const [isLoggedIn, setisLoggedIn] = useState();
 
   return (
-    <LoginContext.Provider
-      value={{ logIn, logOut, isLoggedIn, setisLoggedIn, checkToken }}
-    >
+    <LoginContext.Provider value={{ isLoggedIn, checkTokenExist }}>
       {children}
     </LoginContext.Provider>
   );

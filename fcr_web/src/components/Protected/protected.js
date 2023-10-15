@@ -1,15 +1,14 @@
 import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { LoginContext } from "../context/loginContext.js";
 
 const Protected = ({ children }) => {
-  useEffect(() => {
-    checkToken();
-  });
-  const navigate = useNavigate();
-  const { checkToken, isLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn, checkTokenExist } = useContext(LoginContext);
+
+  checkTokenExist();
+
   if (isLoggedIn === false) {
-    return navigate("/");
+    return <Navigate replace={true} to="/login" />;
   } else {
     return children;
   }

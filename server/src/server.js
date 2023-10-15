@@ -8,6 +8,7 @@ import { onAuthorizationHeaders } from "./middlewares/onAuthorizationHeaders.js"
 import { isAuthorized } from "./middlewares/isAuthorized.js";
 import recordsRouter from "./4routes/recordsRouter.js";
 import createRecordsRouter from "./4routes/createRecordsRouter.js";
+import usersRouter from "./4routes/usersRouter.js";
 
 const app = express();
 const serverPort = process.env.PORT || 8085;
@@ -17,40 +18,41 @@ app.use(onAuthorizationHeaders);
 
 app.use("/record", recordsRouter);
 app.use("/createRecord", isAuthorized, createRecordsRouter);
+app.use("/user", usersRouter);
 
 //http server
 
-// const httpServer = http.createServer(app);
+const httpServer = http.createServer(app);
 
-// httpServer.listen(serverPort, () => {
-//   console.log(`Servidor escuchando en puerto ${httpServer.address().port}`);
-// });
+httpServer.listen(serverPort, () => {
+  console.log(`Servidor escuchando en puerto ${httpServer.address().port}`);
+});
 
 // https server
 
-const privateKey = fs.readFileSync(
-  "/etc/letsencrypt/live/cristoreyangol.cl/privkey.pem",
-  "utf8"
-);
-const certificate = fs.readFileSync(
-  "/etc/letsencrypt/live/cristoreyangol.cl/cert.pem",
-  "utf8"
-);
-const ca = fs.readFileSync(
-  "/etc/letsencrypt/live/cristoreyangol.cl/chain.pem",
-  "utf8"
-);
+// const privateKey = fs.readFileSync(
+//   "/etc/letsencrypt/live/cristoreyangol.cl/privkey.pem",
+//   "utf8"
+// );
+// const certificate = fs.readFileSync(
+//   "/etc/letsencrypt/live/cristoreyangol.cl/cert.pem",
+//   "utf8"
+// );
+// const ca = fs.readFileSync(
+//   "/etc/letsencrypt/live/cristoreyangol.cl/chain.pem",
+//   "utf8"
+// );
 
-const credentials = {
-  key: privateKey,
-  cert: certificate,
-  ca: ca,
-};
+// const credentials = {
+//   key: privateKey,
+//   cert: certificate,
+//   ca: ca,
+// };
 
-const httpsServer = https.createServer(credentials, app);
+// const httpsServer = https.createServer(credentials, app);
 
-httpsServer.listen(serverPort, () => {
-  console.log(
-    `Servidor HTTPS corriendo en puerto ${httpsServer.address().port}`
-  );
-});
+// httpsServer.listen(serverPort, () => {
+//   console.log(
+//     `Servidor HTTPS corriendo en puerto ${httpsServer.address().port}`
+//   );
+// });

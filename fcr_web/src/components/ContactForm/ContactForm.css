@@ -19,6 +19,12 @@
   height: auto;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+}
+
+.contactFormAdress {
+  width: 275px;
+  height: auto;
 }
 
 .formContactBtn {

@@ -1,5 +1,6 @@
 import React from "react";
 import { AnalyticService } from "../../Services/AnalyticService";
+import contact from "../../images/contact.svg";
 import "./ContactForm.css";
 
 const mailContacto = "contacto@cristoreyangol.cl";
@@ -9,7 +10,11 @@ function ContactForm() {
     <div className="formContainerHome" id="contacto">
       <h3>Escríbenos un mensaje</h3>
       <div className="contactFormMain">
-        <h5>{mailContacto}</h5>
+        <img
+          className="contactFormAdress"
+          src={contact}
+          alt="dirección para contacto"
+        />
         <a
           href={`mailto:${mailContacto}?subject=Quiero dejar un mensaje`}
           className="btnSubmitForm"

@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./fonts/Poppins-Medium.woff2";
-import "./fonts/Poppins-Medium.woff";
-import "./fonts/Poppins-Medium.ttf";
-import "./fonts/Poppins-SemiBold.woff2";
-import "./fonts/Poppins-SemiBold.woff";
-import "./fonts/Poppins-SemiBold.ttf";
+// import "./fonts/Poppins-Medium.woff2";
+// import "./fonts/Poppins-Medium.woff";
+// import "./fonts/Poppins-Medium.ttf";
+// import "./fonts/Poppins-SemiBold.woff2";
+// import "./fonts/Poppins-SemiBold.woff";
+// import "./fonts/Poppins-SemiBold.ttf";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import "./indexResponsive.css";

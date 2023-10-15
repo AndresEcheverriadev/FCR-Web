@@ -2,6 +2,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
 import Record from "./Record.js";
+import User from "./User.js";
 // mongoose.set("strictQuery", false);
 
 class Dao {
@@ -22,9 +23,11 @@ class Dao {
     };
 
     const recordSchema = mongoose.Schema(Record.schema, timestamps);
+    const userSchema = mongoose.Schema(User.schema, timestamps);
 
     this.models = {
       [Record.collection]: mongoose.model(Record.collection, recordSchema),
+      [User.collection]: mongoose.model(User.collection, userSchema),
     };
   }
 
@@ -46,6 +49,12 @@ class Dao {
   getOne = async (options, entity) => {
     if (!this.models[entity]) throw new Error(`La entidad no existe`);
     let result = await this.models[entity].findById(options).lean();
+    return result;
+  };
+
+  getUser = async (options, entity) => {
+    if (!this.models[entity]) throw new Error(`La entidad no existe`);
+    let result = await this.models[entity].findOne(options).lean();
     return result;
   };
 

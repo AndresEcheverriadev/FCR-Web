@@ -16,6 +16,10 @@ class GenericRepository {
     return this.dao.getOne(params, this.model);
   };
 
+  getUser = async (params) => {
+    return this.dao.getUser(params, this.model);
+  };
+
   getFiltered = async (params) => {
     return this.dao.getAll(params, this.model);
   };

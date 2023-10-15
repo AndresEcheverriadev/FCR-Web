@@ -3,12 +3,13 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Navbar from "../Navbar/Navbar";
 import imgHome from "../../homeFuneraria.webp";
-import "./HomePage.css";
-import "./HomePageResponsive.css";
 import imgHistoria from "../../images/homeFunerariaOficina.webp";
 import imgFloreria from "../../images/arreglosFlorales.webp";
 import imgFloreria2 from "../../images/arreglosFlorales2.webp";
+import imgMapBig from "../../images/mapBig.webp";
+import imgMapSmall from "../../images/mapSmall.webp";
 import { AnalyticService } from "../../Services/AnalyticService.js";
+import "./HomePageResponsive.css";
 const HomeGallery = lazy(() => import("../HomeGallery/HomeGallery.js"));
 const FaqsAccordion = lazy(() => import("../FaqsAccordion/FaqsAccordion.js"));
 const ContactForm = lazy(() => import("../ContactForm/ContactForm"));
@@ -35,7 +36,7 @@ function HomePage() {
     <>
       <HelmetProvider>
         <Helmet prioritizeSeoTags>
-          <title>Servicios Funerarios Cristo Rey Angol - Home</title>
+          <title>Servicios Funerarios Cristo Rey Angol-Home</title>
           <link rel="canonical" href="https://www.cristoreyangol.cl/" />
           <meta
             property="og:title"
@@ -55,8 +56,14 @@ function HomePage() {
           <meta property="og:image:width" content="300" />
           <meta property="og:image:height" content="200" />
           <meta
+            name="title"
+            content="Servicios Funerarios Cristo Rey Angol-Home"
+            data-react-helmet="true"
+          ></meta>
+          <meta
             name="description"
-            content="Sitio web servicios funerarios Cristo Rey Angol"
+            content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol. "
+            data-react-helmet="true"
           ></meta>
         </Helmet>
       </HelmetProvider>
@@ -405,17 +412,20 @@ function HomePage() {
                   AnalyticService.event("Interacciones", "clic_Mapa", "Mapa")
                 }
               >
-                <iframe
-                  className="googleMap"
-                  title="googleMap"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.371348005154!2d-72.69711052428381!3d-37.80477003352376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966bb3397fe73e75%3A0xd3dd93afbeb70e62!2sFuneraria%20Cristo%20Rey!5e0!3m2!1ses!2scl!4v1691863065619!5m2!1ses!2scl"
-                  width="300"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
+                <LazyLoadImage
+                  src={imgMapBig}
+                  width={750}
+                  height={400}
+                  alt="imagen mapa Servicios Funerarios Cristo Rey Angol"
+                  className="googleMapBig"
+                />
+                <LazyLoadImage
+                  src={imgMapSmall}
+                  width={300}
+                  height={300}
+                  alt="imagen mapa Servicios Funerarios Cristo Rey Angol"
+                  className="googleMapSmall"
+                />
               </a>
             </Suspense>
           </div>

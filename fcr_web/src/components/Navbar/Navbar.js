@@ -20,7 +20,6 @@ function Navbar() {
             alt="Logo Servicio Funerario Cristo Rey"
           />
         </NavLink>
-
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 linksContainer">
             <li className="nav-item">
@@ -66,7 +65,6 @@ function Navbar() {
             </li>
           </ul>
         </div>
-
         <div className="initSessionContainer">
           <NavLink to="/obituario" className="initSessionBtn">
             Obituario
