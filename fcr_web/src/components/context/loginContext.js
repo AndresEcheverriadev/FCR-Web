@@ -7,7 +7,6 @@ function LoginContextProvider({ children }) {
   const [isLoggedIn, setisLoggedIn] = useState(null);
 
   const checkTokenExist = () => {
-    alert("checking");
     const token = sessionStorage.getItem("token");
     if (!token) {
       setisLoggedIn(false);

@@ -36,8 +36,8 @@ function LoginPage() {
         <div className="loginInputContainer">
           <h4>Login Obituario</h4>
           <h5>Introduzca sus credenciales</h5>
-          <label htmlFor="email">email</label>
-          {/* <input
+          {/* <label htmlFor="email">email</label>
+          <input
             type="text"
             name="email"
             onChange={(e) => setMail(e.target.value)}

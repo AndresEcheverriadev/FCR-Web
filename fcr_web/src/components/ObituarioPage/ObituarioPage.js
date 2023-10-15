@@ -17,29 +17,38 @@ function ObituarioPage() {
     <div className="obituarioPageMainWrapper">
       <HelmetProvider>
         <Helmet>
-          <meta
-            property="og:title"
-            content={`Servicios Funerarios Cristo Rey Angol - Obituario`}
-          />
-          <meta property="og:url" content={`https://www.cristoreyangol.cl/`} />
-          <meta
-            property="og:description"
-            content="Sitio web servicios funerarios Cristo Rey Angol"
-          />
-          <meta
-            property="og:image"
-            itemProp="image"
-            content="https://i.postimg.cc/HLhPLqBs/url-Preview.png"
-          />
-          <meta property="og:type" content="article" />
-          <meta property="og:image:width" content="300" />
-          <meta property="og:image:height" content="200" />
-          <title>Servicios Funerarios Cristo Rey Angol - Obituario</title>
+          <link rel="canonical" href="https://www.cristoreyangol.cl/" />
+          <title>Servicios Funerarios Cristo Rey Angol-Obituario</title>
           <meta
             name="description"
-            content="Sitio web servicios funerarios Cristo Rey Angol"
-          ></meta>
-          <link rel="canonical" href="https://www.cristoreyangol.cl/" />
+            content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol."
+          />
+          <meta property="og:url" content="https://www.cristoreyangol.cl/" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:title"
+            content="Servicios Funerarios Cristo Rey Angol"
+          />
+          <meta
+            property="og:description"
+            content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol."
+          />
+          <meta property="og:image" content="./obituario.webp" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="cristoreyangol.cl" />
+          <meta
+            property="twitter:url"
+            content="https://www.cristoreyangol.cl/"
+          />
+          <meta
+            name="twitter:title"
+            content="Servicios Funerarios Cristo Rey Angol"
+          />
+          <meta
+            name="twitter:description"
+            content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol."
+          />
+          <meta name="twitter:image" content="./obituario.webp" />
         </Helmet>
       </HelmetProvider>
       <header className="headerContainer">

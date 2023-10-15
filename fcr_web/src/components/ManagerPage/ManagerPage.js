@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Accordion from "react-bootstrap/Accordion";
@@ -13,7 +13,8 @@ import "./ManagerPage.css";
 
 function ManagerPage() {
   const [records, setRecords] = useState([]);
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
     async function getRecords() {
       const response = await RecordsService.getAllRecords();
@@ -126,8 +127,9 @@ function ManagerPage() {
     </svg>
   );
 
-  const handleLogout = () => {
-    AuthService.logout();
+  const handleLogout = async () => {
+    await AuthService.logout();
+    navigate("/login");
   };
 
   return (

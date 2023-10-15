@@ -49,9 +49,8 @@ const checkToken = async () => {
 };
 
 const logout = async () => {
-  alert("logout");
   try {
-    const deleteToken = LocalStorageService.removeItem("token");
+    const deleteToken = await LocalStorageService.removeItem("token");
     if (!deleteToken) return { success: false };
     return { success: true };
   } catch (error) {
