@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(onAuthorizationHeaders);
 
 app.use("/record", recordsRouter);
-app.use("/createRecord", isAuthorized, createRecordsRouter);
+app.use("/createRecord", createRecordsRouter);
 app.use("/user", usersRouter);
 
 //http server
