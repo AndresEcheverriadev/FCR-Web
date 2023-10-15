@@ -4,17 +4,17 @@ import jwt from "jsonwebtoken";
 import { timestamp, __dirname } from "../../utils.js";
 
 const authUser = async (req, res) => {
-  let { mail, password } = req.body;
-  if (!mail) {
+  let { user, password } = req.body;
+  if (!password) {
     return ServerResponse.badRequest({
       res,
       error: "Falta user",
     });
   }
   try {
-    const record = await userService.getUser({ mail: mail });
+    const record = await userService.getUser({ password: password });
     if (record) {
-      let token = jwt.sign({ user: record.mail }, process.env.JWT_SECRET_KEY, {
+      let token = jwt.sign({ user: record.user }, process.env.JWT_SECRET_KEY, {
         expiresIn: "1h",
       });
       return ServerResponse.success({

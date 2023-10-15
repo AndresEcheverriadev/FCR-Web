@@ -7,16 +7,15 @@ import { AuthService } from "../../Services/AuthService";
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [mail, setMail] = useState("");
+  // const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleLogin() {
-    const auth = await AuthService.login(mail, password);
+    const auth = await AuthService.login(password);
     if (auth.success === true) {
       navigate("/manager");
     } else {
       alert("Password incorrecto");
-      setMail("");
       setPassword("");
       window.location.reload(false);
     }
@@ -38,11 +37,11 @@ function LoginPage() {
           <h4>Login Obituario</h4>
           <h5>Introduzca sus credenciales</h5>
           <label htmlFor="email">email</label>
-          <input
+          {/* <input
             type="text"
             name="email"
             onChange={(e) => setMail(e.target.value)}
-          />
+          /> */}
           <label htmlFor="password">password</label>
           <input
             type="password"

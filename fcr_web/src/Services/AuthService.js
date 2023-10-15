@@ -1,7 +1,7 @@
 import { LocalStorageService } from "./LocalStorageService.js";
 import { HTTPRequestService } from "./HTTPRequestService.js";
 
-const login = async (mail, password) => {
+const login = async (password) => {
   try {
     // const checkToken = await checkToken();
     // if (checkToken) {
@@ -10,7 +10,6 @@ const login = async (mail, password) => {
     const { data } = await HTTPRequestService.post(
       process.env.REACT_APP_SERVER_URL_LOGIN,
       {
-        mail,
         password,
       }
     );
