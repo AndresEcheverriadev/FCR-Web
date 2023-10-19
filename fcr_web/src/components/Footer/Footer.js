@@ -34,6 +34,7 @@ function Footer() {
           className="ilustracionFooterImg"
           src={arregloFooter}
           alt="jarron con flores blancas"
+          title="jarron con flores blancas"
           width={380}
           height={354}
           loading="lazy"
@@ -44,6 +45,7 @@ function Footer() {
           <div className="footerLogo">
             <img
               src={logoBlanco}
+              title="logo Cristo Rey blanco"
               alt="logo Cristo Rey blanco"
               width={243.062}
               height={113.238}

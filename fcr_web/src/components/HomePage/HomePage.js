@@ -2,7 +2,6 @@ import React, { useEffect, lazy, Suspense } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Navbar from "../Navbar/Navbar";
-// import imgHome from "../../homeFuneraria.webp";
 import imgHistoria from "../../images/homeFunerariaOficina.webp";
 import imgFloreria from "../../images/arreglosFlorales.webp";
 import imgFloreria2 from "../../images/arreglosFlorales2.webp";
@@ -45,13 +44,13 @@ function HomePage() {
           <meta property="og:type" content="website" />
           <meta
             property="og:title"
-            content="Servicios Funerarios Cristo Rey Angol"
+            content="Servicios Funerarios Cristo Rey Angol-Home"
           />
           <meta
             property="og:description"
             content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol."
           />
-          <meta property="og:image" content="./homeFuneraria.webp" />
+          <meta property="og:image" content="./ogImgComp.webp" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="twitter:domain" content="cristoreyangol.cl" />
           <meta
@@ -66,7 +65,7 @@ function HomePage() {
             name="twitter:description"
             content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol."
           />
-          <meta name="twitter:image" content="./homeFuneraria.webp" />
+          <meta name="twitter:image" content="./ogImgComp.webp" />
           <link rel="canonical" href="https://www.cristoreyangol.cl/" />
         </Helmet>
       </HelmetProvider>
@@ -91,6 +90,7 @@ function HomePage() {
               alt="persona con flores tocando urna"
               height={291}
               width={425}
+              title="persona tocando urna con flores"
             />
           </div>
           <div className="contactPhonesContainer">

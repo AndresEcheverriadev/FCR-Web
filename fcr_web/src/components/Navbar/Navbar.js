@@ -18,6 +18,7 @@ function Navbar() {
             height={93.175}
             src="/logo.svg"
             alt="Logo Servicio Funerario Cristo Rey"
+            title="Logo Servicio Funerario Cristo Rey"
           />
         </NavLink>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
