@@ -107,10 +107,7 @@ function PersonPage() {
             content={`Comparte este homenaje con quienes desean honrar la memoria de ${record?.nombre} ${record?.paterno}`}
           />
           <meta name="twitter:image" content="./obituario.webp" />
-          <link
-            rel="canonical"
-            href="https://www.cristoreyangol.cl/obituario"
-          />
+          <link rel="canonical" href="https://www.cristoreyangol.cl/" />
         </Helmet>
       </HelmetProvider>
       <div className="personPageMainWrapper">

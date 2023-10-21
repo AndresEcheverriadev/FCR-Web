@@ -137,8 +137,9 @@ function ManagerPage() {
       <HelmetProvider>
         <Helmet>
           <meta name="robots" content="noindex, nofollow" />
+          <title>Servicios Funerarios Cristo Rey Angol-Manager</title>
+          <link rel="canonical" href="https://www.cristoreyangol.cl/" />
         </Helmet>
-        <title>Servicios Funerarios Cristo Rey Angol</title>
       </HelmetProvider>
       <div className="mnanagerPageMainWrapper">
         <header className="managerHeaderContainer">

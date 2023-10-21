@@ -22,9 +22,9 @@
 @font-face {
   font-family: "Poppins-Light";
   src: local("Poppins-Light"),
-    url("./fonts/Poppins-Light.ttf") format("truetype"),
     url("./fonts/Poppins-Light.woff2") format("woff2"),
-    url("./fonts/Poppins-Light.woff") format("woff");
+    url("./fonts/Poppins-Light.woff") format("woff"),
+    url("./fonts/Poppins-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: light;
   font-display: swap;

@@ -17,7 +17,7 @@ function ObituarioPage() {
     <div className="obituarioPageMainWrapper">
       <HelmetProvider>
         <Helmet>
-          <title>Servicios Funerarios Cristo Rey Angol - Obituario</title>
+          <title>Servicios Funerarios Cristo Rey Angol-Obituario</title>
           <meta
             name="description"
             content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol."
@@ -51,10 +51,7 @@ function ObituarioPage() {
             content="Más de 40 años honrando a las familias angolinas. Contáctenos 24/7. Servicios Funerarios. Traslados. Servicio de Cafetería. Arreglos florales únicos en Angol."
           />
           <meta name="twitter:image" content="./obituario.webp" />
-          <link
-            rel="canonical"
-            href="https://www.cristoreyangol.cl/obituario"
-          />
+          <link rel="canonical" href="https://www.cristoreyangol.cl/" />
         </Helmet>
       </HelmetProvider>
       <header className="headerContainer">

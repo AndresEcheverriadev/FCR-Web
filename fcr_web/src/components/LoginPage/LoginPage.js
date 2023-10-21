@@ -26,7 +26,8 @@ function LoginPage() {
       <HelmetProvider>
         <Helmet>
           <meta name="robots" content="noindex, nofollow" />
-          <title>Servicios Funerarios Cristo Rey Angol</title>
+          <title>Servicios Funerarios Cristo Rey Angol-Login</title>
+          <link rel="canonical" href="https://www.cristoreyangol.cl/" />
         </Helmet>
       </HelmetProvider>
       <div className="loginPageMainWrapper">
