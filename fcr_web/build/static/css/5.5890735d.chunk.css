@@ -1,0 +1,2 @@
+.miniaturesContainer{display:flex;flex-direction:row;width:50%;height:auto;grid-gap:5px;gap:5px;justify-content:center;align-items:center}.imageMiniature{border:2px solid var(--blanco);border-radius:10px;cursor:pointer;width:24%;height:auto}.imageMiniature:hover{border-color:var(--cafeOscuro)}@media (max-width:900px){.miniaturesContainer{width:95%}}
+/*# sourceMappingURL=5.5890735d.chunk.css.map */

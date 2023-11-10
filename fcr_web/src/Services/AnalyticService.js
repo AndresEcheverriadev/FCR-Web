@@ -1,23 +1,18 @@
-import ReactGA from "react-ga4";
+import PiwikPro, { PageViews, DataLayer } from "@piwikpro/react-piwik-pro";
 
-const initialize = async () => {
-  ReactGA.initialize(process.env.REACT_APP_GTM_ID);
+const initialize = () => {
+  PiwikPro.initialize(
+    "46fd4b9c-6ff7-4f6b-b25c-e52650e6cd0c",
+    "https://cristoreyangol.piwik.pro"
+  );
 };
 
-const pageView = async (locationURL, title) => {
-  ReactGA.send({
-    hitType: "pageview",
-    page: `${locationURL}`,
-    title: `${title}`,
-  });
+const pageView = async (title) => {
+  PageViews.trackPageView(`${title}`);
 };
 
-const event = async (category, action, label) => {
-  ReactGA.event({
-    category: category,
-    action: action,
-    label: label,
-  });
+const event = async (event) => {
+  await DataLayer.push({ event: `${event}` });
 };
 
 export const AnalyticService = { initialize, event, pageView };

@@ -1,16 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import "./fonts/Poppins-Medium.woff2";
-// import "./fonts/Poppins-Medium.woff";
-// import "./fonts/Poppins-Medium.ttf";
-// import "./fonts/Poppins-SemiBold.woff2";
-// import "./fonts/Poppins-SemiBold.woff";
-// import "./fonts/Poppins-SemiBold.ttf";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import "./indexResponsive.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { AnalyticService } from "./Services/AnalyticService.js";
+
+AnalyticService.initialize();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

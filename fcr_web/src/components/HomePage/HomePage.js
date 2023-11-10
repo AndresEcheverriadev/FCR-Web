@@ -24,11 +24,7 @@ function HomePage() {
   }
 
   useEffect(() => {
-    AnalyticService.initialize();
-  }, []);
-
-  useEffect(() => {
-    AnalyticService.pageView("/", "Home");
+    AnalyticService.pageView("Home");
   }, []);
 
   return (
@@ -107,7 +103,7 @@ function HomePage() {
                 className="phoneButton phoneButton1"
                 href={`tel:${fono1}`}
                 onClick={() =>
-                  AnalyticService.event("Interacciones", "clic_Llamar", "Tel1")
+                  AnalyticService.event("Interacciones-clic_Llamar-Tel1")
                 }
               >
                 <div className="callPhone">
@@ -132,7 +128,7 @@ function HomePage() {
                 className="phoneButton phoneButton2"
                 href={`tel:${fono2}`}
                 onClick={() =>
-                  AnalyticService.event("Interacciones", "clic_Llamar", "Tel2")
+                  AnalyticService.event("Interacciones-clic_Llamar-Tel2")
                 }
               >
                 <div className="callPhone">
@@ -157,11 +153,7 @@ function HomePage() {
                 className="phoneWhatsapp"
                 href={`https://wa.me/${whatsappCode}`}
                 onClick={() =>
-                  AnalyticService.event(
-                    "Interacciones",
-                    "clic_Whatsapp",
-                    "Whatsapp"
-                  )
+                  AnalyticService.event("Interacciones-clic_Whatsapp-Whatsapp")
                 }
               >
                 <div className="callWhatsapp">
@@ -187,7 +179,6 @@ function HomePage() {
         <hr />
         <main className="mainContainer" id="servicios">
           <h3>Servicios funerarios</h3>
-
           <div className="serviciosCardsContainer">
             <div className="servicioCard">
               <div className="servicioIcon">
@@ -234,7 +225,6 @@ function HomePage() {
                 </div>
               </div>
             </div>
-
             <div className="servicioCard">
               <div className="servicioIcon">
                 <svg
@@ -412,7 +402,7 @@ function HomePage() {
                 aria-label="link a Google Map"
                 target="_blank"
                 onClick={() =>
-                  AnalyticService.event("Interacciones", "clic_Mapa", "Mapa")
+                  AnalyticService.event("Interacciones-clic_Mapa-Mapa")
                 }
               >
                 <LazyLoadImage

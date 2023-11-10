@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/dist/styles.css";
 import miniatura1 from "../../images/miniaturaGaleria1.webp";
 import miniatura2 from "../../images/miniaturaGaleria2.webp";
 import miniatura3 from "../../images/miniaturaGaleria3.webp";

@@ -1,0 +1,1 @@
+{"version":3,"sources":["FaqsAccordion.css"],"names":[],"mappings":"AAAA,oCAEE,qCAAyC,CACzC,iBACF","file":"14.96d7fe4e.chunk.css","sourcesContent":[".accordion-header,\r\n.accordion-button {\r\n  font-family: \"Poppins-Medium\", sans-serif;\r\n  color: var(--gris);\r\n}\r\n"]}

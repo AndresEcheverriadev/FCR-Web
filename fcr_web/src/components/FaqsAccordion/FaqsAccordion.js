@@ -4,11 +4,12 @@ import { AnalyticService } from "../../Services/AnalyticService";
 import "./FaqsAccordion.css";
 
 function faqsAccordion() {
-  const sendClickCollapse = (event, category, action, label) => {
-    if (event.target.classList.contains("collapsed") === false) {
-      AnalyticService.event(category, action, label);
+  const sendClickCollapse = (event, label) => {
+    if (event.target.classList.contains("collapsed")) {
+      AnalyticService.event(label);
     }
   };
+
   return (
     <Accordion>
       <Accordion.Item eventKey="0">
@@ -16,9 +17,7 @@ function faqsAccordion() {
           onClick={(e) =>
             sendClickCollapse(
               e,
-              "Interacciones",
-              "clic_preguntasFrecuentes",
-              "faqs_muerteFamiliar"
+              "Interacciones-clic_preguntasFrecuentes-faqs_muerteFamiliar"
             )
           }
         >
@@ -65,9 +64,7 @@ function faqsAccordion() {
           onClick={(e) =>
             sendClickCollapse(
               e,
-              "Interacciones",
-              "clic_preguntasFrecuentes",
-              "faqs_cuotasMortuorias"
+              "Interacciones-clic_preguntasFrecuentes-faqs_cuotasMortuorias"
             )
           }
         >
@@ -114,9 +111,7 @@ function faqsAccordion() {
           onClick={(e) =>
             sendClickCollapse(
               e,
-              "Interacciones",
-              "clic_preguntasFrecuentes",
-              "faqs_sepulturaFallecida"
+              "Interacciones-clic_preguntasFrecuentes-faqs_sepulturaFallecida"
             )
           }
         >
@@ -146,9 +141,7 @@ function faqsAccordion() {
           onClick={(e) =>
             sendClickCollapse(
               e,
-              "Interacciones",
-              "clic_preguntasFrecuentes",
-              "faqs_fallecidaNoSepultura"
+              "Interacciones-clic_preguntasFrecuentes-faqs_fallecidaNoSepultura"
             )
           }
         >
@@ -175,9 +168,7 @@ function faqsAccordion() {
           onClick={(e) =>
             sendClickCollapse(
               e,
-              "Interacciones",
-              "clic_preguntasFrecuentes",
-              "faqs_fallecidaCremacion"
+              "Interacciones-clic_preguntasFrecuentes-faqs_fallecidaCremacion"
             )
           }
         >
@@ -252,9 +243,7 @@ function faqsAccordion() {
           onClick={(e) =>
             sendClickCollapse(
               e,
-              "Interacciones",
-              "clic_preguntasFrecuentes",
-              "faqs_reembolsoGastos"
+              "Interacciones-clic_preguntasFrecuentes-faqs_reembolsoGastos"
             )
           }
         >
@@ -373,9 +362,7 @@ function faqsAccordion() {
           onClick={(e) =>
             sendClickCollapse(
               e,
-              "Interacciones",
-              "clic_preguntasFrecuentes",
-              "faqs_trasladoPersona"
+              "Interacciones-clic_preguntasFrecuentes-faqs_trasladoPersona"
             )
           }
         >

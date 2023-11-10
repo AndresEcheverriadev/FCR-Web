@@ -11,7 +11,7 @@ function ObituarioPage() {
   }
   const ObituarioLoader = React.lazy(() => import("./RecordLoader"));
   useEffect(() => {
-    AnalyticService.pageView("/obituario", "Obituario general");
+    AnalyticService.pageView("Obituario general");
   }, []);
   return (
     <div className="obituarioPageMainWrapper">

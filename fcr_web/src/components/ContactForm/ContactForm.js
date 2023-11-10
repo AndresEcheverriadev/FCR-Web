@@ -23,11 +23,7 @@ function ContactForm() {
           href={`mailto:${mailContacto}?subject=Quiero dejar un mensaje`}
           className="btnSubmitForm"
           onClick={() =>
-            AnalyticService.event(
-              "Interacciones",
-              "enviar_Correo",
-              "MailtoHome"
-            )
+            AnalyticService.event("Interacciones-enviar_Correo-MailtoHome")
           }
         >
           <p className="formContactBtn">Escríbenos</p>

@@ -93,9 +93,7 @@ function Footer() {
                 aria-label="link al perfil de Facebook"
                 onClick={() =>
                   AnalyticService.event(
-                    "Interacciones",
-                    "clic_linkFacebook",
-                    "link_Facebook"
+                    "Interacciones-clic_linkFacebook-link_Facebook"
                   )
                 }
               >
@@ -118,9 +116,7 @@ function Footer() {
                 aria-label="link al perfil de Instagram"
                 onClick={() =>
                   AnalyticService.event(
-                    "Interacciones",
-                    "clic_linkInstagram",
-                    "link_Instagram"
+                    "Interacciones-clic_linkInstagram-link_Instagram"
                   )
                 }
               >
@@ -150,9 +146,7 @@ function Footer() {
               aria-label="link al perfil de Facebook"
               onClick={() =>
                 AnalyticService.event(
-                  "Interacciones",
-                  "clic_linkFacebook",
-                  "link_Facebook"
+                  "Interacciones-clic_linkFacebook-link_Facebook"
                 )
               }
             >
@@ -175,9 +169,7 @@ function Footer() {
               aria-label="link al perfil de Instagram"
               onClick={() =>
                 AnalyticService.event(
-                  "Interacciones",
-                  "clic_linkInstagram",
-                  "link_Instagram"
+                  "Interacciones-clic_linkInstagram-link_Instagram"
                 )
               }
             >
