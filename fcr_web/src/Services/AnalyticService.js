@@ -1,18 +1,48 @@
-import PiwikPro, { PageViews, DataLayer } from "@piwikpro/react-piwik-pro";
+import TagManager from "react-gtm-module";
+
+const gtmId = process.env.REACT_APP_GTM_ID;
 
 const initialize = () => {
-  PiwikPro.initialize(
-    "46fd4b9c-6ff7-4f6b-b25c-e52650e6cd0c",
-    "https://cristoreyangol.piwik.pro"
-  );
+  TagManager.initialize({ gtmId });
 };
 
-const pageView = async (title) => {
-  PageViews.trackPageView(`${title}`);
+const pageTrackingListen = () => {
+  TagManager.dataLayer({
+    dataLayer: {
+      event: "pageview",
+      page: window.location.pathname + window.location.search,
+    },
+  });
 };
 
-const event = async (event) => {
-  await DataLayer.push({ event: `${event}` });
+// const pageTrackingUnlisten = (history) => {
+//   history.listen((location) => {
+//     TagManager.dataLayer({
+//       dataLayer: {
+//         event: "pageview",
+//         page: location.pathname + location.search,
+//       },
+//     });
+//   });
+// };
+
+const customEvent = (eventName, variable) => {
+  // console.log("eventName: ", eventName);
+  TagManager.dataLayer({
+    dataLayer: {
+      event: `${eventName}`,
+      variable: `${variable}`,
+      // category: `${category}`,
+      // action: `${action}`,
+      // label: `${label}`,
+      // value: `${value}`,
+    },
+  });
+  // console.log("data layer:", window.dataLayer);
 };
 
-export const AnalyticService = { initialize, event, pageView };
+export const analyticService = {
+  initialize,
+  pageTrackingListen,
+  customEvent,
+};

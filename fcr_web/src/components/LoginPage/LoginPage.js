@@ -1,20 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import "./LoginPage.css";
 import { AuthService } from "../../Services/AuthService";
+import { analyticService } from "../../Services/AnalyticService";
 
 function LoginPage() {
   const navigate = useNavigate();
-  // const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleLogin() {
     const auth = await AuthService.login(password);
     if (auth.success === true) {
+      analyticService.customEvent("login");
       navigate("/manager");
     } else {
+      analyticService.customEvent("loginIncorrecto");
       alert("Password incorrecto");
       setPassword("");
       window.location.reload(false);

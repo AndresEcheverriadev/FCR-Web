@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Navbar from "../Navbar/Navbar";
 import { RecordsService } from "../../Services/RecordsService";
-import { AnalyticService } from "../../Services/AnalyticService";
+import { analyticService } from "../../Services/AnalyticService";
 import "./PersonPage.css";
 
 function PersonPage() {
@@ -12,9 +12,12 @@ function PersonPage() {
   const [msgText, setMsgText] = useState({
     mesagge: "",
     author: "",
+    time: null,
   });
+
   const inputMesagge = document.getElementById("inputMesagge");
   const inputAuthor = document.getElementById("inputAuthor");
+
   useEffect(() => {
     async function getPerson() {
       const response = await RecordsService.getFilteredRecord(
@@ -23,27 +26,34 @@ function PersonPage() {
       setRecord(response.data);
     }
     getPerson();
-  }, [personId]);
+  }, [personId, record]);
 
   const sendMesagge = async (id) => {
-    AnalyticService.event(
+    const timeOfMessage = new Date();
+
+    analyticService.customEvent(
       "Interacciones-enviar_mensajeObituario-mensajeObituario"
     );
+
     const newMesagge = {
       author: msgText.author,
       mesagge: msgText.mesagge,
+      time: timeOfMessage,
     };
+
+    console.log(newMesagge);
+
     if (newMesagge.author && newMesagge.mesagge) {
       await RecordsService.addMesagge(id, newMesagge);
       msgText.author = "";
       msgText.mesagge = "";
       inputAuthor.value = "";
       inputMesagge.value = "";
-      window.location.reload(false);
     } else {
       alert("Debe escribir su nombre y un mensaje");
     }
   };
+
   const iconCross = (
     <svg
       xmlns="https://www.w3.org/2000/svg"
@@ -59,10 +69,6 @@ function PersonPage() {
       />
     </svg>
   );
-
-  useEffect(() => {
-    AnalyticService.pageView(`/obituario/${personId}`);
-  });
 
   return (
     <>

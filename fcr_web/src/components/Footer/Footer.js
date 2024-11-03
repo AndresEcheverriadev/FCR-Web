@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logoBlanco from "../../images/logoBlanco.svg";
 import arregloFooter from "../../images/arregloVasoFloral.webp";
-import { AnalyticService } from "../../Services/AnalyticService";
+import { analyticService } from "../../Services/AnalyticService";
 import "./Footer.css";
 import "./FooterResponsive.css";
 
@@ -92,7 +92,7 @@ function Footer() {
                 className="footerLink"
                 aria-label="link al perfil de Facebook"
                 onClick={() =>
-                  AnalyticService.event(
+                  analyticService.customEvent(
                     "Interacciones-clic_linkFacebook-link_Facebook"
                   )
                 }
@@ -115,7 +115,7 @@ function Footer() {
                 className="footerLink"
                 aria-label="link al perfil de Instagram"
                 onClick={() =>
-                  AnalyticService.event(
+                  analyticService.customEvent(
                     "Interacciones-clic_linkInstagram-link_Instagram"
                   )
                 }
@@ -145,7 +145,7 @@ function Footer() {
               className="footerLink"
               aria-label="link al perfil de Facebook"
               onClick={() =>
-                AnalyticService.event(
+                analyticService.customEvent(
                   "Interacciones-clic_linkFacebook-link_Facebook"
                 )
               }
@@ -168,7 +168,7 @@ function Footer() {
               className="footerLink"
               aria-label="link al perfil de Instagram"
               onClick={() =>
-                AnalyticService.event(
+                analyticService.customEvent(
                   "Interacciones-clic_linkInstagram-link_Instagram"
                 )
               }

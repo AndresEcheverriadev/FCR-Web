@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useMemo } from "react";
+import "./RecordLoader.css";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RecordsService } from "../../Services/RecordsService";
+import Pagination from "../Pagination/Pagination.js";
 
 function RecordLoader() {
+  const [searchTerm, setSearchTerm] = useState("");
   const [records, setRecords] = useState([]);
+  const [loadingRecords, setLoadingRecords] = useState(false);
+
   useEffect(() => {
     async function getRecords() {
+      setLoadingRecords(true);
       const response = await RecordsService.getAllRecords();
       setRecords(response.data);
+      setLoadingRecords(false);
     }
     getRecords();
     return;
-  }, [records]);
+  }, []);
+
+  // const handleSearchTerm = (search) => {
+  //   setSearchTerm(search);
+  // };
+
+  // useEffect(() => {
+  //   console.log("searchTerm: ", searchTerm);
+  // }, [searchTerm]);
 
   const iconCross = (
     <svg
@@ -29,27 +44,62 @@ function RecordLoader() {
       />
     </svg>
   );
+
+  let PageSize = 10;
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return records.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, records]);
+
   return (
-    <>
-      {records?.map((deceso) => {
-        return (
-          <div className="decesoCard" key={deceso._id}>
-            <NavLink to={`/obituario/${deceso._id}`} className="decesoPersona">
-              <div className="decesoImagen">
-                <img src={deceso.img} alt="" />
+    <div className="recordLoaderWrapper">
+      {/* {!loadingRecords && (
+        <input
+          className="recordSearchInput"
+          onChange={(e) => handleSearchTerm(e.target.value)}
+          type="text"
+          placeholder="Buscar en obituario"
+        ></input>
+      )} */}
+      <div className="recordsContainer">
+        {currentTableData
+          ?.filter((record) =>
+            record.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+          .map((deceso) => {
+            return (
+              <div className="decesoCard" key={deceso._id}>
+                <NavLink
+                  to={`/obituario/${deceso._id}`}
+                  className="decesoPersona"
+                >
+                  <div className="decesoImagen">
+                    <img src={deceso.img} alt="" />
+                  </div>
+                  <h5 className="decesoNombre">
+                    {deceso.nombre} {deceso.paterno}
+                  </h5>
+                </NavLink>
+                <div className="decesoDate">
+                  {iconCross}
+                  <p className="decesoFecha">{deceso.date}</p>
+                </div>
               </div>
-              <h5 className="decesoNombre">
-                {deceso.nombre} {deceso.paterno}
-              </h5>
-            </NavLink>
-            <div className="decesoDate">
-              {iconCross}
-              <p className="decesoFecha">{deceso.date}</p>
-            </div>
-          </div>
-        );
-      })}
-    </>
+            );
+          })}
+      </div>
+      <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={records.length}
+        pageSize={PageSize}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
+    </div>
   );
 }
 

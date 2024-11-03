@@ -43,6 +43,31 @@ const oneRecord = async (req, res) => {
   }
 };
 
+const searchRecord = async (req, res) => {
+  let { searchTerm } = req.body;
+  try {
+    if (!searchTerm) {
+      return ServerResponse.badRequest({
+        res,
+        error: "Sin término de búsqueda",
+      });
+    }
+    const oneRecord = await recordService.getAll({
+      $text: { $search: searchTerm },
+    });
+    ServerResponse.success({
+      res,
+      result: "record obtenido",
+      data: oneRecord,
+    });
+  } catch (error) {
+    ServerResponse.internalError({
+      res,
+      error: "error interno obteniendo record",
+    });
+  }
+};
+
 const addRecord = async (req, res) => {
   let {
     date,
@@ -229,6 +254,7 @@ const deleteRecord = async (req, res) => {
 export default {
   allRecords,
   oneRecord,
+  searchRecord,
   addRecord,
   addImage,
   updatePersonales,

@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Navbar from "../Navbar/Navbar";
@@ -7,7 +7,7 @@ import imgFloreria from "../../images/arreglosFlorales.webp";
 import imgFloreria2 from "../../images/arreglosFlorales2.webp";
 import imgMapBig from "../../images/mapBig.webp";
 import imgMapSmall from "../../images/mapSmall.webp";
-import { AnalyticService } from "../../Services/AnalyticService.js";
+import { analyticService } from "../../Services/AnalyticService.js";
 import "./HomePageResponsive.css";
 const HomeGallery = lazy(() => import("../HomeGallery/HomeGallery.js"));
 const FaqsAccordion = lazy(() => import("../FaqsAccordion/FaqsAccordion.js"));
@@ -22,10 +22,6 @@ function HomePage() {
   function Loading() {
     return <div className="loader" role="status"></div>;
   }
-
-  useEffect(() => {
-    AnalyticService.pageView("Home");
-  }, []);
 
   return (
     <>
@@ -103,7 +99,7 @@ function HomePage() {
                 className="phoneButton phoneButton1"
                 href={`tel:${fono1}`}
                 onClick={() =>
-                  AnalyticService.event("Interacciones-clic_Llamar-Tel1")
+                  analyticService.customEvent("Interacciones-clic_Llamar-Tel1")
                 }
               >
                 <div className="callPhone">
@@ -128,7 +124,7 @@ function HomePage() {
                 className="phoneButton phoneButton2"
                 href={`tel:${fono2}`}
                 onClick={() =>
-                  AnalyticService.event("Interacciones-clic_Llamar-Tel2")
+                  analyticService.customEvent("Interacciones-clic_Llamar-Tel2")
                 }
               >
                 <div className="callPhone">
@@ -152,8 +148,11 @@ function HomePage() {
               <a
                 className="phoneWhatsapp"
                 href={`https://wa.me/${whatsappCode}`}
+                target="_blank"
                 onClick={() =>
-                  AnalyticService.event("Interacciones-clic_Whatsapp-Whatsapp")
+                  analyticService.customEvent(
+                    "Interacciones-clic_Whatsapp-Whatsapp"
+                  )
                 }
               >
                 <div className="callWhatsapp">
@@ -402,7 +401,7 @@ function HomePage() {
                 aria-label="link a Google Map"
                 target="_blank"
                 onClick={() =>
-                  AnalyticService.event("Interacciones-clic_Mapa-Mapa")
+                  analyticService.customEvent("Interacciones-clic_Mapa-Mapa")
                 }
               >
                 <LazyLoadImage

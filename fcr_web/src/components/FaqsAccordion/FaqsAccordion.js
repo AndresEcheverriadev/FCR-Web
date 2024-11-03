@@ -1,12 +1,12 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
-import { AnalyticService } from "../../Services/AnalyticService";
+import { analyticService } from "../../Services/AnalyticService";
 import "./FaqsAccordion.css";
 
 function faqsAccordion() {
   const sendClickCollapse = (event, label) => {
     if (event.target.classList.contains("collapsed")) {
-      AnalyticService.event(label);
+      analyticService.customEvent("clic_preguntasFrecuentes", label);
     }
   };
 
@@ -14,12 +14,7 @@ function faqsAccordion() {
     <Accordion>
       <Accordion.Item eventKey="0">
         <Accordion.Header
-          onClick={(e) =>
-            sendClickCollapse(
-              e,
-              "Interacciones-clic_preguntasFrecuentes-faqs_muerteFamiliar"
-            )
-          }
+          onClick={(e) => sendClickCollapse(e, "faqs_muerteFamiliar")}
         >
           ¿Que hacer cuando la muerte ocurre?
         </Accordion.Header>
@@ -61,12 +56,7 @@ function faqsAccordion() {
       </Accordion.Item>
       <Accordion.Item eventKey="1">
         <Accordion.Header
-          onClick={(e) =>
-            sendClickCollapse(
-              e,
-              "Interacciones-clic_preguntasFrecuentes-faqs_cuotasMortuorias"
-            )
-          }
+          onClick={(e) => sendClickCollapse(e, "faqs_cuotasMortuorias")}
         >
           Seguro social y cuotas mortuorias
         </Accordion.Header>
@@ -108,12 +98,7 @@ function faqsAccordion() {
       </Accordion.Item>
       <Accordion.Item eventKey="2">
         <Accordion.Header
-          onClick={(e) =>
-            sendClickCollapse(
-              e,
-              "Interacciones-clic_preguntasFrecuentes-faqs_sepulturaFallecida"
-            )
-          }
+          onClick={(e) => sendClickCollapse(e, "faqs_sepulturaFallecida")}
         >
           Si existe una sepultura a nombre de la persona fallecida
         </Accordion.Header>
@@ -138,12 +123,7 @@ function faqsAccordion() {
       </Accordion.Item>
       <Accordion.Item eventKey="3">
         <Accordion.Header
-          onClick={(e) =>
-            sendClickCollapse(
-              e,
-              "Interacciones-clic_preguntasFrecuentes-faqs_fallecidaNoSepultura"
-            )
-          }
+          onClick={(e) => sendClickCollapse(e, "faqs_fallecidaNoSepultura")}
         >
           Si la persona fallecida no tiene una sepultura
         </Accordion.Header>
@@ -165,12 +145,7 @@ function faqsAccordion() {
       </Accordion.Item>
       <Accordion.Item eventKey="4">
         <Accordion.Header
-          onClick={(e) =>
-            sendClickCollapse(
-              e,
-              "Interacciones-clic_preguntasFrecuentes-faqs_fallecidaCremacion"
-            )
-          }
+          onClick={(e) => sendClickCollapse(e, "faqs_fallecidaCremacion")}
         >
           Si la persona fallecida pidió ser cremada
         </Accordion.Header>
@@ -240,12 +215,7 @@ function faqsAccordion() {
       </Accordion.Item>
       <Accordion.Item eventKey="5">
         <Accordion.Header
-          onClick={(e) =>
-            sendClickCollapse(
-              e,
-              "Interacciones-clic_preguntasFrecuentes-faqs_reembolsoGastos"
-            )
-          }
+          onClick={(e) => sendClickCollapse(e, "faqs_reembolsoGastos")}
         >
           Reembolso de gastos funerarios
         </Accordion.Header>
@@ -359,12 +329,7 @@ function faqsAccordion() {
       </Accordion.Item>
       <Accordion.Item eventKey="6">
         <Accordion.Header
-          onClick={(e) =>
-            sendClickCollapse(
-              e,
-              "Interacciones-clic_preguntasFrecuentes-faqs_trasladoPersona"
-            )
-          }
+          onClick={(e) => sendClickCollapse(e, "faqs_trasladoPersona")}
         >
           Traslado de una persona fallecida
         </Accordion.Header>
