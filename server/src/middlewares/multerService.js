@@ -7,7 +7,7 @@ import { timestamp } from "../../utils.js";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, "../", process.env.PATH_STORAGE_LOCAL));
+    cb(null, path.join(__dirname, "../", process.env.PATH_STORAGE_SERVER));
   },
   filename: (req, file, cb) => {
     cb(null, `${req.params.id}.${file.mimetype.split("/")[1]}`);
