@@ -41,8 +41,6 @@ function PersonPage() {
       time: timeOfMessage,
     };
 
-    console.log(newMesagge);
-
     if (newMesagge.author && newMesagge.mesagge) {
       await RecordsService.addMesagge(id, newMesagge);
       msgText.author = "";

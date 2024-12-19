@@ -1,8 +1,4 @@
 @media (min-width: 321px) {
-  .phoneButton2 {
-    display: unset;
-  }
-
   .homeTitle2 {
     display: unset;
     width: 100%;
@@ -118,15 +114,15 @@
 
   .phonesWrapper {
     flex-direction: row;
-    width: 60%;
+    width: 50%;
   }
 
   .phoneButton {
-    width: 60%;
+    width: 50%;
   }
 
   .phoneWhatsapp {
-    width: 60%;
+    width: 50%;
   }
 
   .serviciosCardsContainer {

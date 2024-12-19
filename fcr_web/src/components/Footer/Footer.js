@@ -136,7 +136,7 @@ function Footer() {
         </div>
 
         <div className="linkRRSSMobile">
-          <h6>Síguenos en nuestras redes sociales</h6>
+          <h4 className="h5">Síguenos en nuestras redes sociales</h4>
           <div className="linkRRSSMobile__linksContainer">
             <a
               href="https://web.facebook.com/funerariasangol"

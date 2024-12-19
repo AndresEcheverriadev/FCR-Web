@@ -11,6 +11,19 @@ const getAllRecords = async () => {
   }
 };
 
+const getSearchRecords = async (term) => {
+  let search = { searchTerm: term };
+  try {
+    const { data } = await HTTPRequestService.post(
+      `${process.env.REACT_APP_SERVER_URL_RECORD}/search`,
+      search
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
 const getFilteredRecord = async (id) => {
   try {
     const { data } = await HTTPRequestService.get(
@@ -119,6 +132,7 @@ const removeRecord = async (id) => {
 
 export const RecordsService = {
   getAllRecords,
+  getSearchRecords,
   getFilteredRecord,
   addMesagge,
   addObituario,

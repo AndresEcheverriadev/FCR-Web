@@ -10,24 +10,36 @@ function RecordLoader() {
   const [records, setRecords] = useState([]);
   const [loadingRecords, setLoadingRecords] = useState(false);
 
+  async function getRecords() {
+    setLoadingRecords(true);
+    const response = await RecordsService.getAllRecords();
+    setRecords(response.data);
+    setLoadingRecords(false);
+  }
+
   useEffect(() => {
-    async function getRecords() {
-      setLoadingRecords(true);
-      const response = await RecordsService.getAllRecords();
-      setRecords(response.data);
-      setLoadingRecords(false);
-    }
     getRecords();
     return;
   }, []);
 
-  // const handleSearchTerm = (search) => {
-  //   setSearchTerm(search);
-  // };
+  const handleSearchTerm = (search) => {
+    setSearchTerm(search);
+  };
 
-  // useEffect(() => {
-  //   console.log("searchTerm: ", searchTerm);
-  // }, [searchTerm]);
+  async function getSearchRecord(term) {
+    if (!term || term == "" || searchTerm == "") {
+      return getRecords();
+    }
+    const response = await RecordsService.getSearchRecords(term);
+    setRecords(response.data);
+    setCurrentPage(1);
+  }
+
+  useEffect(() => {
+    if (searchTerm == "") {
+      getRecords();
+    }
+  }, [searchTerm]);
 
   const iconCross = (
     <svg
@@ -52,25 +64,32 @@ function RecordLoader() {
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return records.slice(firstPageIndex, lastPageIndex);
+    return records?.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, records]);
 
   return (
     <div className="recordLoaderWrapper">
-      {/* {!loadingRecords && (
-        <input
-          className="recordSearchInput"
-          onChange={(e) => handleSearchTerm(e.target.value)}
-          type="text"
-          placeholder="Buscar en obituario"
-        ></input>
-      )} */}
+      {!loadingRecords && (
+        <div className="recordSearchContainer">
+          <input
+            className="recordSearchInput"
+            onChange={(e) => handleSearchTerm(e.target.value)}
+            type="text"
+            placeholder="Buscar en obituario"
+          ></input>
+          <button
+            className="recordSearchBtn"
+            onClick={() => getSearchRecord(searchTerm)}
+          >
+            Buscar
+          </button>
+        </div>
+      )}
       <div className="recordsContainer">
-        {currentTableData
-          ?.filter((record) =>
-            record.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-          .map((deceso) => {
+        {currentTableData?.length == 0 ? (
+          <h4 className="noRecordsCard">No hay resultados</h4>
+        ) : (
+          currentTableData?.map((deceso) => {
             return (
               <div className="decesoCard" key={deceso._id}>
                 <NavLink
@@ -90,12 +109,13 @@ function RecordLoader() {
                 </div>
               </div>
             );
-          })}
+          })
+        )}
       </div>
       <Pagination
         className="pagination-bar"
         currentPage={currentPage}
-        totalCount={records.length}
+        totalCount={records?.length}
         pageSize={PageSize}
         onPageChange={(page) => setCurrentPage(page)}
       />

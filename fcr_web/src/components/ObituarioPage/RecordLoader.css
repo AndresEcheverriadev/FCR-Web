@@ -7,6 +7,16 @@
   gap: 20px;
 }
 
+.recordSearchContainer {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .recordSearchInput {
   width: 80%;
   height: 40px;
@@ -15,6 +25,20 @@
   border-width: 2px;
   border-radius: 30px;
   padding-inline: 20px;
+}
+
+.recordSearchBtn {
+  height: 40px;
+  border-style: solid;
+  border-color: var(--grisClaro);
+  border-width: 2px;
+  border-radius: 20px;
+  padding-inline: 20px;
+}
+
+.recordSearchBtn:hover {
+  background-color: var(--cafeBase);
+  color: white;
 }
 
 .recordsContainer {
@@ -27,7 +51,15 @@
   gap: 20px;
 }
 
+.noRecordsCard {
+  width: 100%;
+}
+
 @media (max-width: 760px) {
+  .recordSearchContainer {
+    width: 100%;
+  }
+
   .recordSearchInput {
     width: 100%;
   }

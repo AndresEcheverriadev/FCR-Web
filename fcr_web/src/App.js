@@ -27,10 +27,10 @@ function App() {
   return (
     <Suspense fallback={<Loading />}>
       <LoginContextProvider>
-        <h6 id="lowResolutionDeviceAlert">
+        <p id="lowResolutionDeviceAlert">
           Este sitio no se puede visualizar en dispositivos con resolución menor
           a 320 pixeles.
-        </h6>
+        </p>
         <div className="App">
           <Routes>
             <Route path="/" element={<HomePage />} />

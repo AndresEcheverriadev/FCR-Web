@@ -16,7 +16,6 @@ const Footer = lazy(() => import("../Footer/Footer"));
 
 function HomePage() {
   const fono1 = "+569 5253 9500";
-  const fono2 = "+569 9032 7836";
   const whatsappCode = "56927752105";
 
   function Loading() {
@@ -121,31 +120,6 @@ function HomePage() {
                 <h5>{fono1}</h5>
               </a>
               <a
-                className="phoneButton phoneButton2"
-                href={`tel:${fono2}`}
-                onClick={() =>
-                  analyticService.customEvent("Interacciones-clic_Llamar-Tel2")
-                }
-              >
-                <div className="callPhone">
-                  <svg
-                    xmlns="https://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="bi bi-telephone-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
-                    />
-                  </svg>
-                  <h4 className="contactPhoneCall">Llamar</h4>
-                </div>
-                <h5>{fono2}</h5>
-              </a>
-              <a
                 className="phoneWhatsapp"
                 href={`https://wa.me/${whatsappCode}`}
                 target="_blank"
@@ -194,7 +168,7 @@ function HomePage() {
                 </svg>
               </div>
               <div className="servicioText">
-                <h5>Servicio Funerario Tradicional</h5>
+                <h4>Servicio Funerario Tradicional</h4>
                 <p>
                   Un funeral es un momento especial para que familiares y amigos
                   se consuelen mutuamente y poco a poco comiencen a sanar y
@@ -239,7 +213,7 @@ function HomePage() {
                 </svg>
               </div>
               <div className="servicioText">
-                <h5>Servicio Funerario Futuro</h5>
+                <h4>Servicio Funerario Futuro</h4>
                 <p>
                   Comparta con nosotros una planificación previa de un servicio
                   funerario, permitiéndonos honrar de la mejor manera la memoria
@@ -267,7 +241,7 @@ function HomePage() {
                 </svg>
               </div>
               <div className="servicioText">
-                <h5>Traslados Funerarios</h5>
+                <h4>Traslados Funerarios</h4>
                 <p>
                   Permítanos encargamos de coordinar y trabajar junto a otras
                   funerarias traslados, descansa en nosotros y dedícate a vivir
@@ -315,7 +289,7 @@ function HomePage() {
                 </svg>
               </div>
               <div className="servicioText">
-                <h5>Servicios Complementarios </h5>
+                <h4>Servicios Complementarios </h4>
                 <p>
                   Permítanos honrar a sus seres queridos entregando un completo
                   soporte en velatorios, cafeterías y memoriales, dejando en
@@ -348,7 +322,7 @@ function HomePage() {
                 <p className="servicioIconNew">Únicos en Angol</p>
               </div>
               <div className="servicioText">
-                <h5>Servicio de Floristería de Autor</h5>
+                <h4>Servicio de Floristería de Autor</h4>
                 <p>
                   Todos nuestros servicios funerarios cuentan con floristeria de
                   autor, un servicio propio de nuestra empresa donde creamos
@@ -452,7 +426,7 @@ function HomePage() {
         </div>
 
         <div className="argumentsWrapper">
-          <h5>¿Porque elegirnos?</h5>
+          <h4 className="h5">¿Porque elegirnos?</h4>
           <div className="argumentsContainer">
             <div className="argumentCard">
               <p className="argumentTitle">Servicio de calidad</p>
@@ -491,7 +465,7 @@ function HomePage() {
 
       <div className="faqsWrapper" id="faqs">
         <h3>Que hacer ante la muerte de un familiar</h3>
-        <h5>Preguntas frecuentes</h5>
+        <h4>Preguntas frecuentes</h4>
         <div className="faqsContainer">
           <FaqsAccordion />
         </div>
